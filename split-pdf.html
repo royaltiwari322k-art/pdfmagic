@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en-in">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Split PDF Online Free | Extract Pages from PDF - PDFMagic</title>
+  <meta name="description" content="Split PDF files online for free. Extract specific pages or split into single pages. No registration required. Fast and secure PDF splitter tool." />
+  <meta name="keywords" content="split pdf, extract pdf pages, pdf splitter, separate pdf pages, divide pdf, free pdf splitter online" />
+  <meta name="author" content="PDFMagic" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.pdfmagic.io/split-pdf" />
+  <link rel="alternate" hreflang="en-in" href="https://www.pdfmagic.io/split-pdf" />
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.pdfmagic.io/split-pdf" />
+  <meta property="og:title" content="Split PDF Online Free | Extract Pages from PDF" />
+  <meta property="og:description" content="Extract specific pages from PDF or split into single pages. Free, fast and secure." />
+  <meta property="og:image" content="https://www.pdfmagic.io/og-image.png" />
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "PDFMagic Split PDF",
+    "url": "https://www.pdfmagic.io/split-pdf",
+    "description": "Split PDF files online for free. Extract specific pages or split into single pages."
+  }
+  </script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="pdf-processor.js"></script>
+  
+  <style>
+    :root { --red: #e8273c; --bg: #f7f8fc; --white: #ffffff; --text: #1a1a2e; --text-muted: #6b7280; --border: #e5e7eb; --card-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    nav { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    .nav-content { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 1.5rem; font-weight: 800; color: var(--red); text-decoration: none; }
+    .hero { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; text-align: center; }
+    .hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; }
+    .hero p { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 2rem; }
+    .tool-container { max-width: 800px; margin: 0 auto; background: var(--white); border-radius: 16px; padding: 3rem; box-shadow: var(--card-shadow); }
+    .upload-area { border: 3px dashed var(--border); border-radius: 12px; padding: 4rem 2rem; text-align: center; cursor: pointer; transition: all 0.3s ease; }
+    .upload-area:hover { border-color: var(--red); background: rgba(232,39,60,0.05); }
+    .btn-primary { background: var(--red); color: var(--white); padding: 1rem 2rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; }
+    .btn-primary:hover { background: #c41e32; }
+    .seo-content { max-width: 800px; margin: 4rem auto; padding: 0 2rem; }
+    .seo-content h2 { font-size: 2rem; margin-bottom: 1rem; }
+    .seo-content p { color: var(--text-muted); margin-bottom: 1rem; }
+    footer { background: var(--text); color: var(--white); padding: 3rem 2rem; text-align: center; }
+    .footer-links a { color: var(--white); text-decoration: none; margin: 0 1rem; }
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center; }
+    .modal-content { background: var(--white); padding: 3rem; border-radius: 16px; max-width: 600px; width: 90%; }
+    .progress-bar { width: 100%; height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; margin: 2rem 0; }
+    .progress-fill { height: 100%; background: var(--red); width: 0%; transition: width 0.3s ease; }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-content">
+      <a href="/" class="logo">PDFMagic</a>
+      <a href="/" style="color: var(--text); text-decoration: none;">All Tools</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <h1>Split PDF Online</h1>
+    <p>Extract specific pages from PDF or split into single pages. Free and secure.</p>
+  </div>
+
+  <div class="tool-container">
+    <div class="upload-area" id="uploadArea">
+      <div style="font-size: 4rem; margin-bottom: 1rem;">📄</div>
+      <h3>Drop PDF file here</h3>
+      <p style="color: var(--text-muted); margin: 1rem 0;">or click to browse</p>
+      <input type="file" id="fileInput" accept=".pdf" style="display: none;">
+      <button class="btn-primary" onclick="document.getElementById('fileInput').click()">Select PDF File</button>
+    </div>
+  </div>
+
+  <div class="seo-content">
+    <h2>How to Split PDF</h2>
+    <p>1. Upload your PDF file to the splitter tool.</p>
+    <p>2. Choose to extract specific pages or split all pages individually.</p>
+    <p>3. Click split to process your PDF.</p>
+    <p>4. Download your split PDF files instantly.</p>
+
+    <h2>Why Use PDFMagic PDF Splitter?</h2>
+    <p>Our PDF splitter allows you to extract pages from large PDFs easily. Perfect for separating chapters from books, extracting invoices from statements, or splitting presentations into individual slides. No software installation required.</p>
+  </div>
+
+  <footer>
+    <p>© 2024 PDFMagic. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/merge-pdf">Merge PDF</a>
+      <a href="/split-pdf">Split PDF</a>
+    </div>
+  </footer>
+
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <h3 id="modalTitle">Processing...</h3>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      <p id="modalText">Please wait while we split your PDF.</p>
+    </div>
+  </div>
+
+  <script>
+    const uploadArea = document.getElementById('uploadArea');
+    const fileInput = document.getElementById('fileInput');
+    const modal = document.getElementById('modal');
+    const progressFill = document.getElementById('progressFill');
+
+    uploadArea.addEventListener('dragover', (e) => { e.preventDefault(); uploadArea.style.borderColor = 'var(--red)'; });
+    uploadArea.addEventListener('dragleave', () => uploadArea.style.borderColor = 'var(--border)');
+    uploadArea.addEventListener('drop', (e) => {
+      e.preventDefault();
+      uploadArea.style.borderColor = 'var(--border)';
+      handleFile(e.dataTransfer.files[0]);
+    });
+    fileInput.addEventListener('change', (e) => handleFile(e.target.files[0]));
+
+    async function handleFile(file) {
+      if (!file) return;
+      modal.style.display = 'flex';
+      const formData = new FormData();
+      formData.append('pdf', file);
+      
+      try {
+        progressFill.style.width = '50%';
+        const response = await fetch('/split-pdf', { method: 'POST', body: formData });
+        progressFill.style.width = '100%';
+        if (!response.ok) throw new Error('Split failed');
+        const blob = await response.blob();
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'split-pdfs.zip';
+        a.click();
+        modal.style.display = 'none';
+      } catch (error) {
+        alert('Error splitting PDF. Please try again.');
+        modal.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-in">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compare PDF Online Free | Diff PDF Documents - PDFMagic</title>
+  <meta name="description" content="Compare PDF online for free. Find differences between two PDF documents. No registration required. Fast and secure PDF comparison tool." />
+  <meta name="keywords" content="compare pdf, diff pdf, pdf comparison, compare two pdfs, pdf difference tool, free pdf comparator" />
+  <meta name="author" content="PDFMagic" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.pdfmagic.io/compare-pdf" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="pdf-processor.js"></script>
+  <style>
+    :root { --red: #e8273c; --bg: #f7f8fc; --white: #ffffff; --text: #1a1a2e; --text-muted: #6b7280; --border: #e5e7eb; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    nav { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    .nav-content { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 1.5rem; font-weight: 800; color: var(--red); text-decoration: none; }
+    .hero { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; text-align: center; }
+    .hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; }
+    .tool-container { max-width: 800px; margin: 0 auto; background: var(--white); border-radius: 16px; padding: 3rem; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+    .upload-area { border: 3px dashed var(--border); border-radius: 12px; padding: 4rem 2rem; text-align: center; cursor: pointer; }
+    .upload-area:hover { border-color: var(--red); background: rgba(232,39,60,0.05); }
+    .btn-primary { background: var(--red); color: var(--white); padding: 1rem 2rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; }
+    .seo-content { max-width: 800px; margin: 4rem auto; padding: 0 2rem; }
+    footer { background: var(--text); color: var(--white); padding: 3rem 2rem; text-align: center; }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-content">
+      <a href="/" class="logo">PDFMagic</a>
+      <a href="/" style="color: var(--text); text-decoration: none;">All Tools</a>
+    </div>
+  </nav>
+  <div class="hero">
+    <h1>Compare PDF Online</h1>
+    <p>Find differences between two PDF documents. Free and secure.</p>
+  </div>
+  <div class="tool-container">
+    <div class="upload-area" id="uploadArea">
+      <div style="font-size: 4rem; margin-bottom: 1rem;">📋</div>
+      <h3>Drop 2 PDF files here</h3>
+      <p style="color: var(--text-muted); margin: 1rem 0;">or click to browse</p>
+      <input type="file" id="fileInput" accept=".pdf" multiple style="display: none;">
+      <button class="btn-primary" onclick="document.getElementById('fileInput').click()">Select 2 PDF Files</button>
+    </div>
+  </div>
+  <div class="seo-content">
+    <h2>How to Compare PDF</h2>
+    <p>1. Upload two PDF files to compare.</p>
+    <p>2. Click compare to find differences.</p>
+    <p>3. Wait for the comparison to complete.</p>
+    <p>4. Download comparison report instantly.</p>
+  </div>
+  <footer><p>© 2024 PDFMagic. All rights reserved.</p></footer>
+  <script>
+    const uploadArea = document.getElementById('uploadArea');
+    const fileInput = document.getElementById('fileInput');
+    uploadArea.addEventListener('dragover', (e) => { e.preventDefault(); uploadArea.style.borderColor = 'var(--red)'; });
+    uploadArea.addEventListener('dragleave', () => uploadArea.style.borderColor = 'var(--border)');
+    uploadArea.addEventListener('drop', (e) => {
+      e.preventDefault();
+      uploadArea.style.borderColor = 'var(--border)';
+      handleFiles(e.dataTransfer.files);
+    });
+    fileInput.addEventListener('change', (e) => handleFiles(e.target.files));
+    async function handleFiles(files) {
+      if (!files || files.length < 2) {
+        alert('Please select 2 PDF files to compare.');
+        return;
+      }
+      const formData = new FormData();
+      formData.append('pdfs', files[0]);
+      formData.append('pdfs', files[1]);
+      try {
+        const response = await fetch('/compare-pdf', { method: 'POST', body: formData });
+        if (!response.ok) throw new Error('Compare failed');
+        const blob = await response.blob();
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'comparison.pdf';
+        a.click();
+      } catch (error) { alert('Error comparing PDFs. Please try again.'); }
+    }
+  </script>
+</body>
+</html>

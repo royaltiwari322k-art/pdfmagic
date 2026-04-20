@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en-in">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Word to PDF Converter Online Free | Convert DOC to PDF - PDFMagic</title>
+  <meta name="description" content="Convert Word to PDF online for free. Transform DOC/DOCX files to PDF documents. No registration required. Fast and secure Word to PDF converter." />
+  <meta name="keywords" content="word to pdf, doc to pdf, docx to pdf, convert word to pdf, free word to pdf converter" />
+  <meta name="author" content="PDFMagic" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.pdfmagic.io/word-to-pdf" />
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.pdfmagic.io/word-to-pdf" />
+  <meta property="og:title" content="Word to PDF Converter Online Free | Convert DOC to PDF" />
+  <meta property="og:description" content="Transform Word documents to PDF. Free, fast and secure Word to PDF converter." />
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "PDFMagic Word to PDF",
+    "url": "https://www.pdfmagic.io/word-to-pdf",
+    "description": "Convert Word to PDF online for free. Transform DOC/DOCX files to PDF documents."
+  }
+  </script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="pdf-processor.js"></script>
+  
+  <style>
+    :root { --red: #e8273c; --bg: #f7f8fc; --white: #ffffff; --text: #1a1a2e; --text-muted: #6b7280; --border: #e5e7eb; --card-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    nav { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    .nav-content { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 1.5rem; font-weight: 800; color: var(--red); text-decoration: none; }
+    .hero { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; text-align: center; }
+    .hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; }
+    .tool-container { max-width: 800px; margin: 0 auto; background: var(--white); border-radius: 16px; padding: 3rem; box-shadow: var(--card-shadow); }
+    .upload-area { border: 3px dashed var(--border); border-radius: 12px; padding: 4rem 2rem; text-align: center; cursor: pointer; transition: all 0.3s ease; }
+    .upload-area:hover { border-color: var(--red); background: rgba(232,39,60,0.05); }
+    .btn-primary { background: var(--red); color: var(--white); padding: 1rem 2rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; }
+    .seo-content { max-width: 800px; margin: 4rem auto; padding: 0 2rem; }
+    .seo-content h2 { font-size: 2rem; margin-bottom: 1rem; }
+    footer { background: var(--text); color: var(--white); padding: 3rem 2rem; text-align: center; }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-content">
+      <a href="/" class="logo">PDFMagic</a>
+      <a href="/" style="color: var(--text); text-decoration: none;">All Tools</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <h1>Word to PDF Converter</h1>
+    <p>Transform Word documents to PDF. Free and secure.</p>
+  </div>
+
+  <div class="tool-container">
+    <div class="upload-area" id="uploadArea">
+      <div style="font-size: 4rem; margin-bottom: 1rem;">📄</div>
+      <h3>Drop Word file here</h3>
+      <p style="color: var(--text-muted); margin: 1rem 0;">DOC, DOCX supported</p>
+      <input type="file" id="fileInput" accept=".doc,.docx" style="display: none;">
+      <button class="btn-primary" onclick="document.getElementById('fileInput').click()">Select Word File</button>
+    </div>
+  </div>
+
+  <div class="seo-content">
+    <h2>How to Convert Word to PDF</h2>
+    <p>1. Upload your Word document (DOC or DOCX).</p>
+    <p>2. Click convert to transform to PDF.</p>
+    <p>3. Wait for the conversion to complete.</p>
+    <p>4. Download your PDF document instantly.</p>
+
+    <h2>Why Convert Word to PDF?</h2>
+    <p>Converting Word documents to PDF ensures your formatting stays intact across all devices. Perfect for sharing resumes, reports, contracts, and important documents. PDF files are universally compatible and secure.</p>
+  </div>
+
+  <footer>
+    <p>© 2024 PDFMagic. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const uploadArea = document.getElementById('uploadArea');
+    const fileInput = document.getElementById('fileInput');
+    
+    uploadArea.addEventListener('dragover', (e) => { e.preventDefault(); uploadArea.style.borderColor = 'var(--red)'; });
+    uploadArea.addEventListener('dragleave', () => uploadArea.style.borderColor = 'var(--border)');
+    uploadArea.addEventListener('drop', (e) => {
+      e.preventDefault();
+      uploadArea.style.borderColor = 'var(--border)';
+      handleFile(e.dataTransfer.files[0]);
+    });
+    fileInput.addEventListener('change', (e) => handleFile(e.target.files[0]));
+
+    async function handleFile(file) {
+      if (!file) return;
+      const formData = new FormData();
+      formData.append('pdf', file);
+      
+      try {
+        const response = await fetch('/word-to-pdf', { method: 'POST', body: formData });
+        if (!response.ok) throw new Error('Conversion failed');
+        const blob = await response.blob();
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'word-to-pdf.pdf';
+        a.click();
+      } catch (error) {
+        alert('Error converting Word to PDF. Please try again.');
+      }
+    }
+  </script>
+</body>
+</html>
