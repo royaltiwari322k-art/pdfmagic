@@ -12,7 +12,7 @@ const archiver = require('archiver');
 const PDFMerger = require('pdf-merger-js');
 
 const app = express();
-const PORT = 3012;
+const PORT = process.env.PORT || 3012;
 
 // Middleware
 app.use(cors());
@@ -109,6 +109,11 @@ app.get('/unlock-pdf', (req, res) => res.sendFile(path.join(__dirname, 'unlock-p
 app.get('/sign-pdf', (req, res) => res.sendFile(path.join(__dirname, 'sign-pdf.html')));
 app.get('/compare-pdf', (req, res) => res.sendFile(path.join(__dirname, 'compare-pdf.html')));
 app.get('/redact-pdf', (req, res) => res.sendFile(path.join(__dirname, 'redact-pdf.html')));
+
+// Blog pages for SEO
+app.get('/blog/ilovepdf-alternative', (req, res) => res.sendFile(path.join(__dirname, 'blog/ilovepdf-alternative.html')));
+app.get('/blog/compress-pdf-guide', (req, res) => res.sendFile(path.join(__dirname, 'blog/compress-pdf-guide.html')));
+app.get('/blog/pdf-merge-hindi-guide', (req, res) => res.sendFile(path.join(__dirname, 'blog/pdf-merge-hindi-guide.html')));
 
 // Sitemap for SEO
 app.get('/sitemap.xml', (req, res) => res.sendFile(path.join(__dirname, 'sitemap.xml')));
