@@ -5,7 +5,7 @@ const fs = require('fs-extra');
 const cors = require('cors');
 const { PDFDocument, rgb, StandardFonts } = require('pdf-lib');
 const pdfParse = require('pdf-parse');
-const sharp = require('sharp');
+const Jimp = require('jimp');
 const mammoth = require('mammoth');
 const XLSX = require('xlsx');
 const archiver = require('archiver');
@@ -357,7 +357,8 @@ app.post('/jpg-to-pdf', upload.array('pdfs', 20), async (req, res) => {
             image = await pdfDoc.embedJpg(imageBytes);
           } catch (e) {
             console.log('JPG embed failed, trying PNG conversion');
-            const pngBuffer = await sharp(imageBytes).png().toBuffer();
+            const jimpImage = await Jimp.read(imageBytes);
+            const pngBuffer = await jimpImage.getBufferAsync(Jimp.MIME_PNG);
             image = await pdfDoc.embedPng(pngBuffer);
           }
         } else if (file.mimetype === 'image/png') {
@@ -365,7 +366,8 @@ app.post('/jpg-to-pdf', upload.array('pdfs', 20), async (req, res) => {
         } else {
           // Convert other formats to PNG first
           console.log('Converting to PNG format');
-          const pngBuffer = await sharp(imageBytes).png().toBuffer();
+          const jimpImage = await Jimp.read(imageBytes);
+          const pngBuffer = await jimpImage.getBufferAsync(Jimp.MIME_PNG);
           image = await pdfDoc.embedPng(pngBuffer);
         }
         
