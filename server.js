@@ -115,6 +115,14 @@ app.get('/blog/ilovepdf-alternative', (req, res) => res.sendFile(path.join(__dir
 app.get('/blog/compress-pdf-guide', (req, res) => res.sendFile(path.join(__dirname, 'blog/compress-pdf-guide.html')));
 app.get('/blog/pdf-merge-hindi-guide', (req, res) => res.sendFile(path.join(__dirname, 'blog/pdf-merge-hindi-guide.html')));
 
+// Footer pages
+app.get('/about', (req, res) => res.sendFile(path.join(__dirname, 'about.html')));
+app.get('/blog', (req, res) => res.sendFile(path.join(__dirname, 'blog.html')));
+app.get('/pricing', (req, res) => res.sendFile(path.join(__dirname, 'pricing.html')));
+app.get('/contact', (req, res) => res.sendFile(path.join(__dirname, 'contact.html')));
+app.get('/privacy', (req, res) => res.sendFile(path.join(__dirname, 'privacy.html')));
+app.get('/terms', (req, res) => res.sendFile(path.join(__dirname, 'terms.html')));
+
 // Sitemap for SEO
 app.get('/sitemap.xml', (req, res) => res.sendFile(path.join(__dirname, 'sitemap.xml')));
 
