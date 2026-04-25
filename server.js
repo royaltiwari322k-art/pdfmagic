@@ -126,6 +126,9 @@ app.get('/terms', (req, res) => res.sendFile(path.join(__dirname, 'terms.html'))
 // Sitemap for SEO
 app.get('/sitemap.xml', (req, res) => res.sendFile(path.join(__dirname, 'sitemap.xml')));
 
+// Google site verification
+app.get('/google7e82ca2f14a0908c.html', (req, res) => res.sendFile(path.join(__dirname, 'google7e82ca2f14a0908c.html')));
+
 // 1. Merge PDF
 app.post('/merge-pdf', upload.array('pdfs', 20), async (req, res) => {
   try {
