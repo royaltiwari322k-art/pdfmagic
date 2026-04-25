@@ -87,6 +87,39 @@
       font-size: 0.9rem;
       margin: 0;
     }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: var(--white);
+      padding: 3rem;
+      border-radius: 16px;
+      max-width: 600px;
+      width: 90%;
+    }
+    .progress-bar {
+      width: 100%;
+      height: 8px;
+      background: var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 2rem 0;
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--red);
+      width: 0%;
+      transition: width 0.3s ease;
+    }
   </style>
 </head>
 <body>
@@ -162,9 +195,19 @@
     <p>© 2024 PDFMagic. All rights reserved.</p>
   </footer>
 
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <h3 id="modalTitle">Processing...</h3>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      <p id="modalText">Please wait while we compress your PDF.</p>
+    </div>
+  </div>
+
   <script>
     const uploadArea = document.getElementById('uploadArea');
     const fileInput = document.getElementById('fileInput');
+    const modal = document.getElementById('modal');
+    const progressFill = document.getElementById('progressFill');
     
     uploadArea.addEventListener('dragover', (e) => { e.preventDefault(); uploadArea.style.borderColor = 'var(--red)'; });
     uploadArea.addEventListener('dragleave', () => uploadArea.style.borderColor = 'var(--border)');
@@ -177,12 +220,15 @@
 
     async function handleFile(file) {
       if (!file) return;
+      modal.style.display = 'flex';
       const formData = new FormData();
       formData.append('pdf', file);
       formData.append('quality', 'medium');
       
       try {
+        progressFill.style.width = '50%';
         const response = await fetch('/compress-pdf', { method: 'POST', body: formData });
+        progressFill.style.width = '100%';
         if (!response.ok) throw new Error('Compression failed');
         const blob = await response.blob();
         const url = URL.createObjectURL(blob);
@@ -190,8 +236,10 @@
         a.href = url;
         a.download = 'compressed.pdf';
         a.click();
+        modal.style.display = 'none';
       } catch (error) {
         alert('Error compressing PDF. Please try again.');
+        modal.style.display = 'none';
       }
     }
   </script>
