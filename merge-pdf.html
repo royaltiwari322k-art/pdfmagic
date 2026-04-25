@@ -232,6 +232,47 @@
       .hero h1 { font-size: 2rem; }
       .tool-container { padding: 2rem; }
     }
+    .related-tools {
+      max-width: 1200px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+    }
+    .related-tools h2 {
+      text-align: center;
+      color: var(--text);
+      margin-bottom: 2rem;
+    }
+    .related-tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+    .related-tool-card {
+      background: var(--white);
+      padding: 1.5rem;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid var(--border);
+    }
+    .related-tool-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    .related-tool-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .related-tool-card h3 {
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+    .related-tool-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin: 0;
+    }
   </style>
 </head>
 <body>
@@ -284,6 +325,42 @@
 
     <h2>Features of Our PDF Merger</h2>
     <p>- Merge unlimited PDF files at once<br>- Preserve original formatting and quality<br>- No file size limits<br>- Works offline after first use<br>- Bank-level encryption for security</p>
+  </div>
+
+  <div class="related-tools">
+    <h2>Related PDF Tools</h2>
+    <div class="related-tools-grid">
+      <a href="/split-pdf" class="related-tool-card">
+        <div class="related-tool-icon">✂️</div>
+        <h3>Split PDF</h3>
+        <p>Separate PDF pages into multiple files</p>
+      </a>
+      <a href="/compress-pdf" class="related-tool-card">
+        <div class="related-tool-icon">🗜️</div>
+        <h3>Compress PDF</h3>
+        <p>Reduce PDF file size without quality loss</p>
+      </a>
+      <a href="/organize-pdf" class="related-tool-card">
+        <div class="related-tool-icon">📋</div>
+        <h3>Organize PDF</h3>
+        <p>Rearrange, add, or remove PDF pages</p>
+      </a>
+      <a href="/extract-pages" class="related-tool-card">
+        <div class="related-tool-icon">📄</div>
+        <h3>Extract Pages</h3>
+        <p>Extract specific pages from PDF</p>
+      </a>
+      <a href="/rotate-pdf" class="related-tool-card">
+        <div class="related-tool-icon">🔄</div>
+        <h3>Rotate PDF</h3>
+        <p>Rotate PDF pages to correct orientation</p>
+      </a>
+      <a href="/pdf-to-word" class="related-tool-card">
+        <div class="related-tool-icon">📝</div>
+        <h3>PDF to Word</h3>
+        <p>Convert PDF to editable Word document</p>
+      </a>
+    </div>
   </div>
 
   <footer>
