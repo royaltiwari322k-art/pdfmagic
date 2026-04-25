@@ -1285,9 +1285,15 @@ setInterval(async () => {
   }
 }, 60 * 60 * 1000); // Run every hour
 
+// Health check endpoint for Railway
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'ok', message: 'PDFMagic server is running' });
+});
+
 // Start server
-app.listen(PORT, () => {
-  console.log(`🚀 PDFMagic server running on http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`🚀 PDFMagic server running on port ${PORT}`);
+  console.log(`🌐 Environment: ${process.env.NODE_ENV || 'development'}`);
   console.log('📁 Uploads directory: ./uploads/');
   console.log('🔧 Available PDF tools:');
   console.log('   • Merge PDF');
