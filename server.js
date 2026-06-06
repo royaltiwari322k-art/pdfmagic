@@ -28,10 +28,11 @@ try {
 }
 
 const app = express();
-const PORT = process.env.PORT || 3012;
+const PORT = process.env.PORT || 3000;
 
 console.log('PDFMagic server starting...');
 console.log(`Environment PORT: ${process.env.PORT}`);
+console.log(`Is Vercel: ${process.env.VERCEL}`);
 
 // Middleware
 app.use(cors());
@@ -39,9 +40,13 @@ app.use(express.json());
 app.use(express.static('.'));
 
 // Ensure uploads directory exists
-const uploadsDir = path.join(__dirname, 'uploads');
-fs.ensureDirSync(uploadsDir);
-console.log('Uploads directory ensured at:', uploadsDir);
+const uploadsDir = process.env.VERCEL ? '/tmp/uploads' : path.join(__dirname, 'uploads');
+try {
+  fs.ensureDirSync(uploadsDir);
+  console.log('Uploads directory ensured at:', uploadsDir);
+} catch (error) {
+  console.error('Error creating uploads directory:', error);
+}
 
 // File upload configuration
 const storage = multer.diskStorage({

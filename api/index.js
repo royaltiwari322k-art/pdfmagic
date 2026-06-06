@@ -30,11 +30,23 @@ try {
 const app = express();
 
 console.log('PDFMagic server starting...');
+console.log('__dirname:', __dirname);
+console.log('process.cwd():', process.cwd());
+
+// Helper to get file path
+const getFilePath = (filename) => {
+  const rootPath = process.env.VERCEL ? '/var/task' : path.join(__dirname, '..');
+  return path.join(rootPath, filename);
+};
 
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '..')));
+
+// Serve static files
+const staticPath = process.env.VERCEL ? '/var/task' : path.join(__dirname, '..');
+app.use(express.static(staticPath));
+console.log('Serving static files from:', staticPath);
 
 // Ensure uploads directory exists
 const uploadsDir = process.env.VERCEL ? '/tmp/uploads' : path.join(__dirname, '..', 'uploads');
