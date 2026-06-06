@@ -1,4 +1,4 @@
-const express = require('express');
+﻿const express = require('express');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs-extra');
@@ -51,10 +51,10 @@ app.use((req, res, next) => {
 app.use(express.static(__dirname));
 
 // Ensure uploads directory exists
-const uploadsDir = process.env.VERCEL ? '/tmp/uploads' : path.join(__dirname, 'uploads');
+const UPLOAD_DIR = process.env.VERCEL ? '/tmp/uploads' : path.join(__dirname, 'uploads');
 try {
-  fs.ensureDirSync(uploadsDir);
-  console.log('Uploads directory ensured at:', uploadsDir);
+  fs.ensureDirSync(UPLOAD_DIR);
+  console.log('Uploads directory ensured at:', UPLOAD_DIR);
 } catch (error) {
   console.error('Error creating uploads directory:', error);
 }
@@ -62,9 +62,8 @@ try {
 // File upload configuration
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    const uploadDir = 'uploads/';
-    fs.ensureDirSync(uploadDir);
-    cb(null, uploadDir);
+    fs.ensureDirSync(UPLOAD_DIR);
+    cb(null, UPLOAD_DIR);
   },
   filename: (req, file, cb) => {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
@@ -182,7 +181,7 @@ app.post('/merge-pdf', upload.array('pdfs', 20), async (req, res) => {
       await merger.add(file.path);
     }
 
-    const outputPath = `uploads/merged-${Date.now()}.pdf`;
+    const outputPath = `${UPLOAD_DIR}/merged-${Date.now()}.pdf`;
     await merger.save(outputPath);
     
     await cleanupFiles(req.files.map(f => f.path));
@@ -206,7 +205,7 @@ app.post('/split-pdf', upload.single('pdf'), async (req, res) => {
     const pdfDoc = await PDFDocument.load(existingPdfBytes);
     
     const zip = archiver('zip');
-    const zipPath = `uploads/split-${Date.now()}.zip`;
+    const zipPath = `${UPLOAD_DIR}/split-${Date.now()}.zip`;
     const output = fs.createWriteStream(zipPath);
     
     zip.pipe(output);
@@ -287,7 +286,7 @@ app.post('/compress-pdf', upload.single('pdf'), async (req, res) => {
     }
     
     const pdfBytes = await newPdfDoc.save(compressOptions);
-    const outputPath = `uploads/compressed-${Date.now()}.pdf`;
+    const outputPath = `${UPLOAD_DIR}/compressed-${Date.now()}.pdf`;
     await fs.writeFile(outputPath, pdfBytes);
     
     await cleanupFiles([req.file.path]);
@@ -329,7 +328,7 @@ app.post('/pdf-to-word', upload.single('pdf'), async (req, res) => {
       </html>
     `;
     
-    const outputPath = `uploads/converted-${Date.now()}.doc`;
+    const outputPath = `${UPLOAD_DIR}/converted-${Date.now()}.doc`;
     await fs.writeFile(outputPath, htmlContent);
     
     await cleanupFiles([req.file.path]);
@@ -355,7 +354,7 @@ app.post('/pdf-to-jpg', upload.single('pdf'), async (req, res) => {
     const pdfDoc = await PDFDocument.load(existingPdfBytes);
     
     const zip = archiver('zip');
-    const zipPath = `uploads/pdf-pages-${Date.now()}.zip`;
+    const zipPath = `${UPLOAD_DIR}/pdf-pages-${Date.now()}.zip`;
     const output = fs.createWriteStream(zipPath);
     
     zip.pipe(output);
@@ -437,7 +436,7 @@ app.post('/jpg-to-pdf', upload.array('pdfs', 20), async (req, res) => {
     }
     
     const pdfBytes = await pdfDoc.save();
-    const outputPath = `uploads/images-to-pdf-${Date.now()}.pdf`;
+    const outputPath = `${UPLOAD_DIR}/images-to-pdf-${Date.now()}.pdf`;
     await fs.writeFile(outputPath, pdfBytes);
     
     await cleanupFiles(req.files.map(f => f.path));
@@ -478,7 +477,7 @@ app.post('/word-to-pdf', upload.single('pdf'), async (req, res) => {
     });
     
     const pdfBytes = await pdfDoc.save();
-    const outputPath = `uploads/word-to-pdf-${Date.now()}.pdf`;
+    const outputPath = `${UPLOAD_DIR}/word-to-pdf-${Date.now()}.pdf`;
     await fs.writeFile(outputPath, pdfBytes);
     
     await cleanupFiles([req.file.path]);
@@ -510,7 +509,7 @@ app.post('/rotate-pdf', upload.single('pdf'), async (req, res) => {
     }
     
     const pdfBytes = await pdfDoc.save();
-    const outputPath = `uploads/rotated-${Date.now()}.pdf`;
+    const outputPath = `${UPLOAD_DIR}/rotated-${Date.now()}.pdf`;
     await fs.writeFile(outputPath, pdfBytes);
     
     await cleanupFiles([req.file.path]);
@@ -576,7 +575,7 @@ app.post('/ocr-pdf', upload.single('pdf'), async (req, res) => {
     }
     
     const pdfBytes = await pdfDoc.save();
-    const outputPath = `uploads/ocr-${Date.now()}.pdf`;
+    const outputPath = `${UPLOAD_DIR}/ocr-${Date.now()}.pdf`;
     await fs.writeFile(outputPath, pdfBytes);
     
     await cleanupFiles([req.file.path]);
@@ -615,7 +614,7 @@ app.post('/add-watermark', upload.single('pdf'), async (req, res) => {
     }
     
     const pdfBytes = await pdfDoc.save();
-    const outputPath = `uploads/watermarked-${Date.now()}.pdf`;
+    const outputPath = `${UPLOAD_DIR}/watermarked-${Date.now()}.pdf`;
     await fs.writeFile(outputPath, pdfBytes);
     
     await cleanupFiles([req.file.path]);
@@ -663,7 +662,7 @@ app.post('/remove-pages', upload.single('pdf'), async (req, res) => {
     }
     
     const pdfBytes = await newPdfDoc.save();
-    const outputPath = `uploads/removed-pages-${Date.now()}.pdf`;
+    const outputPath = `${UPLOAD_DIR}/removed-pages-${Date.now()}.pdf`;
     await fs.writeFile(outputPath, pdfBytes);
     
     await cleanupFiles([req.file.path]);
@@ -704,7 +703,7 @@ app.post('/extract-pages', upload.single('pdf'), async (req, res) => {
     }
     
     const pdfBytes = await newPdfDoc.save();
-    const outputPath = `uploads/extracted-pages-${Date.now()}.pdf`;
+    const outputPath = `${UPLOAD_DIR}/extracted-pages-${Date.now()}.pdf`;
     await fs.writeFile(outputPath, pdfBytes);
     
     await cleanupFiles([req.file.path]);
@@ -747,7 +746,7 @@ app.post('/organize-pdf', upload.single('pdf'), async (req, res) => {
     }
     
     const pdfBytes = await newPdfDoc.save();
-    const outputPath = `uploads/organized-${Date.now()}.pdf`;
+    const outputPath = `${UPLOAD_DIR}/organized-${Date.now()}.pdf`;
     await fs.writeFile(outputPath, pdfBytes);
     
     await cleanupFiles([req.file.path]);
@@ -796,7 +795,7 @@ app.post('/excel-to-pdf', upload.single('pdf'), async (req, res) => {
     });
     
     const pdfBytes = await pdfDoc.save();
-    const outputPath = `uploads/excel-to-pdf-${Date.now()}.pdf`;
+    const outputPath = `${UPLOAD_DIR}/excel-to-pdf-${Date.now()}.pdf`;
     await fs.writeFile(outputPath, pdfBytes);
     
     await cleanupFiles([req.file.path]);
@@ -830,7 +829,7 @@ app.post('/ppt-to-pdf', upload.single('pdf'), async (req, res) => {
     });
     
     const pdfBytes = await pdfDoc.save();
-    const outputPath = `uploads/ppt-to-pdf-${Date.now()}.pdf`;
+    const outputPath = `${UPLOAD_DIR}/ppt-to-pdf-${Date.now()}.pdf`;
     await fs.writeFile(outputPath, pdfBytes);
     
     await cleanupFiles([req.file.path]);
@@ -871,7 +870,7 @@ app.post('/html-to-pdf', upload.single('pdf'), async (req, res) => {
     }
     
     const pdfBytes = await pdfDoc.save();
-    const outputPath = `uploads/html-to-pdf-${Date.now()}.pdf`;
+    const outputPath = `${UPLOAD_DIR}/html-to-pdf-${Date.now()}.pdf`;
     await fs.writeFile(outputPath, pdfBytes);
     
     await cleanupFiles([req.file.path]);
@@ -900,7 +899,7 @@ app.post('/pdf-to-excel', upload.single('pdf'), async (req, res) => {
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'Extracted Data');
     
-    const outputPath = `uploads/pdf-to-excel-${Date.now()}.xlsx`;
+    const outputPath = `${UPLOAD_DIR}/pdf-to-excel-${Date.now()}.xlsx`;
     XLSX.writeFile(wb, outputPath);
     
     await cleanupFiles([req.file.path]);
@@ -948,7 +947,7 @@ app.post('/pdf-to-ppt', upload.single('pdf'), async (req, res) => {
     }
     
     const pdfBytes = await pdfDoc.save();
-    const outputPath = `uploads/pdf-to-ppt-${Date.now()}.pdf`;
+    const outputPath = `${UPLOAD_DIR}/pdf-to-ppt-${Date.now()}.pdf`;
     await fs.writeFile(outputPath, pdfBytes);
     
     await cleanupFiles([req.file.path]);
@@ -996,7 +995,7 @@ app.post('/repair-pdf', upload.single('pdf'), async (req, res) => {
     }
     
     const pdfBytes = await newPdfDoc.save({ useObjectStreams: true });
-    const outputPath = `uploads/repaired-${Date.now()}.pdf`;
+    const outputPath = `${UPLOAD_DIR}/repaired-${Date.now()}.pdf`;
     await fs.writeFile(outputPath, pdfBytes);
     
     await cleanupFiles([req.file.path]);
@@ -1035,7 +1034,7 @@ app.post('/edit-pdf', upload.single('pdf'), async (req, res) => {
     });
     
     const pdfBytes = await pdfDoc.save();
-    const outputPath = `uploads/edited-${Date.now()}.pdf`;
+    const outputPath = `${UPLOAD_DIR}/edited-${Date.now()}.pdf`;
     await fs.writeFile(outputPath, pdfBytes);
     
     await cleanupFiles([req.file.path]);
@@ -1075,7 +1074,7 @@ app.post('/page-numbers', upload.single('pdf'), async (req, res) => {
     });
     
     const pdfBytes = await pdfDoc.save();
-    const outputPath = `uploads/page-numbers-${Date.now()}.pdf`;
+    const outputPath = `${UPLOAD_DIR}/page-numbers-${Date.now()}.pdf`;
     await fs.writeFile(outputPath, pdfBytes);
     
     await cleanupFiles([req.file.path]);
@@ -1106,7 +1105,7 @@ app.post('/protect-pdf', upload.single('pdf'), async (req, res) => {
     pdfDoc.setAuthor('PDFMagic');
     
     const pdfBytes = await pdfDoc.save();
-    const outputPath = `uploads/protected-${Date.now()}.pdf`;
+    const outputPath = `${UPLOAD_DIR}/protected-${Date.now()}.pdf`;
     await fs.writeFile(outputPath, pdfBytes);
     
     await cleanupFiles([req.file.path]);
@@ -1143,7 +1142,7 @@ app.post('/unlock-pdf', upload.single('pdf'), async (req, res) => {
     }
     
     const pdfBytes = await pdfDoc.save();
-    const outputPath = `uploads/unlocked-${Date.now()}.pdf`;
+    const outputPath = `${UPLOAD_DIR}/unlocked-${Date.now()}.pdf`;
     await fs.writeFile(outputPath, pdfBytes);
     
     await cleanupFiles([req.file.path]);
@@ -1195,7 +1194,7 @@ app.post('/sign-pdf', upload.single('pdf'), async (req, res) => {
     });
     
     const pdfBytes = await pdfDoc.save();
-    const outputPath = `uploads/signed-${Date.now()}.pdf`;
+    const outputPath = `${UPLOAD_DIR}/signed-${Date.now()}.pdf`;
     await fs.writeFile(outputPath, pdfBytes);
     
     await cleanupFiles([req.file.path]);
@@ -1250,7 +1249,7 @@ app.post('/compare-pdf', upload.array('pdfs', 2), async (req, res) => {
     });
     
     const pdfBytes = await pdfDoc.save();
-    const outputPath = `uploads/comparison-${Date.now()}.pdf`;
+    const outputPath = `${UPLOAD_DIR}/comparison-${Date.now()}.pdf`;
     await fs.writeFile(outputPath, pdfBytes);
     
     await cleanupFiles(req.files.map(f => f.path));
@@ -1292,7 +1291,7 @@ app.post('/redact-pdf', upload.single('pdf'), async (req, res) => {
     });
     
     const pdfBytes = await pdfDoc.save();
-    const outputPath = `uploads/redacted-${Date.now()}.pdf`;
+    const outputPath = `${UPLOAD_DIR}/redacted-${Date.now()}.pdf`;
     await fs.writeFile(outputPath, pdfBytes);
     
     await cleanupFiles([req.file.path]);
@@ -1318,7 +1317,7 @@ app.use((error, req, res, next) => {
 // Auto-cleanup old files every hour
 setInterval(async () => {
   try {
-    const uploadDir = 'uploads/';
+    const uploadDir = UPLOAD_DIR;
     const files = await fs.readdir(uploadDir);
     const now = Date.now();
     
@@ -1361,3 +1360,4 @@ process.on('SIGTERM', () => {
     process.exit(0);
   });
 });
+
