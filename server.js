@@ -37,6 +37,17 @@ console.log(`Is Vercel: ${process.env.VERCEL}`);
 // Middleware
 app.use(cors());
 app.use(express.json());
+
+// WWW Redirect Middleware - redirect non-www to www
+app.use((req, res, next) => {
+  const host = req.get('host');
+  if (host && host.match(/^[^.]+\.[^.]+$/) && !host.startsWith('localhost')) {
+    // Non-www domain - redirect to www
+    return res.redirect(301, `https://www.${host}${req.originalUrl}`);
+  }
+  next();
+});
+
 app.use(express.static('.'));
 
 // Ensure uploads directory exists
