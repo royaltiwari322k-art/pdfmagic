@@ -26,6 +26,18 @@
       "use": "@vercel/static"
     },
     {
+      "src": "blog-ilovepdf.png",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "blog-compress.png",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "blog-merge.png",
+      "use": "@vercel/static"
+    },
+    {
       "src": "og-image.svg",
       "use": "@vercel/static"
     }
@@ -50,6 +62,18 @@
     {
       "src": "/logo\\.png",
       "dest": "/logo.png"
+    },
+    {
+      "src": "/blog-ilovepdf\\.png",
+      "dest": "/blog-ilovepdf.png"
+    },
+    {
+      "src": "/blog-compress\\.png",
+      "dest": "/blog-compress.png"
+    },
+    {
+      "src": "/blog-merge\\.png",
+      "dest": "/blog-merge.png"
     },
     {
       "src": "/og-image\\.svg",
