@@ -3,7 +3,7 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs-extra');
 const cors = require('cors');
-const { PDFDocument, rgb, StandardFonts, degrees } = require('pdf-lib');
+const { PDFDocument, rgb, StandardFonts } = require('pdf-lib');
 const pdfParse = require('pdf-parse');
 const Jimp = require('jimp');
 const mammoth = require('mammoth');
@@ -489,7 +489,8 @@ app.post('/rotate-pdf', upload.single('pdf'), async (req, res) => {
     const pages = pdfDoc.getPages();
     for (const page of pages) {
       const { width, height } = page.getSize();
-      page.setRotation({ type: degrees(rotation) });
+      // Simple rotation - just pass the rotation value directly
+      page.setRotation(parseInt(rotation) || 90);
     }
     
     const pdfBytes = await pdfDoc.save();
