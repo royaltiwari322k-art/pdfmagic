@@ -37,9 +37,13 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '..')));
 
 // Ensure uploads directory exists
-const uploadsDir = path.join(__dirname, '..', 'uploads');
-fs.ensureDirSync(uploadsDir);
-console.log('Uploads directory ensured at:', uploadsDir);
+const uploadsDir = process.env.VERCEL ? '/tmp/uploads' : path.join(__dirname, '..', 'uploads');
+try {
+  fs.ensureDirSync(uploadsDir);
+  console.log('Uploads directory ensured at:', uploadsDir);
+} catch (error) {
+  console.error('Error creating uploads directory:', error);
+}
 
 // File upload configuration
 const storage = multer.diskStorage({
@@ -615,4 +619,16 @@ app.get('/health', (req, res) => {
   res.status(200).json({ status: 'ok', message: 'PDFMagic server is running' });
 });
 
+// 404 handler
+app.use((req, res) => {
+  res.status(404).json({ error: 'Not found' });
+});
+
+// Error handler
+app.use((error, req, res, next) => {
+  console.error('Error:', error);
+  res.status(500).json({ error: error.message || 'Internal server error' });
+});
+
+// Export for Vercel serverless
 module.exports = app;
