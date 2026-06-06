@@ -77,13 +77,105 @@
           </div>
         </div>
       </div>
+
+      <!-- INLINE RESULT PREVIEW PANEL -->
+      <div class="file-preview-panel" id="finalResultPanel" style="display:none;">
+        <div class="file-preview-header" style="background:#ecfdf5;border-color:#10b981;">
+          <h4 style="color:#059669;">✅ Conversion Complete!</h4>
+        </div>
+        <div style="padding:16px;">
+          <iframe id="pdfPreviewIframe" style="width:100%;height:450px;border:2px solid var(--border);border-radius:var(--radius);margin-bottom:16px;" src=""></iframe>
+          <div style="display:flex;gap:12px;">
+            <button class="btn btn-primary" id="finalDownloadBtn" style="flex:1;">⬇️ Download PDF</button>
+            <button class="btn btn-white" id="finalStartAgainBtn" style="flex:1;">🔄 Start Again</button>
+          </div>
+        </div>
+      </div>
     </div>
     
+
+    <!-- FEATURES -->
+    <div class="features-grid" style="margin-top:32px;">
+      <div class="feature-card">
+        <div class="feature-icon-big" style="background:#fff0f2;">🔒</div>
+        <h3>Secure</h3>
+        <p>Your files are encrypted and deleted automatically after processing.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon-big" style="background:#f5f3ff;">⚡</div>
+        <h3>Fast</h3>
+        <p>Process PDFs in seconds with our optimized processing engine.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon-big" style="background:#ecfdf5;">🆓</div>
+        <h3>Free</h3>
+        <p>No registration, no watermarks, completely free to use.</p>
+      </div>
+    </div>
+
+    <!-- HOW-TO -->
+    <div class="page-content" style="padding:48px 0;">
+      <h2>How to Organize PDF</h2>
+      <p>1. Select or drag & drop your files into the upload area.</p>
+      <p>2. Adjust any necessary settings and options.</p>
+      <p>3. Click the process button to start.</p>
+      <p>4. Download your new file instantly.</p>
+
+      <h2>Why Use PDFMagic to Organize PDF?</h2>
+      <p>PDFMagic provides the easiest way to process files online. Our tool works on any device — Windows, Mac, Linux, Android, or iOS. Perfect for professionals, students, and businesses looking for a reliable PDF solution.</p>
+
+      <h2>Features of Our Tool</h2>
+      <ul>
+        <li>Process unlimited files efficiently</li>
+        <li>Preserve original formatting and quality</li>
+        <li>No file size limits (up to 100MB)</li>
+        <li>SSL encrypted for ultimate security</li>
+        <li>Works natively on all devices and modern browsers</li>
+      </ul>
+    </div>
+
+    <!-- RELATED TOOLS -->
+    <div style="margin-top:16px;">
+      <h2 style="text-align:center;margin-bottom:24px;">Related PDF Tools</h2>
+      <div class="related-tools-grid">
+        <a href="/merge-pdf" class="related-tool">
+          <div class="related-tool-icon">🔗</div>
+          <h3>Merge PDF</h3>
+          <p>Combine multiple PDFs into one</p>
+        </a>
+        <a href="/split-pdf" class="related-tool">
+          <div class="related-tool-icon">✂️</div>
+          <h3>Split PDF</h3>
+          <p>Separate PDF pages into multiple files</p>
+        </a>
+        <a href="/compress-pdf" class="related-tool">
+          <div class="related-tool-icon">🗜️</div>
+          <h3>Compress PDF</h3>
+          <p>Reduce PDF file size without quality loss</p>
+        </a>
+        <a href="/pdf-to-word" class="related-tool">
+          <div class="related-tool-icon">📝</div>
+          <h3>PDF to Word</h3>
+          <p>Convert PDF to editable Word document</p>
+        </a>
+        <a href="/jpg-to-pdf" class="related-tool">
+          <div class="related-tool-icon">🖼️</div>
+          <h3>JPG to PDF</h3>
+          <p>Convert images to PDF document</p>
+        </a>
+        <a href="/organize-pdf" class="related-tool">
+          <div class="related-tool-icon">📋</div>
+          <h3>Organize PDF</h3>
+          <p>Rearrange, add, or remove PDF pages</p>
+        </a>
+      </div>
+    </div>
+
     <!-- CTA BANNER INLINE -->
     <div style="margin-top:40px;text-align:center;padding:30px;background:#fff0f2;border-radius:var(--radius-lg);border:2px solid var(--border);">
       <h3 style="margin-bottom:10px;">Need more tools?</h3>
-      <p style="color:var(--text-muted);margin-bottom:15px;">Check out our full suite of free PDF tools.</p>
-      <a href="/#tools" class="btn btn-primary">Browse All Tools</a>
+      <p style="color:var(--text-muted);margin-bottom:15px;">Explore our complete suite of 20+ free PDF tools — all in one place!</p>
+      <a href="/" class="btn btn-primary">🔍 Browse All Tools →</a>
     </div>
   </div>
 </div>
@@ -96,13 +188,6 @@
       <div class="progress-fill" id="progressFill"></div>
     </div>
     <p id="modalText" style="text-align:center;color:var(--text-muted);">Please wait while we process your file.</p>
-    <div id="resultArea" style="display:none;">
-      <div style="text-align:center;font-size:3rem;margin:16px 0;">✅</div>
-      <h3 style="text-align:center;margin-bottom:8px;">Success!</h3>
-      <p style="text-align:center;color:var(--text-muted);margin-bottom:20px;">Your file is ready.</p>
-      <button class="btn btn-primary btn-lg" id="downloadBtn" style="width:100%;margin-bottom:10px;">⬇️ Download File</button>
-      <button class="btn btn-white btn-lg" id="newFileBtn" style="width:100%;">🔄 Start Again</button>
-    </div>
   </div>
 </div>
 
@@ -140,10 +225,11 @@
   const fileInput = document.getElementById('fileInput');
   const modal = document.getElementById('modal');
   const progressFill = document.getElementById('progressFill');
-  const resultArea = document.getElementById('resultArea');
-  const downloadBtn = document.getElementById('downloadBtn');
-  const newFileBtn = document.getElementById('newFileBtn');
   const previewPanel = document.getElementById('previewPanel');
+  const finalResultPanel = document.getElementById('finalResultPanel');
+  const pdfPreviewIframe = document.getElementById('pdfPreviewIframe');
+  const finalDownloadBtn = document.getElementById('finalDownloadBtn');
+  const finalStartAgainBtn = document.getElementById('finalStartAgainBtn');
   const filePreviewList = document.getElementById('filePreviewList');
   const totalSizeLabel = document.getElementById('totalSizeLabel');
   
@@ -189,6 +275,7 @@
     selectedFile = null;
     fileInput.value = '';
     previewPanel.style.display = 'none';
+    finalResultPanel.style.display = 'none';
     uploadArea.style.display = 'block';
   }
 
@@ -214,13 +301,15 @@
       const url = URL.createObjectURL(blob);
       progressFill.style.width = '100%';
       setTimeout(() => {
-        document.getElementById('modalTitle').textContent = 'Complete! 🎉';
-        document.getElementById('modalText').style.display = 'none';
-        resultArea.style.display = 'block';
-        downloadBtn.onclick = () => {
+        modal.classList.remove('active');
+        previewPanel.style.display = 'none';
+        finalResultPanel.style.display = 'block';
+        pdfPreviewIframe.src = url;
+        
+        finalDownloadBtn.onclick = () => {
           const a = document.createElement('a');
           a.href = url;
-          a.download = 'result.pdf';
+          a.download = 'converted.pdf';
           a.click();
         };
       }, 500);
@@ -230,8 +319,7 @@
     }
   }
 
-  newFileBtn.onclick = () => {
-    modal.classList.remove('active');
+  finalStartAgainBtn.onclick = () => {
     changeFile();
   };
 
