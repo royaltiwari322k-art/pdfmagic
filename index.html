@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en-in">
 <head>
-  <meta charset="UTF-8" />  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- ✅ SEO Meta Tags -->
+  <!-- SEO Meta Tags -->
   <title>PDFMagic - Free Online PDF Tools | Merge Split Compress Convert PDF</title>
   <meta name="description" content="PDFMagic offers 20+ free online PDF tools. Merge PDF, Split PDF, Compress PDF, Convert PDF to Word, Excel, JPG and more. Fast, secure, and 100% free!" />
   <meta name="keywords" content="ilovepdf alternative, free pdf tools, merge pdf online, compress pdf, pdf to word, pdf converter india, free pdf editor online, split pdf, pdf to jpg, word to pdf, jpg to pdf" />
@@ -13,19 +14,19 @@
   <link rel="canonical" href="https://www.wwwpdfmagic.live/" />
   <link rel="alternate" hreflang="en-in" href="https://www.wwwpdfmagic.live/" />
 
-  <!-- ✅ Open Graph / Social Media -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.wwwpdfmagic.live/" />
   <meta property="og:title" content="PDFMagic - Free Online PDF Tools | Merge Split Compress Convert PDF" />
   <meta property="og:description" content="20+ free PDF tools online. Merge, Split, Compress, Convert PDF files instantly. No installation needed." />
   <meta property="og:image" content="https://wwwpdfmagic.live/og-image.svg" />
 
-  <!-- ✅ Twitter Card -->
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="PDFMagic - Free Online PDF Tools | Merge Split Compress Convert PDF" />
   <meta name="twitter:description" content="Merge, Split, Compress, Convert PDF online for free. Fast, easy and secure." />
 
-  <!-- ✅ Schema.org Structured Data -->
+  <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -54,1023 +55,73 @@
   }
   </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- PDF Processor Script -->
+  <!-- Styles -->
+  <link rel="stylesheet" href="/styles.css">
   <script src="pdf-processor.js"></script>
-
-  <style>
-    :root {
-      --red: #e8273c;
-      --red-dark: #c41e32;
-      --red-light: #ff4d63;
-      --purple: #7c3aed;
-      --blue: #0891b2;
-      --orange: #d97706;
-      --green: #059669;
-      --dark-red: #dc2626;
-      --bg: #f7f8fc;
-      --white: #ffffff;
-      --text: #1a1a2e;
-      --text-muted: #6b7280;
-      --border: #e5e7eb;
-      --card-shadow: 0 2px 12px rgba(0,0,0,0.08);
-      --card-hover: 0 8px 32px rgba(232,39,60,0.15);
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    /* ─── NAVBAR ─── */
-    nav {
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 1px 8px rgba(0,0,0,0.06);
-    }
-
-    .nav-inner {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 64px;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-    }
-
-    .logo-icon {
-      width: 38px;
-      height: 38px;
-      background: var(--red);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-    }
-
-    .logo-text {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: 1.3rem;
-      color: var(--text);
-    }
-
-    .logo-text span { color: var(--red); }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      padding: 8px 16px;
-      border-radius: 8px;
-      text-decoration: none;
-      color: var(--text-muted);
-      font-weight: 500;
-      font-size: 0.9rem;
-      transition: all 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--red); background: #fff0f2; }
-
-    .nav-cta {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .btn-login {
-      padding: 8px 20px;
-      border: 1.5px solid var(--border);
-      border-radius: 8px;
-      background: transparent;
-      color: var(--text);
-      font-weight: 600;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: all 0.2s;
-      font-family: inherit;
-    }
-
-    .btn-login:hover { border-color: var(--red); color: var(--red); }
-
-    .btn-signup {
-      padding: 8px 20px;
-      background: var(--red);
-      border: none;
-      border-radius: 8px;
-      color: white;
-      font-weight: 600;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: all 0.2s;
-      font-family: inherit;
-    }
-
-    .btn-signup:hover { background: var(--red-dark); transform: translateY(-1px); }
-
-    .mobile-menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: var(--text);
-    }
-
-    /* ─── HERO ─── */
-    .hero {
-      background: linear-gradient(135deg, #fff0f2 0%, #ffffff 50%, #fff5f0 100%);
-      border-bottom: 1px solid var(--border);
-      padding: 72px 24px 60px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -100px;
-      right: -100px;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(232,39,60,0.07) 0%, transparent 70%);
-      border-radius: 50%;
-    }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -80px;
-      left: -80px;
-      width: 300px;
-      height: 300px;
-      background: radial-gradient(circle, rgba(232,39,60,0.05) 0%, transparent 70%);
-      border-radius: 50%;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: #fff0f2;
-      border: 1px solid rgba(232,39,60,0.2);
-      color: var(--red);
-      padding: 6px 16px;
-      border-radius: 100px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      margin-bottom: 24px;
-      letter-spacing: 0.3px;
-    }
-
-    .hero h1 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      font-weight: 800;
-      color: var(--text);
-      line-height: 1.2;
-      margin-bottom: 20px;
-      max-width: 680px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .hero h1 span { color: var(--red); }
-
-    .hero p {
-      font-size: 1.1rem;
-      color: var(--text-muted);
-      max-width: 520px;
-      margin: 0 auto 36px;
-      font-weight: 400;
-    }
-
-    .hero-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--red);
-      color: white;
-      padding: 14px 32px;
-      border-radius: 12px;
-      font-weight: 700;
-      font-size: 1rem;
-      text-decoration: none;
-      transition: all 0.2s;
-      margin-bottom: 48px;
-    }
-
-    .hero-cta:hover { 
-      background: var(--red-dark); 
-      transform: translateY(-2px); 
-      box-shadow: 0 8px 24px rgba(232,39,60,0.3);
-    }
-
-    .trust-badges {
-      display: flex;
-      justify-content: center;
-      gap: 32px;
-      margin-bottom: 40px;
-      flex-wrap: wrap;
-    }
-
-    .trust-badge {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-
-    .trust-badge span {
-      font-size: 1.1rem;
-    }
-
-    .hero-stats {
-      display: flex;
-      justify-content: center;
-      gap: 48px;
-      flex-wrap: wrap;
-    }
-
-    .stat-item { text-align: center; }
-
-    .stat-num {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: var(--red);
-    }
-
-    .stat-label {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-
-    /* ─── SEARCH BAR ─── */
-    .search-container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 32px 24px;
-    }
-
-    .search-wrapper {
-      max-width: 500px;
-      margin: 0 auto;
-      position: relative;
-    }
-
-    .search-input {
-      width: 100%;
-      padding: 14px 48px 14px 20px;
-      border: 2px solid var(--border);
-      border-radius: 12px;
-      font-size: 0.95rem;
-      font-family: inherit;
-      transition: all 0.2s;
-    }
-
-    .search-input:focus {
-      outline: none;
-      border-color: var(--red);
-      box-shadow: 0 0 0 3px rgba(232,39,60,0.1);
-    }
-
-    .search-icon {
-      position: absolute;
-      right: 16px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--text-muted);
-      font-size: 1.1rem;
-    }
-
-    /* ─── FILTER TABS ─── */
-    .section-header {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 48px 24px 0;
-    }
-
-    .section-header h2 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 8px;
-    }
-
-    .section-header p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      margin-bottom: 28px;
-    }
-
-    .filter-tabs {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 32px;
-    }
-
-    .tab-btn {
-      padding: 8px 20px;
-      border-radius: 100px;
-      border: 1.5px solid var(--border);
-      background: var(--white);
-      color: var(--text-muted);
-      font-size: 0.88rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s;
-      font-family: inherit;
-    }
-
-    .tab-btn:hover { border-color: var(--red); color: var(--red); }
-    .tab-btn.active { background: var(--red); color: white; border-color: var(--red); }
-
-    /* ─── TOOLS GRID ─── */
-    .tools-section {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 24px 64px;
-    }
-
-    .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 16px;
-    }
-
-    .tool-card {
-      background: var(--white);
-      border: 1.5px solid var(--border);
-      border-radius: 14px;
-      padding: 24px 20px;
-      cursor: pointer;
-      transition: all 0.25s ease;
-      text-decoration: none;
-      color: inherit;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .tool-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--accent-color, var(--red));
-      transform: scaleX(0);
-      transition: transform 0.25s ease;
-      transform-origin: left;
-    }
-
-    .tool-card:hover {
-      border-color: var(--accent-color, var(--red));
-      box-shadow: var(--card-hover);
-      transform: translateY(-3px);
-    }
-
-    .tool-card:hover::before { transform: scaleX(1); }
-
-    .tool-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      background: var(--icon-bg, #fff0f2);
-    }
-
-    .tool-card h3 {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.3;
-    }
-
-    .tool-card p {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-      flex: 1;
-    }
-
-    .tool-arrow {
-      font-size: 0.8rem;
-      color: var(--accent-color, var(--red));
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      opacity: 0;
-      transition: opacity 0.2s;
-    }
-
-    .tool-card:hover .tool-arrow { opacity: 1; }
-
-    /* Category label */
-    .category-label {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      color: var(--accent-color, var(--red));
-      background: var(--icon-bg, #fff0f2);
-      padding: 3px 8px;
-      border-radius: 4px;
-      align-self: flex-start;
-    }
-
-    /* ─── HOW IT WORKS ─── */
-    .how-section {
-      background: var(--white);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 72px 24px;
-    }
-
-    .how-inner {
-      max-width: 1000px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .how-inner h2 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 2rem;
-      font-weight: 800;
-      margin-bottom: 12px;
-    }
-
-    .how-inner > p {
-      color: var(--text-muted);
-      margin-bottom: 56px;
-    }
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 32px;
-      position: relative;
-    }
-
-    .steps::before {
-      content: '';
-      position: absolute;
-      top: 28px;
-      left: 25%;
-      right: 25%;
-      height: 2px;
-      background: linear-gradient(90deg, var(--red), var(--purple), var(--blue));
-      z-index: 0;
-    }
-
-    .step {
-      position: relative;
-      text-align: center;
-      z-index: 1;
-    }
-
-    .step-num {
-      width: 56px;
-      height: 56px;
-      background: var(--red);
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.4rem;
-      font-weight: 800;
-      margin: 0 auto 20px;
-      position: relative;
-      z-index: 2;
-      box-shadow: 0 4px 16px rgba(232,39,60,0.3);
-    }
-
-    .step h3 {
-      font-weight: 700;
-      margin-bottom: 8px;
-      font-size: 1rem;
-    }
-
-    .step p {
-      color: var(--text-muted);
-      font-size: 0.88rem;
-    }
-
-    /* ─── FEATURES ─── */
-    .features-section {
-      padding: 72px 24px;
-      max-width: 1280px;
-      margin: 0 auto;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      margin-top: 48px;
-    }
-
-    .feature-card {
-      background: var(--white);
-      border: 1.5px solid var(--border);
-      border-radius: 16px;
-      padding: 32px 28px;
-      transition: all 0.2s;
-    }
-
-    .feature-card:hover {
-      border-color: var(--red);
-      box-shadow: var(--card-hover);
-      transform: translateY(-2px);
-    }
-
-    .feature-icon {
-      width: 52px;
-      height: 52px;
-      background: #fff0f2;
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
-
-    .feature-card h3 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .feature-card p {
-      color: var(--text-muted);
-      font-size: 0.88rem;
-      line-height: 1.6;
-    }
-
-    /* ─── BLOG SECTION ─── */
-    .blog-section {
-      background: var(--white);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 72px 24px;
-    }
-
-    .blog-inner {
-      max-width: 1280px;
-      margin: 0 auto;
-    }
-
-    .blog-header {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-
-    .blog-header h2 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 2rem;
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
-
-    .blog-header p {
-      color: var(--text-muted);
-    }
-
-    .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 32px;
-    }
-
-    .blog-card {
-      background: var(--white);
-      border: 1.5px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
-      transition: all 0.2s;
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .blog-card:hover {
-      border-color: var(--red);
-      box-shadow: var(--card-hover);
-      transform: translateY(-3px);
-    }
-
-    .blog-thumbnail {
-      height: 200px;
-      background: linear-gradient(135deg, var(--red), var(--purple));
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-      color: white;
-    }
-
-    .blog-content {
-      padding: 24px;
-    }
-
-    .blog-category {
-      display: inline-block;
-      background: #fff0f2;
-      color: var(--red);
-      padding: 4px 12px;
-      border-radius: 100px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      margin-bottom: 12px;
-    }
-
-    .blog-card h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-      line-height: 1.3;
-    }
-
-    .blog-excerpt {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      line-height: 1.5;
-      margin-bottom: 16px;
-    }
-
-    .blog-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.82rem;
-      color: var(--text-muted);
-    }
-
-    .blog-link {
-      color: var(--red);
-      font-weight: 600;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      transition: gap 0.2s;
-    }
-
-    .blog-link:hover { gap: 8px; }
-
-    /* ─── FAQ ─── */
-    .faq-section {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 72px 24px;
-    }
-
-    .faq-section h2 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 2rem;
-      font-weight: 800;
-      text-align: center;
-      margin-bottom: 48px;
-    }
-
-    .faq-item {
-      border: 1.5px solid var(--border);
-      border-radius: 12px;
-      margin-bottom: 12px;
-      overflow: hidden;
-      background: var(--white);
-      transition: all 0.2s;
-    }
-
-    .faq-item:hover {
-      border-color: var(--red);
-    }
-
-    .faq-q {
-      padding: 20px 24px;
-      font-weight: 700;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: color 0.2s;
-      font-size: 0.95rem;
-    }
-
-    .faq-q:hover { color: var(--red); }
-
-    .faq-q .arrow {
-      font-size: 1.2rem;
-      color: var(--red);
-      transition: transform 0.3s;
-      flex-shrink: 0;
-    }
-
-    .faq-a {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.35s ease, padding 0.35s ease;
-      padding: 0 24px;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      line-height: 1.7;
-    }
-
-    .faq-item.open .faq-a {
-      max-height: 200px;
-      padding: 0 24px 20px;
-    }
-
-    .faq-item.open .arrow { transform: rotate(45deg); }
-
-    /* ─── CTA BANNER ─── */
-    .cta-section {
-      background: linear-gradient(135deg, var(--red) 0%, #c41e32 100%);
-      padding: 72px 24px;
-      text-align: center;
-      color: white;
-    }
-
-    .cta-section h2 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 2.2rem;
-      font-weight: 800;
-      margin-bottom: 16px;
-    }
-
-    .cta-section p {
-      font-size: 1.05rem;
-      opacity: 0.88;
-      max-width: 500px;
-      margin: 0 auto 36px;
-    }
-
-    .cta-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: white;
-      color: var(--red);
-      padding: 14px 32px;
-      border-radius: 12px;
-      font-weight: 700;
-      font-size: 1rem;
-      text-decoration: none;
-      transition: all 0.2s;
-      font-family: inherit;
-      border: none;
-      cursor: pointer;
-    }
-
-    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
-
-    /* ─── FOOTER ─── */
-    footer {
-      background: #0f0f1a;
-      color: #8b8b9e;
-      padding: 56px 24px 32px;
-    }
-
-    .footer-inner {
-      max-width: 1280px;
-      margin: 0 auto;
-    }
-
-    .footer-top {
-      display: grid;
-      grid-template-columns: 2fr repeat(3, 1fr);
-      gap: 48px;
-      padding-bottom: 48px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .footer-brand .logo-text { color: white; }
-
-    .footer-brand p {
-      margin: 16px 0 24px;
-      font-size: 0.88rem;
-      line-height: 1.7;
-    }
-
-    .social-icons {
-      display: flex;
-      gap: 12px;
-    }
-
-    .social-icon {
-      width: 36px;
-      height: 36px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-
-    .social-icon:hover {
-      background: var(--red);
-      transform: translateY(-2px);
-    }
-
-    .footer-col h4 {
-      color: white;
-      font-size: 0.9rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-      letter-spacing: 0.3px;
-    }
-
-    .footer-col ul { list-style: none; }
-
-    .footer-col ul li { margin-bottom: 10px; }
-
-    .footer-col ul li a {
-      color: #8b8b9e;
-      text-decoration: none;
-      font-size: 0.88rem;
-      transition: color 0.2s;
-    }
-
-    .footer-col ul li a:hover { color: var(--red); }
-
-    .footer-bottom {
-      padding-top: 32px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .footer-bottom p { font-size: 0.82rem; }
-
-    .footer-links {
-      display: flex;
-      gap: 24px;
-    }
-
-    .footer-links a {
-      color: #8b8b9e;
-      text-decoration: none;
-      font-size: 0.82rem;
-      transition: color 0.2s;
-    }
-
-    .footer-links a:hover { color: white; }
-
-    /* ─── HIDDEN tools ─── */
-    .tool-card[data-cat].hidden { display: none; }
-
-    /* ─── RESPONSIVE ─── */
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .mobile-menu-btn { display: block; }
-      .footer-top { grid-template-columns: 1fr 1fr; }
-      .trust-badges { gap: 16px; }
-      .hero-stats { gap: 32px; }
-      .footer-bottom { flex-direction: column; text-align: center; }
-      .steps::before { display: none; }
-    }
-
-    @media (max-width: 480px) {
-      .footer-top { grid-template-columns: 1fr; }
-      .tools-grid { grid-template-columns: 1fr; }
-      .blog-grid { grid-template-columns: 1fr; }
-      .features-grid { grid-template-columns: 1fr; }
-    }
-
-    /* Scroll animations */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
-  </style>
 </head>
 <body>
 
-<!-- ✅ NAVBAR -->
-<nav>
+<!-- NAVBAR -->
+<nav class="nav">
   <div class="nav-inner">
-    <a class="logo" href="/">
-      <div class="logo-icon">📄</div>
-      <span class="logo-text">PDF<span>Magic</span></span>
+    <a class="nav-brand" href="/">
+      <div class="nav-brand-icon">📄</div>
+      PDF<span>Magic</span>
     </a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="navLinks">
       <li><a href="#tools">All Tools</a></li>
       <li><a href="#convert">Convert</a></li>
       <li><a href="#compress">Compress</a></li>
       <li><a href="#blog">Blog</a></li>
       <li><a href="#pricing">Pricing</a></li>
     </ul>
-    <div class="nav-cta">
-      <button class="btn-login">Login</button>
-      <button class="btn-signup">Sign Up Free</button>
+    <div class="nav-actions">
+      <a href="#tools" class="btn btn-sm">Login</a>
+      <a href="#tools" class="btn btn-primary btn-sm">Sign Up Free</a>
     </div>
-    <button class="mobile-menu-btn">☰</button>
+    <button class="nav-toggle" id="navToggle" onclick="document.getElementById('navLinks').classList.toggle('mobile-open')">☰</button>
   </div>
 </nav>
 
-<!-- ✅ HERO -->
+<!-- HERO -->
 <section class="hero">
   <div class="hero-badge">✨ 100% Free — No Registration Required</div>
-  <h1>Every <span>PDF Tool</span> You Need — 100% Free & Online</h1>
-  <p>Merge, Split, Compress, Convert, Edit and Secure PDF files in seconds. No installation. No sign up required.</p>
-  <a href="#tools" class="hero-cta">🚀 Explore All Tools →</a>
-  
-  <div class="trust-badges">
-    <div class="trust-badge">
-      <span>🔒</span>
-      SSL Secured
-    </div>
-    <div class="trust-badge">
-      <span>⚡</span>
-      Fast Processing
-    </div>
-    <div class="trust-badge">
-      <span>🗑️</span>
-      Auto Delete in 2hrs
-    </div>
-    <div class="trust-badge">
-      <span>🌍</span>
-      Used by 5M+ Users
-    </div>
+  <h1 class="hero-title">Every <span class="gradient-text">PDF Tool</span> You Need — 100% Free & Online</h1>
+  <p class="hero-subtitle">Merge, Split, Compress, Convert, Edit and Secure PDF files in seconds. No installation. No sign up required.</p>
+  <a href="#tools" class="btn btn-primary btn-lg" style="margin-bottom:48px;animation:slideUpIn 0.6s ease 0.3s both;">
+    🚀 Explore All Tools →
+  </a>
+
+  <div class="trust-bar">
+    <div class="trust-item"><span class="trust-item-icon">🔒</span> SSL Secured</div>
+    <div class="trust-item"><span class="trust-item-icon">⚡</span> Fast Processing</div>
+    <div class="trust-item"><span class="trust-item-icon">🗑️</span> Auto Delete in 2hrs</div>
+    <div class="trust-item"><span class="trust-item-icon">🌍</span> Used by 5M+ Users</div>
   </div>
-  
-  <div class="hero-stats">
-    <div class="stat-item">
-      <div class="stat-num">20+</div>
-      <div class="stat-label">Tools</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">10M+</div>
-      <div class="stat-label">Files Processed</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">100%</div>
-      <div class="stat-label">Free</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">India's #1</div>
-      <div class="stat-label">PDF Tool</div>
-    </div>
+
+  <div class="stats-row">
+    <div class="stat-box"><div class="stat-num">20+</div><div class="stat-label">Tools</div></div>
+    <div class="stat-box"><div class="stat-num">10M+</div><div class="stat-label">Files Processed</div></div>
+    <div class="stat-box"><div class="stat-num">100%</div><div class="stat-label">Free</div></div>
+    <div class="stat-box"><div class="stat-num">India's #1</div><div class="stat-label">PDF Tool</div></div>
   </div>
 </section>
 
-<!-- ✅ SEARCH BAR -->
-<div class="search-container">
-  <div class="search-wrapper">
+<!-- SEARCH BAR -->
+<div class="section" style="padding: 32px 24px;">
+  <div class="search-box">
     <input type="text" class="search-input" id="toolSearch" placeholder="Search for a PDF tool..." />
-    <span class="search-icon">🔍</span>
+    <span class="search-icon-pos">🔍</span>
   </div>
 </div>
 
-<!-- ✅ TOOLS SECTION -->
-<div class="section-header" id="tools">
-  <h2>All PDF Tools</h2>
-  <p>Click any tool to get started instantly — no sign up needed</p>
+<!-- TOOLS SECTION -->
+<div class="section" id="tools">
+  <div class="section-header">
+    <h2>All PDF Tools</h2>
+    <p>Click any tool to get started instantly — no sign up needed</p>
+  </div>
+
   <div class="filter-tabs">
     <button class="tab-btn active" onclick="filterTools('all', this)">All</button>
     <button class="tab-btn" onclick="filterTools('organize', this)">📁 Organize PDF</button>
@@ -1081,484 +132,436 @@
     <button class="tab-btn" onclick="filterTools('security', this)">🔒 PDF Security</button>
     <button class="tab-btn" onclick="filterTools('ai', this)">🤖 AI Tools</button>
   </div>
-</div>
 
-<div class="tools-section">
-  <div class="tools-grid" id="toolsGrid">
+  <div class="container">
+    <div class="tools-grid" id="toolsGrid">
 
-    <!-- 📁 ORGANIZE PDF -->
-    <a href="/merge-pdf" class="tool-card fade-in" data-cat="organize" style="--accent-color:#e8273c;--icon-bg:#fff0f2;">
-      <div class="tool-icon">🔗</div>
-      <span class="category-label">Organize</span>
-      <h3>Merge PDF</h3>
-      <p>Combine multiple PDFs into one file easily</p>
-      <span class="tool-arrow">Use Tool →</span>
-    </a>
+      <!-- ORGANIZE PDF -->
+      <a href="/merge-pdf" class="tool-card fade-in-up" data-cat="organize" style="--tool-accent:#e8273c;--tool-bg:#fff0f2;--tool-badge-bg:#fff0f2;">
+        <span class="tool-card-badge">Organize</span>
+        <div class="tool-card-icon" style="background:#fff0f2;">🔗</div>
+        <h3>Merge PDF</h3>
+        <p>Combine multiple PDFs into one file easily</p>
+        <span class="tool-card-arrow">Use Tool →</span>
+      </a>
 
-    <a href="/split-pdf" class="tool-card fade-in" data-cat="organize" style="--accent-color:#e8273c;--icon-bg:#fff0f2;">
-      <div class="tool-icon">✂️</div>
-      <span class="category-label">Organize</span>
-      <h3>Split PDF</h3>
-      <p>Separate PDF into multiple files by page range</p>
-      <span class="tool-arrow">Use Tool →</span>
-    </a>
+      <a href="/split-pdf" class="tool-card fade-in-up" data-cat="organize" style="--tool-accent:#e8273c;--tool-bg:#fff0f2;--tool-badge-bg:#fff0f2;">
+        <span class="tool-card-badge">Organize</span>
+        <div class="tool-card-icon" style="background:#fff0f2;">✂️</div>
+        <h3>Split PDF</h3>
+        <p>Separate PDF into multiple files by page range</p>
+        <span class="tool-card-arrow">Use Tool →</span>
+      </a>
 
-    <a href="/remove-pages" class="tool-card fade-in" data-cat="organize" style="--accent-color:#e8273c;--icon-bg:#fff0f2;">
-      <div class="tool-icon">🗑️</div>
-      <span class="category-label">Organize</span>
-      <h3>Remove Pages</h3>
-      <p>Delete unwanted pages from your PDF</p>
-      <span class="tool-arrow">Use Tool →</span>
-    </a>
+      <a href="/remove-pages" class="tool-card fade-in-up" data-cat="organize" style="--tool-accent:#e8273c;--tool-bg:#fff0f2;--tool-badge-bg:#fff0f2;">
+        <span class="tool-card-badge">Organize</span>
+        <div class="tool-card-icon" style="background:#fff0f2;">🗑️</div>
+        <h3>Remove Pages</h3>
+        <p>Delete unwanted pages from your PDF</p>
+        <span class="tool-card-arrow">Use Tool →</span>
+      </a>
 
-    <a href="/extract-pages" class="tool-card fade-in" data-cat="organize" style="--accent-color:#e8273c;--icon-bg:#fff0f2;">
-      <div class="tool-icon">📤</div>
-      <span class="category-label">Organize</span>
-      <h3>Extract Pages</h3>
-      <p>Extract specific pages as a new PDF</p>
-      <span class="tool-arrow">Use Tool →</span>
-    </a>
+      <a href="/extract-pages" class="tool-card fade-in-up" data-cat="organize" style="--tool-accent:#e8273c;--tool-bg:#fff0f2;--tool-badge-bg:#fff0f2;">
+        <span class="tool-card-badge">Organize</span>
+        <div class="tool-card-icon" style="background:#fff0f2;">📤</div>
+        <h3>Extract Pages</h3>
+        <p>Extract specific pages as a new PDF</p>
+        <span class="tool-card-arrow">Use Tool →</span>
+      </a>
 
-    <a href="/organize-pdf" class="tool-card fade-in" data-cat="organize" style="--accent-color:#e8273c;--icon-bg:#fff0f2;">
-      <div class="tool-icon">🗂️</div>
-      <span class="category-label">Organize</span>
-      <h3>Organize PDF</h3>
-      <p>Reorder and rearrange PDF pages visually</p>
-      <span class="tool-arrow">Use Tool →</span>
-    </a>
+      <a href="/organize-pdf" class="tool-card fade-in-up" data-cat="organize" style="--tool-accent:#e8273c;--tool-bg:#fff0f2;--tool-badge-bg:#fff0f2;">
+        <span class="tool-card-badge">Organize</span>
+        <div class="tool-card-icon" style="background:#fff0f2;">🗂️</div>
+        <h3>Organize PDF</h3>
+        <p>Reorder and rearrange PDF pages visually</p>
+        <span class="tool-card-arrow">Use Tool →</span>
+      </a>
 
-    <!-- 🔄 CONVERT TO PDF -->
-    <a href="/jpg-to-pdf" class="tool-card fade-in" data-cat="convert-to" style="--accent-color:#7c3aed;--icon-bg:#f5f3ff;">
-      <div class="tool-icon" style="background:#f5f3ff;">🖼️</div>
-      <span class="category-label" style="color:#7c3aed;background:#f5f3ff;">Convert</span>
-      <h3>JPG to PDF</h3>
-      <p>Convert images JPG PNG WEBP to PDF</p>
-      <span class="tool-arrow" style="color:#7c3aed;">Use Tool →</span>
-    </a>
+      <!-- CONVERT TO PDF -->
+      <a href="/jpg-to-pdf" class="tool-card fade-in-up" data-cat="convert-to" style="--tool-accent:#7c3aed;--tool-bg:#f5f3ff;--tool-badge-bg:#f5f3ff;">
+        <span class="tool-card-badge" style="background:#f5f3ff;color:#7c3aed;">Convert</span>
+        <div class="tool-card-icon" style="background:#f5f3ff;">🖼️</div>
+        <h3>JPG to PDF</h3>
+        <p>Convert images JPG PNG WEBP to PDF</p>
+        <span class="tool-card-arrow" style="color:#7c3aed;">Use Tool →</span>
+      </a>
 
-    <a href="/word-to-pdf" class="tool-card fade-in" data-cat="convert-to" style="--accent-color:#7c3aed;--icon-bg:#f5f3ff;">
-      <div class="tool-icon" style="background:#f5f3ff;">📝</div>
-      <span class="category-label" style="color:#7c3aed;background:#f5f3ff;">Convert</span>
-      <h3>Word to PDF</h3>
-      <p>Convert DOC DOCX Word files to PDF</p>
-      <span class="tool-arrow" style="color:#7c3aed;">Use Tool →</span>
-    </a>
+      <a href="/word-to-pdf" class="tool-card fade-in-up" data-cat="convert-to" style="--tool-accent:#7c3aed;--tool-bg:#f5f3ff;--tool-badge-bg:#f5f3ff;">
+        <span class="tool-card-badge" style="background:#f5f3ff;color:#7c3aed;">Convert</span>
+        <div class="tool-card-icon" style="background:#f5f3ff;">📝</div>
+        <h3>Word to PDF</h3>
+        <p>Convert DOC DOCX Word files to PDF</p>
+        <span class="tool-card-arrow" style="color:#7c3aed;">Use Tool →</span>
+      </a>
 
-    <a href="/excel-to-pdf" class="tool-card fade-in" data-cat="convert-to" style="--accent-color:#7c3aed;--icon-bg:#f5f3ff;">
-      <div class="tool-icon" style="background:#f5f3ff;">📊</div>
-      <span class="category-label" style="color:#7c3aed;background:#f5f3ff;">Convert</span>
-      <h3>Excel to PDF</h3>
-      <p>Convert XLS XLSX spreadsheets to PDF</p>
-      <span class="tool-arrow" style="color:#7c3aed;">Use Tool →</span>
-    </a>
+      <a href="/excel-to-pdf" class="tool-card fade-in-up" data-cat="convert-to" style="--tool-accent:#7c3aed;--tool-bg:#f5f3ff;--tool-badge-bg:#f5f3ff;">
+        <span class="tool-card-badge" style="background:#f5f3ff;color:#7c3aed;">Convert</span>
+        <div class="tool-card-icon" style="background:#f5f3ff;">📊</div>
+        <h3>Excel to PDF</h3>
+        <p>Convert XLS XLSX spreadsheets to PDF</p>
+        <span class="tool-card-arrow" style="color:#7c3aed;">Use Tool →</span>
+      </a>
 
-    <a href="/ppt-to-pdf" class="tool-card fade-in" data-cat="convert-to" style="--accent-color:#7c3aed;--icon-bg:#f5f3ff;">
-      <div class="tool-icon" style="background:#f5f3ff;">📑</div>
-      <span class="category-label" style="color:#7c3aed;background:#f5f3ff;">Convert</span>
-      <h3>PPT to PDF</h3>
-      <p>Convert PowerPoint presentations to PDF</p>
-      <span class="tool-arrow" style="color:#7c3aed;">Use Tool →</span>
-    </a>
+      <a href="/ppt-to-pdf" class="tool-card fade-in-up" data-cat="convert-to" style="--tool-accent:#7c3aed;--tool-bg:#f5f3ff;--tool-badge-bg:#f5f3ff;">
+        <span class="tool-card-badge" style="background:#f5f3ff;color:#7c3aed;">Convert</span>
+        <div class="tool-card-icon" style="background:#f5f3ff;">📑</div>
+        <h3>PPT to PDF</h3>
+        <p>Convert PowerPoint PPT PPTX to PDF</p>
+        <span class="tool-card-arrow" style="color:#7c3aed;">Use Tool →</span>
+      </a>
 
-    <a href="/html-to-pdf" class="tool-card fade-in" data-cat="convert-to" style="--accent-color:#7c3aed;--icon-bg:#f5f3ff;">
-      <div class="tool-icon" style="background:#f5f3ff;">🌐</div>
-      <span class="category-label" style="color:#7c3aed;background:#f5f3ff;">Convert</span>
-      <h3>HTML to PDF</h3>
-      <p>Convert webpage URL or HTML code to PDF</p>
-      <span class="tool-arrow" style="color:#7c3aed;">Use Tool →</span>
-    </a>
+      <a href="/html-to-pdf" class="tool-card fade-in-up" data-cat="convert-to" style="--tool-accent:#7c3aed;--tool-bg:#f5f3ff;--tool-badge-bg:#f5f3ff;">
+        <span class="tool-card-badge" style="background:#f5f3ff;color:#7c3aed;">Convert</span>
+        <div class="tool-card-icon" style="background:#f5f3ff;">🌐</div>
+        <h3>HTML to PDF</h3>
+        <p>Convert HTML web pages to PDF</p>
+        <span class="tool-card-arrow" style="color:#7c3aed;">Use Tool →</span>
+      </a>
 
-    <!-- 🔁 CONVERT FROM PDF -->
-    <a href="/pdf-to-word" class="tool-card fade-in" data-cat="convert-from" style="--accent-color:#0891b2;--icon-bg:#ecfeff;">
-      <div class="tool-icon" style="background:#ecfeff;">📄</div>
-      <span class="category-label" style="color:#0891b2;background:#ecfeff;">Convert</span>
-      <h3>PDF to Word</h3>
-      <p>Convert PDF to editable Word DOC DOCX</p>
-      <span class="tool-arrow" style="color:#0891b2;">Use Tool →</span>
-    </a>
+      <!-- CONVERT FROM PDF -->
+      <a href="/pdf-to-word" class="tool-card fade-in-up" data-cat="convert-from" style="--tool-accent:#0891b2;--tool-bg:#ecfeff;--tool-badge-bg:#ecfeff;">
+        <span class="tool-card-badge" style="background:#ecfeff;color:#0891b2;">Convert</span>
+        <div class="tool-card-icon" style="background:#ecfeff;">📝</div>
+        <h3>PDF to Word</h3>
+        <p>Convert PDF to editable DOCX Word</p>
+        <span class="tool-card-arrow" style="color:#0891b2;">Use Tool →</span>
+      </a>
 
-    <a href="/pdf-to-jpg" class="tool-card fade-in" data-cat="convert-from" style="--accent-color:#0891b2;--icon-bg:#ecfeff;">
-      <div class="tool-icon" style="background:#ecfeff;">🖼️</div>
-      <span class="category-label" style="color:#0891b2;background:#ecfeff;">Convert</span>
-      <h3>PDF to JPG</h3>
-      <p>Convert PDF pages to JPG images</p>
-      <span class="tool-arrow" style="color:#0891b2;">Use Tool →</span>
-    </a>
+      <a href="/pdf-to-jpg" class="tool-card fade-in-up" data-cat="convert-from" style="--tool-accent:#0891b2;--tool-bg:#ecfeff;--tool-badge-bg:#ecfeff;">
+        <span class="tool-card-badge" style="background:#ecfeff;color:#0891b2;">Convert</span>
+        <div class="tool-card-icon" style="background:#ecfeff;">🖼️</div>
+        <h3>PDF to JPG</h3>
+        <p>Extract pages as JPG images</p>
+        <span class="tool-card-arrow" style="color:#0891b2;">Use Tool →</span>
+      </a>
 
-    <a href="/pdf-to-excel" class="tool-card fade-in" data-cat="convert-from" style="--accent-color:#0891b2;--icon-bg:#ecfeff;">
-      <div class="tool-icon" style="background:#ecfeff;">📊</div>
-      <span class="category-label" style="color:#0891b2;background:#ecfeff;">Convert</span>
-      <h3>PDF to Excel</h3>
-      <p>Extract PDF tables into Excel spreadsheets</p>
-      <span class="tool-arrow" style="color:#0891b2;">Use Tool →</span>
-    </a>
+      <a href="/pdf-to-excel" class="tool-card fade-in-up" data-cat="convert-from" style="--tool-accent:#0891b2;--tool-bg:#ecfeff;--tool-badge-bg:#ecfeff;">
+        <span class="tool-card-badge" style="background:#ecfeff;color:#0891b2;">Convert</span>
+        <div class="tool-card-icon" style="background:#ecfeff;">📊</div>
+        <h3>PDF to Excel</h3>
+        <p>Extract tables to XLSX spreadsheet</p>
+        <span class="tool-card-arrow" style="color:#0891b2;">Use Tool →</span>
+      </a>
 
-    <a href="/pdf-to-ppt" class="tool-card fade-in" data-cat="convert-from" style="--accent-color:#0891b2;--icon-bg:#ecfeff;">
-      <div class="tool-icon" style="background:#ecfeff;">📑</div>
-      <span class="category-label" style="color:#0891b2;background:#ecfeff;">Convert</span>
-      <h3>PDF to PPT</h3>
-      <p>Convert PDF slides to editable PowerPoint</p>
-      <span class="tool-arrow" style="color:#0891b2;">Use Tool →</span>
-    </a>
+      <a href="/pdf-to-ppt" class="tool-card fade-in-up" data-cat="convert-from" style="--tool-accent:#0891b2;--tool-bg:#ecfeff;--tool-badge-bg:#ecfeff;">
+        <span class="tool-card-badge" style="background:#ecfeff;color:#0891b2;">Convert</span>
+        <div class="tool-card-icon" style="background:#ecfeff;">📑</div>
+        <h3>PDF to PPT</h3>
+        <p>Convert PDF to PowerPoint slides</p>
+        <span class="tool-card-arrow" style="color:#0891b2;">Use Tool →</span>
+      </a>
 
-    <!-- ⚡ OPTIMIZE PDF -->
-    <a href="/compress-pdf" class="tool-card fade-in" data-cat="optimize" style="--accent-color:#d97706;--icon-bg:#fffbeb;">
-      <div class="tool-icon" style="background:#fffbeb;">📦</div>
-      <span class="category-label" style="color:#d97706;background:#fffbeb;">Optimize</span>
-      <h3>Compress PDF</h3>
-      <p>Reduce PDF size while keeping quality</p>
-      <span class="tool-arrow" style="color:#d97706;">Use Tool →</span>
-    </a>
+      <!-- OPTIMIZE PDF -->
+      <a href="/compress-pdf" class="tool-card fade-in-up" data-cat="optimize" style="--tool-accent:#d97706;--tool-bg:#fffbeb;--tool-badge-bg:#fffbeb;">
+        <span class="tool-card-badge" style="background:#fffbeb;color:#d97706;">Optimize</span>
+        <div class="tool-card-icon" style="background:#fffbeb;">🗜️</div>
+        <h3>Compress PDF</h3>
+        <p>Reduce PDF file size without losing quality</p>
+        <span class="tool-card-arrow" style="color:#d97706;">Use Tool →</span>
+      </a>
 
-    <a href="/repair-pdf" class="tool-card fade-in" data-cat="optimize" style="--accent-color:#d97706;--icon-bg:#fffbeb;">
-      <div class="tool-icon" style="background:#fffbeb;">🔧</div>
-      <span class="category-label" style="color:#d97706;background:#fffbeb;">Optimize</span>
-      <h3>Repair PDF</h3>
-      <p>Fix damaged or corrupt PDF files</p>
-      <span class="tool-arrow" style="color:#d97706;">Use Tool →</span>
-    </a>
+      <a href="/repair-pdf" class="tool-card fade-in-up" data-cat="optimize" style="--tool-accent:#d97706;--tool-bg:#fffbeb;--tool-badge-bg:#fffbeb;">
+        <span class="tool-card-badge" style="background:#fffbeb;color:#d97706;">Optimize</span>
+        <div class="tool-card-icon" style="background:#fffbeb;">🔧</div>
+        <h3>Repair PDF</h3>
+        <p>Fix corrupted PDF files instantly</p>
+        <span class="tool-card-arrow" style="color:#d97706;">Use Tool →</span>
+      </a>
 
-    <a href="/ocr-pdf" class="tool-card fade-in" data-cat="optimize" style="--accent-color:#d97706;--icon-bg:#fffbeb;">
-      <div class="tool-icon" style="background:#fffbeb;">🔍</div>
-      <span class="category-label" style="color:#d97706;background:#fffbeb;">Optimize</span>
-      <h3>OCR PDF</h3>
-      <p>Make scanned PDFs searchable with OCR</p>
-      <span class="tool-arrow" style="color:#d97706;">Use Tool →</span>
-    </a>
+      <!-- EDIT PDF -->
+      <a href="/edit-pdf" class="tool-card fade-in-up" data-cat="edit" style="--tool-accent:#059669;--tool-bg:#ecfdf5;--tool-badge-bg:#ecfdf5;">
+        <span class="tool-card-badge" style="background:#ecfdf5;color:#059669;">Edit</span>
+        <div class="tool-card-icon" style="background:#ecfdf5;">✏️</div>
+        <h3>Edit PDF</h3>
+        <p>Add text and annotations to PDF files</p>
+        <span class="tool-card-arrow" style="color:#059669;">Use Tool →</span>
+      </a>
 
-    <!-- ✏️ EDIT PDF -->
-    <a href="/edit-pdf" class="tool-card fade-in" data-cat="edit" style="--accent-color:#059669;--icon-bg:#ecfdf5;">
-      <div class="tool-icon" style="background:#ecfdf5;">✏️</div>
-      <span class="category-label" style="color:#059669;background:#ecfdf5;">Edit</span>
-      <h3>Edit PDF</h3>
-      <p>Add text, images, shapes to your PDF</p>
-      <span class="tool-arrow" style="color:#059669;">Use Tool →</span>
-    </a>
+      <a href="/rotate-pdf" class="tool-card fade-in-up" data-cat="edit" style="--tool-accent:#059669;--tool-bg:#ecfdf5;--tool-badge-bg:#ecfdf5;">
+        <span class="tool-card-badge" style="background:#ecfdf5;color:#059669;">Edit</span>
+        <div class="tool-card-icon" style="background:#ecfdf5;">🔄</div>
+        <h3>Rotate PDF</h3>
+        <p>Rotate pages to correct orientation</p>
+        <span class="tool-card-arrow" style="color:#059669;">Use Tool →</span>
+      </a>
 
-    <a href="/rotate-pdf" class="tool-card fade-in" data-cat="edit" style="--accent-color:#059669;--icon-bg:#ecfdf5;">
-      <div class="tool-icon" style="background:#ecfdf5;">🔄</div>
-      <span class="category-label" style="color:#059669;background:#ecfdf5;">Edit</span>
-      <h3>Rotate PDF</h3>
-      <p>Rotate PDF pages to any orientation</p>
-      <span class="tool-arrow" style="color:#059669;">Use Tool →</span>
-    </a>
+      <a href="/add-watermark" class="tool-card fade-in-up" data-cat="edit" style="--tool-accent:#059669;--tool-bg:#ecfdf5;--tool-badge-bg:#ecfdf5;">
+        <span class="tool-card-badge" style="background:#ecfdf5;color:#059669;">Edit</span>
+        <div class="tool-card-icon" style="background:#ecfdf5;">💧</div>
+        <h3>Add Watermark</h3>
+        <p>Add text or image watermarks to PDF</p>
+        <span class="tool-card-arrow" style="color:#059669;">Use Tool →</span>
+      </a>
 
-    <a href="/add-watermark" class="tool-card fade-in" data-cat="edit" style="--accent-color:#059669;--icon-bg:#ecfdf5;">
-      <div class="tool-icon" style="background:#ecfdf5;">💧</div>
-      <span class="category-label" style="color:#059669;background:#ecfdf5;">Edit</span>
-      <h3>Add Watermark</h3>
-      <p>Stamp text or image watermark on PDF</p>
-      <span class="tool-arrow" style="color:#059669;">Use Tool →</span>
-    </a>
+      <a href="/page-numbers" class="tool-card fade-in-up" data-cat="edit" style="--tool-accent:#059669;--tool-bg:#ecfdf5;--tool-badge-bg:#ecfdf5;">
+        <span class="tool-card-badge" style="background:#ecfdf5;color:#059669;">Edit</span>
+        <div class="tool-card-icon" style="background:#ecfdf5;">🔢</div>
+        <h3>Page Numbers</h3>
+        <p>Add custom page numbers to PDF</p>
+        <span class="tool-card-arrow" style="color:#059669;">Use Tool →</span>
+      </a>
 
-    <a href="/page-numbers" class="tool-card fade-in" data-cat="edit" style="--accent-color:#059669;--icon-bg:#ecfdf5;">
-      <div class="tool-icon" style="background:#ecfdf5;">🔢</div>
-      <span class="category-label" style="color:#059669;background:#ecfdf5;">Edit</span>
-      <h3>Add Page Numbers</h3>
-      <p>Add page numbers to PDF documents</p>
-      <span class="tool-arrow" style="color:#059669;">Use Tool →</span>
-    </a>
+      <!-- SECURITY -->
+      <a href="/protect-pdf" class="tool-card fade-in-up" data-cat="security" style="--tool-accent:#dc2626;--tool-bg:#fef2f2;--tool-badge-bg:#fef2f2;">
+        <span class="tool-card-badge" style="background:#fef2f2;color:#dc2626;">Security</span>
+        <div class="tool-card-icon" style="background:#fef2f2;">🔐</div>
+        <h3>Protect PDF</h3>
+        <p>Add password protection to your PDF</p>
+        <span class="tool-card-arrow" style="color:#dc2626;">Use Tool →</span>
+      </a>
 
-    <a href="/compare-pdf" class="tool-card fade-in" data-cat="edit" style="--accent-color:#059669;--icon-bg:#ecfdf5;">
-      <div class="tool-icon" style="background:#ecfdf5;">�</div>
-      <span class="category-label" style="color:#059669;background:#ecfdf5;">Edit</span>
-      <h3>Compare PDF</h3>
-      <p>Compare two PDF files for differences</p>
-      <span class="tool-arrow" style="color:#059669;">Use Tool →</span>
-    </a>
+      <a href="/unlock-pdf" class="tool-card fade-in-up" data-cat="security" style="--tool-accent:#dc2626;--tool-bg:#fef2f2;--tool-badge-bg:#fef2f2;">
+        <span class="tool-card-badge" style="background:#fef2f2;color:#dc2626;">Security</span>
+        <div class="tool-card-icon" style="background:#fef2f2;">🔓</div>
+        <h3>Unlock PDF</h3>
+        <p>Remove password from protected PDF</p>
+        <span class="tool-card-arrow" style="color:#dc2626;">Use Tool →</span>
+      </a>
 
-    <!-- 🔒 PDF SECURITY -->
-    <a href="/protect-pdf" class="tool-card fade-in" data-cat="security" style="--accent-color:#dc2626;--icon-bg:#fef2f2;">
-      <div class="tool-icon" style="background:#fef2f2;">🔒</div>
-      <span class="category-label" style="color:#dc2626;background:#fef2f2;">Security</span>
-      <h3>Protect PDF</h3>
-      <p>Password protect your PDF files</p>
-      <span class="tool-arrow" style="color:#dc2626;">Use Tool →</span>
-    </a>
+      <a href="/sign-pdf" class="tool-card fade-in-up" data-cat="security" style="--tool-accent:#dc2626;--tool-bg:#fef2f2;--tool-badge-bg:#fef2f2;">
+        <span class="tool-card-badge" style="background:#fef2f2;color:#dc2626;">Security</span>
+        <div class="tool-card-icon" style="background:#fef2f2;">✍️</div>
+        <h3>Sign PDF</h3>
+        <p>Digitally sign your PDF documents</p>
+        <span class="tool-card-arrow" style="color:#dc2626;">Use Tool →</span>
+      </a>
 
-    <a href="/unlock-pdf" class="tool-card fade-in" data-cat="security" style="--accent-color:#dc2626;--icon-bg:#fef2f2;">
-      <div class="tool-icon" style="background:#fef2f2;">🔓</div>
-      <span class="category-label" style="color:#dc2626;background:#fef2f2;">Security</span>
-      <h3>Unlock PDF</h3>
-      <p>Remove password from PDF files</p>
-      <span class="tool-arrow" style="color:#dc2626;">Use Tool →</span>
-    </a>
+      <a href="/redact-pdf" class="tool-card fade-in-up" data-cat="security" style="--tool-accent:#dc2626;--tool-bg:#fef2f2;--tool-badge-bg:#fef2f2;">
+        <span class="tool-card-badge" style="background:#fef2f2;color:#dc2626;">Security</span>
+        <div class="tool-card-icon" style="background:#fef2f2;">🖤</div>
+        <h3>Redact PDF</h3>
+        <p>Black out sensitive information</p>
+        <span class="tool-card-arrow" style="color:#dc2626;">Use Tool →</span>
+      </a>
 
-    <a href="/sign-pdf" class="tool-card fade-in" data-cat="security" style="--accent-color:#dc2626;--icon-bg:#fef2f2;">
-      <div class="tool-icon" style="background:#fef2f2;">✍️</div>
-      <span class="category-label" style="color:#dc2626;background:#fef2f2;">Security</span>
-      <h3>Sign PDF</h3>
-      <p>Digitally sign PDF documents</p>
-      <span class="tool-arrow" style="color:#dc2626;">Use Tool →</span>
-    </a>
+      <!-- AI TOOLS -->
+      <a href="/ocr-pdf" class="tool-card fade-in-up" data-cat="ai" style="--tool-accent:#8b5cf6;--tool-bg:#f5f3ff;--tool-badge-bg:#f5f3ff;">
+        <span class="tool-card-badge" style="background:#f5f3ff;color:#8b5cf6;">AI</span>
+        <div class="tool-card-icon" style="background:#f5f3ff;">🤖</div>
+        <h3>OCR PDF</h3>
+        <p>Extract text from scanned PDFs with AI</p>
+        <span class="tool-card-arrow" style="color:#8b5cf6;">Use Tool →</span>
+      </a>
 
-    <a href="/redact-pdf" class="tool-card fade-in" data-cat="security" style="--accent-color:#dc2626;--icon-bg:#fef2f2;">
-      <div class="tool-icon" style="background:#fef2f2;">⬛</div>
-      <span class="category-label" style="color:#dc2626;background:#fef2f2;">Security</span>
-      <h3>Redact PDF</h3>
-      <p>Black out sensitive content in PDF</p>
-      <span class="tool-arrow" style="color:#dc2626;">Use Tool →</span>
-    </a>
+      <a href="/compare-pdf" class="tool-card fade-in-up" data-cat="ai" style="--tool-accent:#8b5cf6;--tool-bg:#f5f3ff;--tool-badge-bg:#f5f3ff;">
+        <span class="tool-card-badge" style="background:#f5f3ff;color:#8b5cf6;">AI</span>
+        <div class="tool-card-icon" style="background:#f5f3ff;">🔍</div>
+        <h3>Compare PDF</h3>
+        <p>Compare two PDFs and find differences</p>
+        <span class="tool-card-arrow" style="color:#8b5cf6;">Use Tool →</span>
+      </a>
 
-
+    </div>
   </div>
-</div>
+</section>
 
-<!-- ✅ HOW IT WORKS -->
-<section class="how-section">
-  <div class="how-inner">
-    <h2>How It Works</h2>
-    <p>Process your PDF files in 3 simple steps — no software installation needed</p>
-    <div class="steps">
-      <div class="step fade-in">
-        <div class="step-num">1</div>
-        <h3>Select Tool</h3>
-        <p>Choose from 20+ PDF tools above</p>
-      </div>
-      <div class="step fade-in">
-        <div class="step-num">2</div>
+<!-- HOW IT WORKS -->
+<section class="section" style="background:var(--white);border-top:var(--bw) solid var(--text);border-bottom:var(--bw) solid var(--text);">
+  <div class="container">
+    <div class="section-header">
+      <h2>How It Works</h2>
+      <p>Three simple steps to get your PDF work done</p>
+    </div>
+    <div class="steps-row">
+      <div class="step-card fade-in-up">
+        <div class="step-number">1</div>
         <h3>Upload File</h3>
-        <p>Drag & drop or select your PDF</p>
+        <p>Select or drag & drop your PDF file to our platform</p>
       </div>
-      <div class="step fade-in">
-        <div class="step-num">3</div>
-        <h3>Download Result</h3>
-        <p>Get your processed file instantly</p>
+      <div class="step-card fade-in-up">
+        <div class="step-number">2</div>
+        <h3>Process</h3>
+        <p>Our engine instantly processes your file with high accuracy</p>
+      </div>
+      <div class="step-card fade-in-up">
+        <div class="step-number">3</div>
+        <h3>Download</h3>
+        <p>Download your processed file — ready to use!</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ✅ WHY CHOOSE US -->
-<section class="features-section" id="features">
-  <div style="text-align:center;max-width:600px;margin:0 auto;">
-    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:800;margin-bottom:12px;">Why Choose PDFMagic?</h2>
-    <p style="color:var(--text-muted);">Trusted by millions worldwide for fast, secure, and free PDF processing</p>
-  </div>
-  <div class="features-grid">
-    <div class="feature-card fade-in">
-      <div class="feature-icon">🔒</div>
-      <h3>Bank-Level SSL Security</h3>
-      <p>All file transfers are secured with SSL encryption. Your files are deleted from our servers after 2 hours automatically.</p>
+<!-- FEATURES -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Why Choose PDFMagic?</h2>
+      <p>Made for everyone — from students to professionals</p>
     </div>
-    <div class="feature-card fade-in">
-      <div class="feature-icon">⚡</div>
-      <h3>Process in Seconds</h3>
-      <p>Our servers process files in seconds. No waiting, no queues. Your PDF is ready to download almost instantly.</p>
-    </div>
-    <div class="feature-card fade-in">
-      <div class="feature-icon">🌐</div>
-      <h3>Works on All Devices</h3>
-      <p>PDFMagic works in any browser on Windows, Mac, Linux, iOS or Android. No downloads or plugins required.</p>
-    </div>
-    <div class="feature-card fade-in">
-      <div class="feature-icon">💰</div>
-      <h3>100% Free Forever</h3>
-      <p>All basic tools are 100% free to use. No hidden charges, no credit card needed. Just upload and go.</p>
-    </div>
-    <div class="feature-card fade-in">
-      <div class="feature-icon">☁️</div>
-      <h3>Google Drive & Dropbox Support</h3>
-      <p>Upload from your device, Google Drive, or Dropbox. Download back to any platform seamlessly.</p>
-    </div>
-    <div class="feature-card fade-in">
-      <div class="feature-icon">🎯</div>
-      <h3>High Quality Output</h3>
-      <p>We use advanced algorithms to ensure your converted files maintain the highest possible quality and accuracy.</p>
+    <div class="features-grid">
+      <div class="feature-card fade-in-up">
+        <div class="feature-icon-big" style="background:#fff0f2;">🔒</div>
+        <h3>100% Secure</h3>
+        <p>Your files are encrypted with SSL and auto-deleted within 2 hours. Privacy is our priority.</p>
+      </div>
+      <div class="feature-card fade-in-up">
+        <div class="feature-icon-big" style="background:#f5f3ff;">⚡</div>
+        <h3>Super Fast</h3>
+        <p>Optimized servers ensure instant processing. No waiting in queues, no delays.</p>
+      </div>
+      <div class="feature-card fade-in-up">
+        <div class="feature-icon-big" style="background:#ecfdf5;">💰</div>
+        <h3>Completely Free</h3>
+        <p>All 20+ tools are free forever. No hidden fees, no subscriptions, no limits.</p>
+      </div>
+      <div class="feature-card fade-in-up">
+        <div class="feature-icon-big" style="background:#fffbeb;">📱</div>
+        <h3>Works Everywhere</h3>
+        <p>Use on any device — Windows, Mac, Linux, Android, iOS. No installation needed.</p>
+      </div>
+      <div class="feature-card fade-in-up">
+        <div class="feature-icon-big" style="background:#ecfeff;">🎯</div>
+        <h3>No Watermarks</h3>
+        <p>Clean output every time. We never add watermarks or branding to your files.</p>
+      </div>
+      <div class="feature-card fade-in-up">
+        <div class="feature-icon-big" style="background:#fef2f2;">🇮🇳</div>
+        <h3>Made for India</h3>
+        <p>Optimized servers for low latency in India. Support for regional languages.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ✅ BLOG PREVIEW SECTION -->
-<section class="blog-section" id="blog">
-  <div class="blog-inner">
-    <div class="blog-header">
-      <h2>PDF Tips & Guides</h2>
-      <p>Learn how to make the most of your PDF files with our expert guides</p>
+<!-- BLOG SECTION -->
+<section class="section" style="background:var(--white);border-top:var(--bw) solid var(--text);border-bottom:var(--bw) solid var(--text);" id="blog">
+  <div class="container">
+    <div class="section-header">
+      <h2>Latest from Our Blog</h2>
+      <p>Tips, tricks, and guides for PDF management</p>
     </div>
     <div class="blog-grid">
-      <article class="blog-card fade-in">
-        <div class="blog-thumbnail">📝</div>
-        <div class="blog-content">
-          <span class="blog-category">Comparison</span>
-          <h3>iLovePDF Alternative — 5 Free Sites Better Than iLovePDF in 2026</h3>
-          <p class="blog-excerpt">Looking for iLovePDF alternatives? We compare the top 5 free PDF tools that offer better features, faster processing, and no hidden costs.</p>
-          <div class="blog-meta">
-            <span>March 15, 2026</span>
-            <a href="/blog/ilovepdf-alternative" class="blog-link">Read More →</a>
-          </div>
+      <a href="/blog/ilovepdf-alternative" class="blog-card fade-in-up">
+        <div class="blog-card-img" style="background:linear-gradient(135deg,#e8273c,#f97316);">🔴</div>
+        <div class="blog-card-body">
+          <span class="blog-tag">Comparison</span>
+          <h3>iLovePDF Alternative — Why PDFMagic is Better</h3>
+          <p>Discover why PDFMagic is the best free alternative to iLovePDF for Indian users.</p>
         </div>
-      </article>
-      
-      <article class="blog-card fade-in">
-        <div class="blog-thumbnail">📦</div>
-        <div class="blog-content">
-          <span class="blog-category">Tutorial</span>
-          <h3>How to Compress PDF Without Losing Quality — Free Guide</h3>
-          <p class="blog-excerpt">Step-by-step guide to compress PDF files effectively while maintaining document quality. Perfect for email attachments and uploads.</p>
-          <div class="blog-meta">
-            <span>March 12, 2026</span>
-            <a href="/blog/compress-pdf-guide" class="blog-link">Read More →</a>
-          </div>
+      </a>
+      <a href="/blog/compress-pdf-guide" class="blog-card fade-in-up">
+        <div class="blog-card-img" style="background:linear-gradient(135deg,#f97316,#e8273c);">🗜️</div>
+        <div class="blog-card-body">
+          <span class="blog-tag">Guide</span>
+          <h3>How to Compress PDF Without Losing Quality</h3>
+          <p>Complete guide to reducing PDF file size without sacrificing quality.</p>
         </div>
-      </article>
-      
-      <article class="blog-card fade-in">
-        <div class="blog-thumbnail">🇮🇳</div>
-        <div class="blog-content">
-          <span class="blog-category">Hindi Guide</span>
-          <h3>PDF Merge Kaise Kare Free Mein — Step by Step Hindi Guide</h3>
-          <p class="blog-excerpt">PDF files ko free mein merge karna seekhein. Is complete Hindi guide mein hum step-by-step batayenge ki kisi bhi PDF tool ka use karein.</p>
-          <div class="blog-meta">
-            <span>March 10, 2026</span>
-            <a href="/blog/pdf-merge-hindi-guide" class="blog-link">Read More →</a>
-          </div>
+      </a>
+      <a href="/blog/pdf-merge-hindi-guide" class="blog-card fade-in-up">
+        <div class="blog-card-img" style="background:linear-gradient(135deg,#8b5cf6,#e8273c);">📄</div>
+        <div class="blog-card-body">
+          <span class="blog-tag">Hindi Guide</span>
+          <h3>PDF Merge Kaise Kare? — Complete Hindi Guide</h3>
+          <p>Step-by-step guide on merging PDF files explained in Hindi.</p>
         </div>
-      </article>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- ✅ FAQ SECTION -->
-<section class="faq-section" id="faq">
-  <h2>Frequently Asked Questions</h2>
-
-  <div class="faq-item">
-    <div class="faq-q" onclick="toggleFaq(this)">
-      Is PDFMagic really free?
-      <span class="arrow">+</span>
+<!-- FAQ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Frequently Asked Questions</h2>
+      <p>Everything you need to know about PDFMagic</p>
     </div>
-    <div class="faq-a">Yes! PDFMagic is completely free to use. All 20+ PDF tools including merge, split, compress, and convert are available at no cost. No hidden charges, no subscription required. You can process unlimited files without spending a penny.</div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-q" onclick="toggleFaq(this)">
-      Is PDFMagic a good iLovePDF alternative?
-      <span class="arrow">+</span>
+    <div class="faq-list">
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Is PDFMagic really free? <span class="faq-arrow">+</span></div>
+        <div class="faq-a">Yes! All 20+ PDF tools are completely free forever. No hidden fees, no subscriptions, no limits on usage.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Are my files secure? <span class="faq-arrow">+</span></div>
+        <div class="faq-a">Absolutely. All uploads are encrypted with SSL. Files are automatically deleted from our servers after 2 hours.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Do I need to create an account? <span class="faq-arrow">+</span></div>
+        <div class="faq-a">No registration is required! Just upload your file, process it, and download — all without creating an account.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">What file types do you support? <span class="faq-arrow">+</span></div>
+        <div class="faq-a">We support PDF, Word (DOC/DOCX), Excel (XLS/XLSX), PowerPoint (PPT/PPTX), JPG, PNG, GIF, WebP, HTML, and more.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Is there a file size limit? <span class="faq-arrow">+</span></div>
+        <div class="faq-a">Files up to 100MB are supported for free processing. For larger files, contact our support team.</div>
+      </div>
     </div>
-    <div class="faq-a">Absolutely! PDFMagic is one of the best iLovePDF alternatives available. We offer more tools (20+ vs 15), faster processing times, no file limits for basic users, and a cleaner interface. Plus, we're specifically optimized for Indian users with better performance on local networks.</div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-q" onclick="toggleFaq(this)">
-      Are my uploaded files safe?
-      <span class="arrow">+</span>
-    </div>
-    <div class="faq-a">Your files are 100% secure with PDFMagic. We use bank-level 256-bit SSL encryption for all transfers. Files are automatically deleted from our servers after 2 hours, and we never share or sell your data to third parties. Your privacy is our top priority.</div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-q" onclick="toggleFaq(this)">
-      What file formats are supported?
-      <span class="arrow">+</span>
-    </div>
-    <div class="faq-a">PDFMagic supports all major formats: PDF, Word (DOC, DOCX), Excel (XLS, XLSX), PowerPoint (PPT, PPTX), and images (JPG, PNG, GIF, WEBP, TIFF, BMP). You can convert between any of these formats and PDF with high accuracy.</div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-q" onclick="toggleFaq(this)">
-      Do I need to install any software?
-      <span class="arrow">+</span>
-    </div>
-    <div class="faq-a">No installation required! PDFMagic is a completely web-based tool that works directly in your browser. Simply visit our website, select your tool, upload your file, and you're done. Works on Chrome, Firefox, Safari, Edge, and mobile browsers.</div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-q" onclick="toggleFaq(this)">
-      What is the maximum file size?
-      <span class="arrow">+</span>
-    </div>
-    <div class="faq-a">Free users can upload files up to 100MB in size, which covers 95% of everyday PDF documents. For larger files, you can upgrade to our premium plan which supports files up to 500MB. Most PDF operations work efficiently within these limits.</div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-q" onclick="toggleFaq(this)">
-      Can I use PDFMagic on mobile?
-      <span class="arrow">+</span>
-    </div>
-    <div class="faq-a">Yes! PDFMagic is fully optimized for mobile devices. Our responsive design works perfectly on smartphones and tablets. Whether you're using Android or iOS, you can access all PDF tools with the same ease as on desktop.</div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-q" onclick="toggleFaq(this)">
-      How many files can I process at once?
-      <span class="arrow">+</span>
-    </div>
-    <div class="faq-a">Free users can process up to 2 files simultaneously for most tools. Premium users get unlimited batch processing, allowing you to merge dozens of PDFs or convert multiple files at once. Perfect for businesses and power users who need efficiency.</div>
   </div>
 </section>
 
-<!-- ✅ CTA BANNER SECTION -->
-<section class="cta-section">
-  <h2>Start Using Free PDF Tools Right Now</h2>
-  <p>No sign up. No software. Just results.</p>
-  <a href="#tools" class="cta-btn">🚀 Get Started Free</a>
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <h2>Ready to Transform Your PDFs?</h2>
+  <p>Join 5 million+ users who trust PDFMagic for all their PDF needs. Start now — it's free!</p>
+  <a href="#tools" class="btn btn-lg">🚀 Start Using Free Tools →</a>
 </section>
 
-<!-- ✅ FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="logo" style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
-          <div class="logo-icon">📄</div>
-          <span class="logo-text">PDF<span>Magic</span></span>
-        </div>
-        <p>Every PDF Tool You Need — 100% Free</p>
-        <div class="social-icons">
-          <a href="#" class="social-icon">𝕏</a>
-          <a href="#" class="social-icon">in</a>
-          <a href="#" class="social-icon">▶</a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>PDF Tools</h4>
-        <ul>
-          <li><a href="/merge-pdf">Merge PDF</a></li>
-          <li><a href="/split-pdf">Split PDF</a></li>
-          <li><a href="/compress-pdf">Compress PDF</a></li>
-          <li><a href="/rotate-pdf">Rotate PDF</a></li>
-          <li><a href="/ocr-pdf">OCR PDF</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Convert</h4>
-        <ul>
-          <li><a href="/pdf-to-word">PDF to Word</a></li>
-          <li><a href="/pdf-to-jpg">PDF to JPG</a></li>
-          <li><a href="/word-to-pdf">Word to PDF</a></li>
-          <li><a href="/jpg-to-pdf">JPG to PDF</a></li>
-          <li><a href="/excel-to-pdf">Excel to PDF</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="/about">About</a></li>
-          <li><a href="/blog">Blog</a></li>
-          <li><a href="/pricing" id="pricing">Pricing</a></li>
-          <li><a href="/contact">Contact</a></li>
-          <li><a href="/privacy">Privacy Policy</a></li>
-          <li><a href="/terms">Terms</a></li>
-        </ul>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>📄 PDF<span>Magic</span></h3>
+      <p>Your free online PDF tools platform. Merge, split, compress, convert — all 100% free with no registration required.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Twitter">🐦</a>
+        <a href="#" aria-label="Facebook">📘</a>
+        <a href="#" aria-label="Instagram">📷</a>
+        <a href="#" aria-label="LinkedIn">💼</a>
+        <a href="#" aria-label="YouTube">▶️</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>© 2026 PDFMagic | Made with ❤️ in India</p>
-      <div class="footer-links">
-        <a href="/privacy">Privacy Policy</a>
-        <a href="/terms">Terms</a>
-      </div>
+    <div class="footer-col">
+      <h4>PDF Tools</h4>
+      <ul>
+        <li><a href="/merge-pdf">Merge PDF</a></li>
+        <li><a href="/split-pdf">Split PDF</a></li>
+        <li><a href="/compress-pdf">Compress PDF</a></li>
+        <li><a href="/pdf-to-word">PDF to Word</a></li>
+        <li><a href="/jpg-to-pdf">JPG to PDF</a></li>
+        <li><a href="/rotate-pdf">Rotate PDF</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/privacy">Privacy Policy</a></li>
+        <li><a href="/terms">Terms of Service</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="/contact">Help Center</a></li>
+        <li><a href="mailto:pdfmagicc@gmail.com">Email Support</a></li>
+        <li><a href="tel:+917817808959">+91-7817808959</a></li>
+        <li><a href="/sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 PDFMagic. Made with ❤️ in India. All rights reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="/sitemap.xml">Sitemap</a>
     </div>
   </div>
 </footer>
 
 <script>
-  // Filter Tools
+  // Filter tools by category
   function filterTools(cat, btn) {
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    document.querySelectorAll('.tool-card').forEach(card => {
+    const cards = document.querySelectorAll('#toolsGrid .tool-card');
+    cards.forEach(card => {
       if (cat === 'all' || card.dataset.cat === cat) {
         card.classList.remove('hidden');
       } else {
@@ -1567,77 +570,25 @@
     });
   }
 
-  // Search Tools
+  // Search tools
   document.getElementById('toolSearch').addEventListener('input', function(e) {
-    const searchTerm = e.target.value.toLowerCase();
-    document.querySelectorAll('.tool-card').forEach(card => {
-      const toolName = card.querySelector('h3').textContent.toLowerCase();
-      const toolDesc = card.querySelector('p').textContent.toLowerCase();
-      if (toolName.includes(searchTerm) || toolDesc.includes(searchTerm)) {
-        card.style.display = '';
-      } else {
-        card.style.display = 'none';
-      }
+    const query = e.target.value.toLowerCase();
+    document.querySelectorAll('#toolsGrid .tool-card').forEach(card => {
+      const text = card.textContent.toLowerCase();
+      card.classList.toggle('hidden', !text.includes(query));
     });
   });
 
-  // FAQ Toggle
-  function toggleFaq(el) {
-    const item = el.parentElement;
-    const wasOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-    if (!wasOpen) item.classList.add('open');
-  }
-
-  // Mobile Menu Toggle
-  document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-    const navLinks = document.querySelector('.nav-links');
-    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-    navLinks.style.position = 'absolute';
-    navLinks.style.top = '100%';
-    navLinks.style.left = '0';
-    navLinks.style.right = '0';
-    navLinks.style.background = 'white';
-    navLinks.style.flexDirection = 'column';
-    navLinks.style.padding = '20px';
-    navLinks.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
-  });
-
-  // Scroll Fade-in Animation
+  // Scroll fade-in animations
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
       }
     });
   }, { threshold: 0.1 });
 
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-  // Smooth Scroll for Anchor Links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }
-    });
-  });
-
-  // Add scroll shadow to navbar
-  window.addEventListener('scroll', function() {
-    const nav = document.querySelector('nav');
-    if (window.scrollY > 10) {
-      nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
-    } else {
-      nav.style.boxShadow = '0 1px 8px rgba(0,0,0,0.06)';
-    }
-  });
+  document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
 </script>
 
 </body>

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-in">
 <head>
-  <meta charset="UTF-8" />  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Merge PDF Files Online Free | Combine Multiple PDFs into One - PDFMagic</title>
@@ -31,471 +32,285 @@
     "description": "Merge PDF files online for free. Combine multiple PDFs into one document.",
     "applicationCategory": "UtilityApplication",
     "operatingSystem": "Web Browser",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "INR"
-    }
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }
   }
   </script>
   
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
   <script src="pdf-processor.js"></script>
-  
-  <style>
-    :root {
-      --red: #e8273c;
-      --red-dark: #c41e32;
-      --red-light: #ff4d63;
-      --bg: #f7f8fc;
-      --white: #ffffff;
-      --text: #1a1a2e;
-      --text-muted: #6b7280;
-      --border: #e5e7eb;
-      --card-shadow: 0 2px 12px rgba(0,0,0,0.08);
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      min-height: 100vh;
-    }
-    nav {
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 1px 8px rgba(0,0,0,0.06);
-    }
-    .nav-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .logo {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--red);
-      text-decoration: none;
-    }
-    .hero {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-    .hero h1 {
-      font-size: 3rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-      color: var(--text);
-    }
-    .hero p {
-      font-size: 1.25rem;
-      color: var(--text-muted);
-      margin-bottom: 2rem;
-    }
-    .tool-container {
-      max-width: 800px;
-      margin: 0 auto;
-      background: var(--white);
-      border-radius: 16px;
-      padding: 3rem;
-      box-shadow: var(--card-shadow);
-    }
-    .upload-area {
-      border: 3px dashed var(--border);
-      border-radius: 12px;
-      padding: 4rem 2rem;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .upload-area:hover {
-      border-color: var(--red);
-      background: rgba(232,39,60,0.05);
-    }
-    .upload-area.dragover {
-      border-color: var(--red);
-      background: rgba(232,39,60,0.1);
-    }
-    .upload-icon {
-      font-size: 4rem;
-      margin-bottom: 1rem;
-    }
-    .btn-primary {
-      background: var(--red);
-      color: var(--white);
-      padding: 1rem 2rem;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .btn-primary:hover {
-      background: var(--red-dark);
-      transform: translateY(-2px);
-    }
-    .features {
-      max-width: 1200px;
-      margin: 4rem auto;
-      padding: 0 2rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-    .feature-card {
-      background: var(--white);
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: var(--card-shadow);
-    }
-    .feature-card h3 {
-      color: var(--red);
-      margin-bottom: 0.5rem;
-    }
-    .seo-content {
-      max-width: 800px;
-      margin: 4rem auto;
-      padding: 0 2rem;
-    }
-    .seo-content h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: var(--text);
-    }
-    .seo-content p {
-      color: var(--text-muted);
-      margin-bottom: 1rem;
-    }
-    footer {
-      background: var(--text);
-      color: var(--white);
-      padding: 3rem 2rem;
-      text-align: center;
-    }
-    .footer-links a {
-      color: var(--white);
-      text-decoration: none;
-      margin: 0 1rem;
-    }
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.8);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-    }
-    .modal-content {
-      background: var(--white);
-      padding: 3rem;
-      border-radius: 16px;
-      max-width: 600px;
-      width: 90%;
-    }
-    .progress-bar {
-      width: 100%;
-      height: 8px;
-      background: var(--border);
-      border-radius: 4px;
-      overflow: hidden;
-      margin: 2rem 0;
-    }
-    .progress-fill {
-      height: 100%;
-      background: var(--red);
-      width: 0%;
-      transition: width 0.3s ease;
-    }
-    .success-icon {
-      font-size: 4rem;
-      color: var(--green);
-      text-align: center;
-      margin: 2rem 0;
-    }
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 2rem; }
-      .tool-container { padding: 2rem; }
-    }
-    .breadcrumbs {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1rem 2rem;
-      font-size: 0.9rem;
-      color: #8b8b9e;
-    }
-    .breadcrumbs a {
-      color: #8b8b9e;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .breadcrumbs a:hover {
-      color: #e8273c;
-    }
-    .breadcrumbs .separator {
-      margin: 0 0.5rem;
-    }
-    .breadcrumbs .current {
-      color: #e0e0e0;
-    }
-    .related-tools {
-      max-width: 1200px;
-      margin: 4rem auto;
-      padding: 0 2rem;
-    }
-    .related-tools h2 {
-      text-align: center;
-      color: var(--text);
-      margin-bottom: 2rem;
-    }
-    .related-tools-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-    }
-    .related-tool-card {
-      background: var(--white);
-      padding: 1.5rem;
-      border-radius: 12px;
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-      border: 1px solid var(--border);
-    }
-    .related-tool-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-    }
-    .related-tool-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-    .related-tool-card h3 {
-      color: var(--text);
-      margin-bottom: 0.5rem;
-      font-size: 1.1rem;
-    }
-    .related-tool-card p {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      margin: 0;
-    }
-  </style>
 </head>
 <body>
-  <nav>
-    <div class="nav-content">
-      <a href="/" class="logo">PDFMagic</a>
-      <a href="/" style="color: var(--text); text-decoration: none;">All Tools</a>
-    </div>
-  </nav>
 
-  <div class="breadcrumbs">
-    <a href="/">Home</a>
-    <span class="separator">›</span>
-    <span class="current">Merge PDF</span>
+<!-- NAVBAR -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="/">
+      <div class="nav-brand-icon">📄</div>
+      PDF<span>Magic</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/">Home</a></li>
+      <li><a href="/#tools">All Tools</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('mobile-open')">☰</button>
   </div>
+</nav>
 
-  <div class="hero">
-    <h1>Merge PDF Files Online</h1>
-    <p>Combine multiple PDF files into one document instantly. Free, fast and secure.</p>
-  </div>
+<!-- BREADCRUMBS -->
+<div class="breadcrumbs">
+  <a href="/">Home</a> <span class="sep">›</span> Merge PDF
+</div>
 
-  <div class="tool-container">
-    <div class="upload-area" id="uploadArea">
-      <div class="upload-icon">📄</div>
-      <h3>Drop PDF files here</h3>
-      <p style="color: var(--text-muted); margin: 1rem 0;">or click to browse</p>
-      <input type="file" id="fileInput" accept=".pdf" multiple style="display: none;">
-      <button class="btn-primary" onclick="document.getElementById('fileInput').click()">Select PDF Files</button>
+<!-- TOOL HERO -->
+<div class="tool-hero">
+  <h1>Merge PDF Files Online</h1>
+  <p style="color:var(--text-muted);font-size:1.1rem;max-width:520px;margin:12px auto 0;">Combine multiple PDF files into one document instantly. Free, fast and secure.</p>
+</div>
+
+<!-- MAIN TOOL -->
+<div class="section" style="padding-top:0;">
+  <div class="container" style="max-width:860px;">
+    <div class="tool-container">
+      <div class="upload-zone" id="uploadArea">
+        <div class="upload-icon-large">📄</div>
+        <h3 style="margin-bottom:8px;">Drop PDF files here</h3>
+        <p style="color:var(--text-muted);margin-bottom:20px;">or click to browse — select 2 or more PDF files</p>
+        <input type="file" id="fileInput" accept=".pdf" multiple style="display: none;">
+        <button class="btn btn-primary btn-lg" onclick="document.getElementById('fileInput').click()">
+          📁 Select PDF Files
+        </button>
+      </div>
+    </div>
+
+    <!-- FEATURES -->
+    <div class="features-grid" style="margin-top:32px;">
+      <div class="feature-card">
+        <div class="feature-icon-big" style="background:#fff0f2;">🔒</div>
+        <h3>Secure</h3>
+        <p>Your files are encrypted and deleted automatically after processing.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon-big" style="background:#f5f3ff;">⚡</div>
+        <h3>Fast</h3>
+        <p>Merge PDFs in seconds with our optimized processing engine.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon-big" style="background:#ecfdf5;">🆓</div>
+        <h3>Free</h3>
+        <p>No registration, no watermarks, completely free to use.</p>
+      </div>
+    </div>
+
+    <!-- HOW-TO -->
+    <div class="page-content" style="padding:48px 0;">
+      <h2>How to Merge PDF Files</h2>
+      <p>1. Select or drag & drop multiple PDF files into the upload area.</p>
+      <p>2. Arrange the files in the order you want them to appear.</p>
+      <p>3. Click the merge button to combine your PDFs.</p>
+      <p>4. Download your merged PDF file instantly.</p>
+
+      <h2>Why Use PDFMagic to Merge PDFs?</h2>
+      <p>PDFMagic provides the easiest way to merge PDF files online. Our tool works on any device — Windows, Mac, Linux, Android, or iOS. Simply upload your PDFs, arrange them in the desired order, and merge them into a single document. Perfect for combining reports, invoices, contracts, or any PDF documents.</p>
+
+      <h2>Features of Our PDF Merger</h2>
+      <ul>
+        <li>Merge unlimited PDF files at once</li>
+        <li>Preserve original formatting and quality</li>
+        <li>No file size limits (up to 100MB)</li>
+        <li>SSL encrypted for security</li>
+        <li>Works on all devices and browsers</li>
+      </ul>
+    </div>
+
+    <!-- RELATED TOOLS -->
+    <div style="margin-top:16px;">
+      <h2 style="text-align:center;margin-bottom:24px;">Related PDF Tools</h2>
+      <div class="related-tools-grid">
+        <a href="/split-pdf" class="related-tool">
+          <div class="related-tool-icon">✂️</div>
+          <h3>Split PDF</h3>
+          <p>Separate PDF pages into multiple files</p>
+        </a>
+        <a href="/compress-pdf" class="related-tool">
+          <div class="related-tool-icon">🗜️</div>
+          <h3>Compress PDF</h3>
+          <p>Reduce PDF file size without quality loss</p>
+        </a>
+        <a href="/organize-pdf" class="related-tool">
+          <div class="related-tool-icon">📋</div>
+          <h3>Organize PDF</h3>
+          <p>Rearrange, add, or remove PDF pages</p>
+        </a>
+        <a href="/extract-pages" class="related-tool">
+          <div class="related-tool-icon">📄</div>
+          <h3>Extract Pages</h3>
+          <p>Extract specific pages from PDF</p>
+        </a>
+        <a href="/rotate-pdf" class="related-tool">
+          <div class="related-tool-icon">🔄</div>
+          <h3>Rotate PDF</h3>
+          <p>Rotate PDF pages to correct orientation</p>
+        </a>
+        <a href="/pdf-to-word" class="related-tool">
+          <div class="related-tool-icon">📝</div>
+          <h3>PDF to Word</h3>
+          <p>Convert PDF to editable Word document</p>
+        </a>
+      </div>
     </div>
   </div>
+</div>
 
-  <div class="features">
-    <div class="feature-card">
-      <h3>🔒 Secure</h3>
-      <p>Your files are encrypted and deleted automatically after processing.</p>
+<!-- MODAL -->
+<div class="modal-overlay" id="modal">
+  <div class="modal-box">
+    <h3 id="modalTitle" style="text-align:center;">Processing...</h3>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
     </div>
-    <div class="feature-card">
-      <h3>⚡ Fast</h3>
-      <p>Merge PDFs in seconds with our optimized processing engine.</p>
-    </div>
-    <div class="feature-card">
-      <h3>🆓 Free</h3>
-      <p>No registration, no watermarks, completely free to use.</p>
-    </div>
-  </div>
-
-  <div class="seo-content">
-    <h2>How to Merge PDF Files</h2>
-    <p>1. Select or drag and drop multiple PDF files into the upload area.</p>
-    <p>2. Arrange the files in the order you want them to appear.</p>
-    <p>3. Click the merge button to combine your PDFs.</p>
-    <p>4. Download your merged PDF file instantly.</p>
-
-    <h2>Why Use PDFMagic to Merge PDFs?</h2>
-    <p>PDFMagic provides the easiest way to merge PDF files online. Our tool works on any device - Windows, Mac, Linux, Android, or iOS. Simply upload your PDFs, arrange them in the desired order, and merge them into a single document. Perfect for combining reports, invoices, contracts, or any PDF documents.</p>
-
-    <h2>Features of Our PDF Merger</h2>
-    <p>- Merge unlimited PDF files at once<br>- Preserve original formatting and quality<br>- No file size limits<br>- Works offline after first use<br>- Bank-level encryption for security</p>
-  </div>
-
-  <div class="related-tools">
-    <h2>Related PDF Tools</h2>
-    <div class="related-tools-grid">
-      <a href="/split-pdf" class="related-tool-card">
-        <div class="related-tool-icon">✂️</div>
-        <h3>Split PDF</h3>
-        <p>Separate PDF pages into multiple files</p>
-      </a>
-      <a href="/compress-pdf" class="related-tool-card">
-        <div class="related-tool-icon">🗜️</div>
-        <h3>Compress PDF</h3>
-        <p>Reduce PDF file size without quality loss</p>
-      </a>
-      <a href="/organize-pdf" class="related-tool-card">
-        <div class="related-tool-icon">📋</div>
-        <h3>Organize PDF</h3>
-        <p>Rearrange, add, or remove PDF pages</p>
-      </a>
-      <a href="/extract-pages" class="related-tool-card">
-        <div class="related-tool-icon">📄</div>
-        <h3>Extract Pages</h3>
-        <p>Extract specific pages from PDF</p>
-      </a>
-      <a href="/rotate-pdf" class="related-tool-card">
-        <div class="related-tool-icon">🔄</div>
-        <h3>Rotate PDF</h3>
-        <p>Rotate PDF pages to correct orientation</p>
-      </a>
-      <a href="/pdf-to-word" class="related-tool-card">
-        <div class="related-tool-icon">📝</div>
-        <h3>PDF to Word</h3>
-        <p>Convert PDF to editable Word document</p>
-      </a>
+    <p id="modalText" style="text-align:center;color:var(--text-muted);">Please wait while we merge your files.</p>
+    <div id="resultArea" style="display:none;">
+      <div style="text-align:center;font-size:3rem;margin:16px 0;">✅</div>
+      <h3 style="text-align:center;margin-bottom:8px;">Success!</h3>
+      <p style="text-align:center;color:var(--text-muted);margin-bottom:20px;">Your PDF has been merged successfully.</p>
+      <button class="btn btn-primary btn-lg" id="downloadBtn" style="width:100%;margin-bottom:10px;">⬇️ Download Merged PDF</button>
+      <button class="btn btn-white btn-lg" id="newFileBtn" style="width:100%;">🔄 Merge Another PDF</button>
     </div>
   </div>
+</div>
 
-  <footer>
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <h2>Need More PDF Tools?</h2>
+  <p>Explore our complete suite of 20+ free PDF tools — all in one place!</p>
+  <a href="/" class="btn btn-lg">🔍 Browse All Tools →</a>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>📄 PDF<span>Magic</span></h3>
+      <p>Your free online PDF tools platform. Made with ❤️ in India.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Twitter">🐦</a>
+        <a href="#" aria-label="Facebook">📘</a>
+        <a href="#" aria-label="Instagram">📷</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>PDF Tools</h4>
+      <ul>
+        <li><a href="/merge-pdf">Merge PDF</a></li>
+        <li><a href="/split-pdf">Split PDF</a></li>
+        <li><a href="/compress-pdf">Compress PDF</a></li>
+        <li><a href="/pdf-to-word">PDF to Word</a></li>
+        <li><a href="/jpg-to-pdf">JPG to PDF</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="/contact">Help Center</a></li>
+        <li><a href="mailto:pdfmagicc@gmail.com">Email Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
     <p>© 2026 PDFMagic. All rights reserved.</p>
-    <div class="footer-links">
-      <a href="/">Home</a>
-      <a href="/merge-pdf">Merge PDF</a>
-      <a href="/split-pdf">Split PDF</a>
-      <a href="/privacy">Privacy Policy</a>
-    </div>
-  </footer>
-
-  <div class="modal" id="modal">
-    <div class="modal-content">
-      <h3 id="modalTitle">Processing...</h3>
-      <div class="progress-bar">
-        <div class="progress-fill" id="progressFill"></div>
-      </div>
-      <p id="modalText">Please wait while we process your files.</p>
-      <div id="resultArea" style="display: none;">
-        <div class="success-icon">✅</div>
-        <h3 style="text-align: center;">Success!</h3>
-        <p style="text-align: center; margin-bottom: 1rem;">Your PDF has been merged successfully.</p>
-        <button class="btn-primary" id="downloadBtn" style="width: 100%;">Download Merged PDF</button>
-        <button class="btn-primary" id="newFileBtn" style="width: 100%; margin-top: 1rem; background: var(--text-muted);">Merge Another PDF</button>
-      </div>
+    <div class="footer-bottom-links">
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
     </div>
   </div>
+</footer>
 
-  <script>
-    const uploadArea = document.getElementById('uploadArea');
-    const fileInput = document.getElementById('fileInput');
-    const modal = document.getElementById('modal');
-    const progressFill = document.getElementById('progressFill');
-    const resultArea = document.getElementById('resultArea');
-    const downloadBtn = document.getElementById('downloadBtn');
-    const newFileBtn = document.getElementById('newFileBtn');
+<script>
+  const uploadArea = document.getElementById('uploadArea');
+  const fileInput = document.getElementById('fileInput');
+  const modal = document.getElementById('modal');
+  const progressFill = document.getElementById('progressFill');
+  const resultArea = document.getElementById('resultArea');
+  const downloadBtn = document.getElementById('downloadBtn');
+  const newFileBtn = document.getElementById('newFileBtn');
 
-    uploadArea.addEventListener('dragover', (e) => {
-      e.preventDefault();
-      uploadArea.classList.add('dragover');
-    });
+  uploadArea.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    uploadArea.classList.add('dragover');
+  });
 
-    uploadArea.addEventListener('dragleave', () => {
-      uploadArea.classList.remove('dragover');
-    });
+  uploadArea.addEventListener('dragleave', () => {
+    uploadArea.classList.remove('dragover');
+  });
 
-    uploadArea.addEventListener('drop', (e) => {
-      e.preventDefault();
-      uploadArea.classList.remove('dragover');
-      handleFiles(e.dataTransfer.files);
-    });
+  uploadArea.addEventListener('drop', (e) => {
+    e.preventDefault();
+    uploadArea.classList.remove('dragover');
+    handleFiles(e.dataTransfer.files);
+  });
 
-    fileInput.addEventListener('change', (e) => {
-      handleFiles(e.target.files);
-    });
+  fileInput.addEventListener('change', (e) => handleFiles(e.target.files));
 
-    async function handleFiles(files) {
-      if (files.length < 2) {
-        alert('Please select at least 2 PDF files to merge.');
-        return;
-      }
+  async function handleFiles(files) {
+    if (files.length < 2) {
+      alert('Please select at least 2 PDF files to merge.');
+      return;
+    }
+    modal.classList.add('active');
+    progressFill.style.width = '0%';
+    resultArea.style.display = 'none';
+    document.getElementById('modalText').style.display = 'block';
+    document.getElementById('modalTitle').textContent = 'Processing...';
 
-      modal.style.display = 'flex';
-      const formData = new FormData();
-      for (let i = 0; i < files.length; i++) {
-        formData.append('pdfs', files[i]);
-      }
-
-      try {
-        progressFill.style.width = '30%';
-        const response = await fetch('/merge-pdf', {
-          method: 'POST',
-          body: formData
-        });
-        progressFill.style.width = '70%';
-        
-        if (!response.ok) throw new Error('Merge failed');
-        
-        const blob = await response.blob();
-        const url = URL.createObjectURL(blob);
-        progressFill.style.width = '100%';
-        
-        setTimeout(() => {
-          document.getElementById('modalTitle').textContent = 'Complete!';
-          document.getElementById('modalText').style.display = 'none';
-          resultArea.style.display = 'block';
-          downloadBtn.onclick = () => {
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'merged.pdf';
-            a.click();
-          };
-        }, 500);
-      } catch (error) {
-        alert('Error merging PDFs. Please try again.');
-        modal.style.display = 'none';
-      }
+    const formData = new FormData();
+    for (let i = 0; i < files.length; i++) {
+      formData.append('pdfs', files[i]);
     }
 
-    newFileBtn.onclick = () => {
-      modal.style.display = 'none';
-      resultArea.style.display = 'none';
-      document.getElementById('modalTitle').textContent = 'Processing...';
-      document.getElementById('modalText').style.display = 'block';
-      progressFill.style.width = '0%';
-      fileInput.value = '';
-    };
-  </script>
+    try {
+      progressFill.style.width = '30%';
+      const response = await fetch('/merge-pdf', { method: 'POST', body: formData });
+      progressFill.style.width = '70%';
+
+      if (!response.ok) throw new Error('Merge failed');
+
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+      progressFill.style.width = '100%';
+
+      setTimeout(() => {
+        document.getElementById('modalTitle').textContent = 'Complete!';
+        document.getElementById('modalText').style.display = 'none';
+        resultArea.style.display = 'block';
+        downloadBtn.onclick = () => {
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = 'merged.pdf';
+          a.click();
+        };
+      }, 500);
+    } catch (error) {
+      alert('Error merging PDFs. Please try again.');
+      modal.classList.remove('active');
+    }
+  }
+
+  newFileBtn.onclick = () => {
+    modal.classList.remove('active');
+    fileInput.value = '';
+  };
+</script>
+
 </body>
 </html>

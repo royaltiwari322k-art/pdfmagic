@@ -4,84 +4,121 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pricing - PDFMagic | 100% Free PDF Tools</title>
-  <meta name="description" content="PDFMagic is completely free! No subscriptions, no hidden fees, no limits. Use all 26+ PDF tools for free forever.">
+  <meta name="description" content="PDFMagic is completely free! No subscriptions, no hidden fees, no limits. Use all 20+ PDF tools for free forever.">
   <meta name="keywords" content="pdfmagic pricing, free pdf tools, pdf editor free, no subscription pdf tools">
-  <link rel="canonical" href="https://wwwpdfmagic.live/pricing">
+  <link rel="canonical" href="https://www.wwwpdfmagic.live/pricing">
   <meta property="og:title" content="Pricing - PDFMagic | 100% Free PDF Tools">
-  <meta property="og:description" content="PDFMagic is completely free! No subscriptions, no hidden fees, no limits. Use all 26+ PDF tools for free forever.">
-  <meta property="og:url" content="https://wwwpdfmagic.live/pricing">
+  <meta property="og:description" content="PDFMagic is completely free! No subscriptions, no hidden fees, no limits. Use all 20+ PDF tools for free forever.">
+  <meta property="og:url" content="https://www.wwwpdfmagic.live/pricing">
   <meta property="og:type" content="website">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f0f1a; color: #e0e0e0; line-height: 1.6; }
-    .container { max-width: 1000px; margin: 0 auto; padding: 80px 24px; }
-    h1 { font-size: 2.5rem; color: white; margin-bottom: 24px; text-align: center; }
-    .hero { text-align: center; padding: 60px 0; }
-    .hero p { font-size: 1.3rem; color: #e0e0e0; margin-bottom: 40px; }
-    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; margin: 40px 0; }
-    .pricing-card { background: rgba(255,255,255,0.05); border-radius: 16px; padding: 40px; text-align: center; border: 2px solid rgba(255,255,255,0.1); }
-    .pricing-card.featured { border-color: #e8273c; background: rgba(232,39,60,0.1); }
-    .pricing-card h3 { color: white; font-size: 1.8rem; margin-bottom: 16px; }
-    .price { font-size: 3rem; color: #e8273c; font-weight: 700; margin-bottom: 8px; }
-    .price span { font-size: 1rem; color: #8b8b9e; }
-    .features { list-style: none; margin: 32px 0; text-align: left; }
-    .features li { padding: 12px 0; color: #8b8b9e; border-bottom: 1px solid rgba(255,255,255,0.05); }
-    .features li:before { content: "✓"; color: #10b981; margin-right: 12px; font-weight: bold; }
-    .btn { display: inline-block; background: #e8273c; color: white; padding: 16px 40px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 16px; }
-    .btn:hover { background: #ff3d4d; }
-    .btn.secondary { background: rgba(255,255,255,0.1); }
-    .btn.secondary:hover { background: rgba(255,255,255,0.2); }
-    .nav { background: rgba(15,15,26,0.95); padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.1); }
-    .nav a { color: #e0e0e0; text-decoration: none; margin-left: 24px; }
-    .nav a:hover { color: #e8273c; }
-    .logo { font-size: 1.5rem; font-weight: 700; color: white; }
-    .logo span { color: #e8273c; }
-  </style>
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <nav class="nav">
-    <div class="logo">PDF<span>Magic</span></div>
-    <div>
-      <a href="/">Home</a>
-      <a href="/contact">Contact</a>
-    </div>
-  </nav>
 
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="/">
+      <div class="nav-brand-icon">📄</div>
+      PDF<span>Magic</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/">Home</a></li>
+      <li><a href="/#tools">All Tools</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('mobile-open')">☰</button>
+  </div>
+</nav>
+
+<div class="about-hero">
+  <div class="hero-badge" style="margin-bottom:24px;">💰 Simple & Transparent</div>
+  <h1>Pricing</h1>
+  <p style="color:var(--text-muted);font-size:1.1rem;max-width:500px;margin:12px auto 0;">PDFMagic is 100% free. No hidden fees, no subscriptions.</p>
+</div>
+
+<div class="section">
   <div class="container">
-    <div class="hero">
-      <h1>Simple, Transparent Pricing</h1>
-      <p>PDFMagic is 100% free. No hidden fees, no subscriptions.</p>
-    </div>
-
-    <div class="pricing-grid">
-      <div class="pricing-card featured">
-        <h3>Free Forever</h3>
-        <div class="price">$0<span>/month</span></div>
-        <p style="color: #8b8b9e; margin-bottom: 24px;">Everything you need, completely free</p>
-        <ul class="features">
-          <li>All 26+ PDF Tools</li>
+    <div class="pricing-grid" style="justify-content:center;">
+      <div class="pricing-card featured" style="max-width:420px;margin:0 auto;">
+        <h3 style="font-size:1.5rem;">Free Forever</h3>
+        <div class="price-tag">$0 <small>/month</small></div>
+        <p style="color:var(--text-muted);margin-bottom:8px;">Everything you need, completely free</p>
+        <ul class="pricing-features">
+          <li>All 20+ PDF Tools</li>
           <li>Unlimited File Processing</li>
-          <li>No File Size Limits</li>
+          <li>No File Size Limits (up to 100MB)</li>
           <li>No Registration Required</li>
-          <li>Bank-Level Security</li>
+          <li>Bank-Level SSL Security</li>
           <li>Instant Processing</li>
           <li>No Watermarks</li>
           <li>24/7 Availability</li>
+          <li>Auto-Delete Files in 2 Hours</li>
+          <li>India-Optimized Servers</li>
         </ul>
-        <a href="/" class="btn">Start Using Free</a>
+        <a href="/" class="btn btn-primary btn-lg" style="margin-top:20px;">🚀 Start Using Free →</a>
       </div>
     </div>
 
-    <div style="text-align: center; margin-top: 60px; padding: 40px; background: rgba(255,255,255,0.05); border-radius: 12px;">
-      <h2 style="color: white; margin-bottom: 16px;">Why is it Free?</h2>
-      <p style="color: #8b8b9e; max-width: 600px; margin: 0 auto;">We believe PDF tools should be accessible to everyone. Our platform is supported by minimal, non-intrusive ads, allowing us to keep all features completely free for users worldwide.</p>
+    <div class="card" style="max-width:600px;margin:40px auto;text-align:center;">
+      <h3 style="color:var(--red);margin-bottom:12px;">🤔 Why is it Free?</h3>
+      <p style="color:var(--text-muted);line-height:1.8;">We believe PDF tools should be accessible to everyone — from students to professionals. Our platform is supported by minimal, non-intrusive ads, allowing us to keep all features completely free for users worldwide. No hidden catches.</p>
     </div>
 
-    <div style="text-align: center; margin-top: 60px;">
-      <h2 style="color: white; margin-bottom: 16px;">Need Help?</h2>
-      <p style="color: #8b8b9e;">Our support team is here to help you 24/7</p>
-      <a href="/contact" class="btn secondary">Contact Support</a>
+    <div style="text-align:center;margin-top:48px;">
+      <h3 style="margin-bottom:12px;">Need Help?</h3>
+      <p style="color:var(--text-muted);margin-bottom:24px;">Our support team is here to help you 24/7</p>
+      <a href="/contact" class="btn btn-white btn-lg">📧 Contact Support</a>
     </div>
   </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>📄 PDF<span>Magic</span></h3>
+      <p>Your free online PDF tools platform. Made with ❤️ in India.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Twitter">🐦</a>
+        <a href="#" aria-label="Facebook">📘</a>
+        <a href="#" aria-label="Instagram">📷</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>PDF Tools</h4>
+      <ul>
+        <li><a href="/merge-pdf">Merge PDF</a></li>
+        <li><a href="/split-pdf">Split PDF</a></li>
+        <li><a href="/compress-pdf">Compress PDF</a></li>
+        <li><a href="/pdf-to-word">PDF to Word</a></li>
+        <li><a href="/jpg-to-pdf">JPG to PDF</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="/contact">Help Center</a></li>
+        <li><a href="mailto:pdfmagicc@gmail.com">Email Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 PDFMagic. All rights reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
