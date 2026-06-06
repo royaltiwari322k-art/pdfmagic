@@ -10,8 +10,22 @@ const mammoth = require('mammoth');
 const XLSX = require('xlsx');
 const archiver = require('archiver');
 const PDFMerger = require('pdf-merger-js');
-const pdf2pic = require('pdf2pic');
-const Tesseract = require('tesseract.js');
+
+// Optional imports for advanced features
+let pdf2pic = null;
+let Tesseract = null;
+
+try {
+  pdf2pic = require('pdf2pic');
+} catch (e) {
+  console.warn('pdf2pic not available:', e.message);
+}
+
+try {
+  Tesseract = require('tesseract.js');
+} catch (e) {
+  console.warn('Tesseract not available:', e.message);
+}
 
 const app = express();
 const PORT = process.env.PORT || 3012;
@@ -498,33 +512,25 @@ app.post('/ocr-pdf', upload.single('pdf'), async (req, res) => {
       return res.status(400).json({ error: 'Please upload a PDF file' });
     }
 
-    // Convert PDF to images first
-    const convert = pdf2pic.fromPath(req.file.path, {
-      density: 200,
-      savePath: "./uploads/",
-      format: "png",
-      width: 1500,
-      height: 1500
-    });
-
+    // Simple implementation: Extract text from PDF
+    const dataBuffer = await fs.readFile(req.file.path);
+    const data = await pdfParse(dataBuffer);
+    
+    // Create new PDF with extracted text
     const pdfDoc = await PDFDocument.create();
     const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
     
-    // Process first few pages for demo
-    for (let i = 1; i <= 3; i++) {
-      try {
-        const pageImage = await convert(i, { responseType: "buffer" });
-        
-        // Perform OCR on the image
-        const { data: { text } } = await Tesseract.recognize(
-          pageImage.buffer,
-          'eng',
-          { logger: m => console.log(m) }
-        );
-        
-        // Create new page with OCR text
+    // Split text into pages (roughly 40 lines per page)
+    const lines = data.text.split('\n');
+    let currentPageLines = [];
+    let pageNumber = 0;
+    
+    for (const line of lines) {
+      currentPageLines.push(line);
+      
+      if (currentPageLines.length >= 40) {
         const page = pdfDoc.addPage([612, 792]);
-        page.drawText(text, {
+        page.drawText(currentPageLines.join('\n'), {
           x: 50,
           y: 700,
           size: 10,
@@ -533,10 +539,23 @@ app.post('/ocr-pdf', upload.single('pdf'), async (req, res) => {
           maxWidth: 512,
           lineHeight: 14,
         });
-        
-      } catch (error) {
-        break;
+        currentPageLines = [];
+        pageNumber++;
       }
+    }
+    
+    // Add remaining lines
+    if (currentPageLines.length > 0) {
+      const page = pdfDoc.addPage([612, 792]);
+      page.drawText(currentPageLines.join('\n'), {
+        x: 50,
+        y: 700,
+        size: 10,
+        font: font,
+        color: rgb(0, 0, 0),
+        maxWidth: 512,
+        lineHeight: 14,
+      });
     }
     
     const pdfBytes = await pdfDoc.save();
