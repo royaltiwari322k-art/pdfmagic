@@ -82,6 +82,22 @@
           📁 Select PDF Files
         </button>
       </div>
+
+      <!-- FILE PREVIEW PANEL -->
+      <div class="file-preview-panel" id="previewPanel" style="display:none;">
+        <div class="file-preview-header">
+          <h4>📋 Selected Files <span class="file-count-badge" id="fileCountBadge">0</span></h4>
+          <button class="btn btn-sm" onclick="addMoreFiles()" style="font-size:0.78rem;">+ Add More</button>
+        </div>
+        <div class="file-preview-list" id="filePreviewList"></div>
+        <div class="file-preview-actions">
+          <span class="file-preview-total" id="totalSizeLabel">Total: 0 KB</span>
+          <button class="btn btn-sm" onclick="clearAllFiles()" style="color:var(--red);border-color:var(--red);">🗑 Clear All</button>
+          <button class="btn btn-primary" id="mergeBtn" onclick="startMerge()">
+            🔗 Merge PDFs
+          </button>
+        </div>
+      </div>
     </div>
 
     <!-- FEATURES -->
@@ -244,26 +260,90 @@
   const resultArea = document.getElementById('resultArea');
   const downloadBtn = document.getElementById('downloadBtn');
   const newFileBtn = document.getElementById('newFileBtn');
+  const previewPanel = document.getElementById('previewPanel');
+  const filePreviewList = document.getElementById('filePreviewList');
+  const fileCountBadge = document.getElementById('fileCountBadge');
+  const totalSizeLabel = document.getElementById('totalSizeLabel');
 
+  let selectedFiles = [];
+
+  // ── Drag & Drop
   uploadArea.addEventListener('dragover', (e) => {
     e.preventDefault();
     uploadArea.classList.add('dragover');
   });
-
-  uploadArea.addEventListener('dragleave', () => {
-    uploadArea.classList.remove('dragover');
-  });
-
+  uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('dragover'));
   uploadArea.addEventListener('drop', (e) => {
     e.preventDefault();
     uploadArea.classList.remove('dragover');
-    handleFiles(e.dataTransfer.files);
+    addFiles(e.dataTransfer.files);
   });
+  fileInput.addEventListener('change', (e) => addFiles(e.target.files));
 
-  fileInput.addEventListener('change', (e) => handleFiles(e.target.files));
+  function addFiles(newFiles) {
+    for (const f of newFiles) {
+      if (f.type === 'application/pdf') selectedFiles.push(f);
+    }
+    renderPreview();
+  }
 
-  async function handleFiles(files) {
-    if (files.length < 2) {
+  function addMoreFiles() {
+    fileInput.click();
+  }
+
+  function clearAllFiles() {
+    selectedFiles = [];
+    fileInput.value = '';
+    renderPreview();
+  }
+
+  function removeFile(index) {
+    selectedFiles.splice(index, 1);
+    renderPreview();
+  }
+
+  function formatSize(bytes) {
+    if (bytes < 1024) return bytes + ' B';
+    if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+    return (bytes / (1024 * 1024)).toFixed(2) + ' MB';
+  }
+
+  function renderPreview() {
+    if (selectedFiles.length === 0) {
+      previewPanel.style.display = 'none';
+      uploadArea.style.display = 'block';
+      return;
+    }
+    uploadArea.style.display = 'none';
+    previewPanel.style.display = 'block';
+    fileCountBadge.textContent = selectedFiles.length;
+
+    // Total size
+    const total = selectedFiles.reduce((sum, f) => sum + f.size, 0);
+    totalSizeLabel.textContent = `Total: ${formatSize(total)} • ${selectedFiles.length} file${selectedFiles.length > 1 ? 's' : ''}`;
+
+    // Render list
+    filePreviewList.innerHTML = '';
+    selectedFiles.forEach((file, i) => {
+      const item = document.createElement('div');
+      item.className = 'file-preview-item';
+      item.innerHTML = `
+        <div class="file-preview-icon">📄</div>
+        <div class="file-preview-info">
+          <div class="file-preview-name">${file.name}</div>
+          <div class="file-preview-meta">
+            <span class="file-preview-size">${formatSize(file.size)}</span>
+            <span>PDF Document</span>
+          </div>
+        </div>
+        <button class="file-remove-btn" onclick="removeFile(${i})" title="Remove">✕</button>
+      `;
+      filePreviewList.appendChild(item);
+    });
+  }
+
+  async function startMerge() {
+    if (selectedFiles.length < 2) {
       alert('Please select at least 2 PDF files to merge.');
       return;
     }
@@ -271,26 +351,21 @@
     progressFill.style.width = '0%';
     resultArea.style.display = 'none';
     document.getElementById('modalText').style.display = 'block';
-    document.getElementById('modalTitle').textContent = 'Processing...';
+    document.getElementById('modalTitle').textContent = 'Merging PDFs...';
 
     const formData = new FormData();
-    for (let i = 0; i < files.length; i++) {
-      formData.append('pdfs', files[i]);
-    }
+    for (const f of selectedFiles) formData.append('pdfs', f);
 
     try {
       progressFill.style.width = '30%';
       const response = await fetch('/merge-pdf', { method: 'POST', body: formData });
       progressFill.style.width = '70%';
-
       if (!response.ok) throw new Error('Merge failed');
-
       const blob = await response.blob();
       const url = URL.createObjectURL(blob);
       progressFill.style.width = '100%';
-
       setTimeout(() => {
-        document.getElementById('modalTitle').textContent = 'Complete!';
+        document.getElementById('modalTitle').textContent = 'Complete! 🎉';
         document.getElementById('modalText').style.display = 'none';
         resultArea.style.display = 'block';
         downloadBtn.onclick = () => {
@@ -308,7 +383,11 @@
 
   newFileBtn.onclick = () => {
     modal.classList.remove('active');
+    selectedFiles = [];
     fileInput.value = '';
+    renderPreview();
+    uploadArea.style.display = 'block';
+    previewPanel.style.display = 'none';
   };
 </script>
 
