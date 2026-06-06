@@ -98,6 +98,20 @@
           </button>
         </div>
       </div>
+
+      <!-- INLINE RESULT PREVIEW PANEL -->
+      <div class="file-preview-panel" id="finalResultPanel" style="display:none;">
+        <div class="file-preview-header" style="background:#ecfdf5;border-color:#10b981;">
+          <h4 style="color:#059669;">✅ Merge Complete!</h4>
+        </div>
+        <div style="padding:16px;">
+          <iframe id="pdfPreviewIframe" style="width:100%;height:450px;border:2px solid var(--border);border-radius:var(--radius);margin-bottom:16px;" src=""></iframe>
+          <div style="display:flex;gap:12px;">
+            <button class="btn btn-primary" id="finalDownloadBtn" style="flex:1;">⬇️ Download Merged PDF</button>
+            <button class="btn btn-white" id="finalStartAgainBtn" style="flex:1;">🔄 Merge Another</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- FEATURES -->
@@ -187,13 +201,6 @@
       <div class="progress-fill" id="progressFill"></div>
     </div>
     <p id="modalText" style="text-align:center;color:var(--text-muted);">Please wait while we merge your files.</p>
-    <div id="resultArea" style="display:none;">
-      <div style="text-align:center;font-size:3rem;margin:16px 0;">✅</div>
-      <h3 style="text-align:center;margin-bottom:8px;">Success!</h3>
-      <p style="text-align:center;color:var(--text-muted);margin-bottom:20px;">Your PDF has been merged successfully.</p>
-      <button class="btn btn-primary btn-lg" id="downloadBtn" style="width:100%;margin-bottom:10px;">⬇️ Download Merged PDF</button>
-      <button class="btn btn-white btn-lg" id="newFileBtn" style="width:100%;">🔄 Merge Another PDF</button>
-    </div>
   </div>
 </div>
 
@@ -257,9 +264,11 @@
   const fileInput = document.getElementById('fileInput');
   const modal = document.getElementById('modal');
   const progressFill = document.getElementById('progressFill');
-  const resultArea = document.getElementById('resultArea');
-  const downloadBtn = document.getElementById('downloadBtn');
-  const newFileBtn = document.getElementById('newFileBtn');
+
+  const finalResultPanel = document.getElementById('finalResultPanel');
+  const pdfPreviewIframe = document.getElementById('pdfPreviewIframe');
+  const finalDownloadBtn = document.getElementById('finalDownloadBtn');
+  const finalStartAgainBtn = document.getElementById('finalStartAgainBtn');
   const previewPanel = document.getElementById('previewPanel');
   const filePreviewList = document.getElementById('filePreviewList');
   const fileCountBadge = document.getElementById('fileCountBadge');
@@ -294,6 +303,7 @@
   function clearAllFiles() {
     selectedFiles = [];
     fileInput.value = '';
+    finalResultPanel.style.display = 'none';
     renderPreview();
   }
 
@@ -309,6 +319,7 @@
   }
 
   function renderPreview() {
+    finalResultPanel.style.display = 'none';
     if (selectedFiles.length === 0) {
       previewPanel.style.display = 'none';
       uploadArea.style.display = 'block';
@@ -347,46 +358,52 @@
       alert('Please select at least 2 PDF files to merge.');
       return;
     }
+
     modal.classList.add('active');
     progressFill.style.width = '0%';
-    resultArea.style.display = 'none';
     document.getElementById('modalText').style.display = 'block';
     document.getElementById('modalTitle').textContent = 'Merging PDFs...';
 
     const formData = new FormData();
-    for (const f of selectedFiles) formData.append('pdfs', f);
+    selectedFiles.forEach((file) => {
+      formData.append('pdfs', file);
+    });
 
     try {
-      progressFill.style.width = '30%';
-      const response = await fetch('/merge-pdf', { method: 'POST', body: formData });
-      progressFill.style.width = '70%';
+      progressFill.style.width = '50%';
+      const response = await fetch('/merge-pdf', {
+        method: 'POST',
+        body: formData
+      });
+
+      progressFill.style.width = '80%';
+
       if (!response.ok) throw new Error('Merge failed');
+
       const blob = await response.blob();
       const url = URL.createObjectURL(blob);
       progressFill.style.width = '100%';
+
       setTimeout(() => {
-        document.getElementById('modalTitle').textContent = 'Complete! 🎉';
-        document.getElementById('modalText').style.display = 'none';
-        resultArea.style.display = 'block';
-        downloadBtn.onclick = () => {
+        modal.classList.remove('active');
+        previewPanel.style.display = 'none';
+        finalResultPanel.style.display = 'block';
+        pdfPreviewIframe.src = url;
+        
+        finalDownloadBtn.onclick = () => {
           const a = document.createElement('a');
           a.href = url;
           a.download = 'merged.pdf';
           a.click();
         };
       }, 500);
+
     } catch (error) {
       alert('Error merging PDFs. Please try again.');
       modal.classList.remove('active');
     }
   }
 
-  newFileBtn.onclick = () => {
-    modal.classList.remove('active');
-    selectedFiles = [];
-    fileInput.value = '';
-    renderPreview();
-    uploadArea.style.display = 'block';
     previewPanel.style.display = 'none';
   };
 </script>

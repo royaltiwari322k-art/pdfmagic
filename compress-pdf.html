@@ -95,6 +95,20 @@
           </div>
         </div>
       </div>
+
+      <!-- INLINE RESULT PREVIEW PANEL -->
+      <div class="file-preview-panel" id="finalResultPanel" style="display:none;">
+        <div class="file-preview-header" style="background:#ecfdf5;border-color:#10b981;">
+          <h4 style="color:#059669;">✅ Compression Complete!</h4>
+        </div>
+        <div style="padding:16px;">
+          <iframe id="pdfPreviewIframe" style="width:100%;height:450px;border:2px solid var(--border);border-radius:var(--radius);margin-bottom:16px;" src=""></iframe>
+          <div style="display:flex;gap:12px;">
+            <button class="btn btn-primary" id="finalDownloadBtn" style="flex:1;">⬇️ Download PDF</button>
+            <button class="btn btn-white" id="finalStartAgainBtn" style="flex:1;">🔄 Start Again</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- HOW-TO -->
@@ -132,13 +146,6 @@
       <div class="progress-fill" id="progressFill"></div>
     </div>
     <p id="modalText" style="text-align:center;color:var(--text-muted);">Please wait while we compress your PDF.</p>
-    <div id="resultArea" style="display:none;">
-      <div style="text-align:center;font-size:3rem;margin:16px 0;">✅</div>
-      <h3 style="text-align:center;margin-bottom:8px;">Success!</h3>
-      <p style="text-align:center;color:var(--text-muted);margin-bottom:20px;">Your PDF has been compressed successfully.</p>
-      <button class="btn btn-primary btn-lg" id="downloadBtn" style="width:100%;margin-bottom:10px;">⬇️ Download Compressed PDF</button>
-      <button class="btn btn-white btn-lg" id="newFileBtn" style="width:100%;">🔄 Compress Another PDF</button>
-    </div>
   </div>
 </div>
 
@@ -196,12 +203,13 @@
   const fileInput = document.getElementById('fileInput');
   const modal = document.getElementById('modal');
   const progressFill = document.getElementById('progressFill');
-  const resultArea = document.getElementById('resultArea');
-  const downloadBtn = document.getElementById('downloadBtn');
-  const newFileBtn = document.getElementById('newFileBtn');
   const previewPanel = document.getElementById('previewPanel');
   const filePreviewList = document.getElementById('filePreviewList');
   const totalSizeLabel = document.getElementById('totalSizeLabel');
+  const finalResultPanel = document.getElementById('finalResultPanel');
+  const pdfPreviewIframe = document.getElementById('pdfPreviewIframe');
+  const finalDownloadBtn = document.getElementById('finalDownloadBtn');
+  const finalStartAgainBtn = document.getElementById('finalStartAgainBtn');
 
   let selectedFile = null;
 
@@ -242,6 +250,7 @@
     selectedFile = null;
     fileInput.value = '';
     previewPanel.style.display = 'none';
+    finalResultPanel.style.display = 'none';
     uploadArea.style.display = 'block';
   }
 
@@ -249,7 +258,6 @@
     if (!selectedFile) return;
     modal.classList.add('active');
     progressFill.style.width = '0%';
-    resultArea.style.display = 'none';
     document.getElementById('modalText').style.display = 'block';
     document.getElementById('modalTitle').textContent = 'Compressing PDF...';
 
@@ -267,10 +275,12 @@
       const url = URL.createObjectURL(blob);
       progressFill.style.width = '100%';
       setTimeout(() => {
-        document.getElementById('modalTitle').textContent = 'Complete! 🎉';
-        document.getElementById('modalText').style.display = 'none';
-        resultArea.style.display = 'block';
-        downloadBtn.onclick = () => {
+        modal.classList.remove('active');
+        previewPanel.style.display = 'none';
+        finalResultPanel.style.display = 'block';
+        pdfPreviewIframe.src = url;
+        
+        finalDownloadBtn.onclick = () => {
           const a = document.createElement('a');
           a.href = url;
           a.download = 'compressed.pdf';
@@ -283,8 +293,7 @@
     }
   }
 
-  newFileBtn.onclick = () => {
-    modal.classList.remove('active');
+  finalStartAgainBtn.onclick = () => {
     changeFile();
   };
 
