@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /node_modules/
-Disallow: /uploads/
 
-Sitemap: https://wwwpdfmagic.live/sitemap.xml
+Sitemap: https://www.wwwpdfmagic.live/sitemap.xml
