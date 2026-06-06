@@ -3,21 +3,31 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs-extra');
 const cors = require('cors');
-const { PDFDocument, rgb, StandardFonts } = require('pdf-lib');
+const { PDFDocument, rgb, StandardFonts, degrees } = require('pdf-lib');
 const pdfParse = require('pdf-parse');
 const Jimp = require('jimp');
 const mammoth = require('mammoth');
 const XLSX = require('xlsx');
 const archiver = require('archiver');
 const PDFMerger = require('pdf-merger-js');
+const pdf2pic = require('pdf2pic');
+const Tesseract = require('tesseract.js');
 
 const app = express();
 const PORT = process.env.PORT || 3012;
+
+console.log('PDFMagic server starting...');
+console.log(`Environment PORT: ${process.env.PORT}`);
 
 // Middleware
 app.use(cors());
 app.use(express.json());
 app.use(express.static('.'));
+
+// Ensure uploads directory exists
+const uploadsDir = path.join(__dirname, 'uploads');
+fs.ensureDirSync(uploadsDir);
+console.log('Uploads directory ensured at:', uploadsDir);
 
 // File upload configuration
 const storage = multer.diskStorage({
@@ -1258,11 +1268,6 @@ app.post('/redact-pdf', upload.single('pdf'), async (req, res) => {
   }
 });
 
-// Helper function for degrees rotation
-function degrees(deg) {
-  return (deg * Math.PI) / 180;
-}
-
 // Error handling middleware
 app.use((error, req, res, next) => {
   if (error instanceof multer.MulterError) {
@@ -1302,21 +1307,21 @@ app.get('/health', (req, res) => {
 });
 
 // Start server
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`🚀 PDFMagic server running on port ${PORT}`);
-  console.log(`🌐 Environment: ${process.env.NODE_ENV || 'development'}`);
-  console.log('📁 Uploads directory: ./uploads/');
-  console.log('🔧 Available PDF tools:');
-  console.log('   • Merge PDF');
-  console.log('   • Split PDF');
-  console.log('   • Compress PDF');
-  console.log('   • PDF to Word');
-  console.log('   • PDF to JPG');
-  console.log('   • JPG to PDF');
-  console.log('   • Word to PDF');
-  console.log('   • Rotate PDF');
-  console.log('   • OCR PDF');
-  console.log('   • Add Watermark');
+const server = app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server is running on port ${PORT}`);
 });
 
-module.exports = app;
+// Handle server errors
+server.on('error', (error) => {
+  console.error('Server error:', error);
+  process.exit(1);
+});
+
+// Graceful shutdown
+process.on('SIGTERM', () => {
+  console.log('SIGTERM signal received: closing HTTP server');
+  server.close(() => {
+    console.log('HTTP server closed');
+    process.exit(0);
+  });
+});
