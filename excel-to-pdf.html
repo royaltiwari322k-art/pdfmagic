@@ -1,211 +1,256 @@
 <!DOCTYPE html>
-<html lang="en-in">
+<html lang="en-in" data-theme="light">
 <head>
-  <meta charset="UTF-8" />  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Excel to PDF Converter Online Free | Convert XLS to PDF - PDFMagic</title>
-  <meta name="description" content="Convert Excel to PDF online for free. Transform XLS/XLSX files to PDF documents. No registration required. Fast and secure Excel to PDF converter." />
-  <meta name="keywords" content="excel to pdf, xls to pdf, xlsx to pdf, convert excel to pdf, spreadsheet to pdf, free excel to pdf converter" />
+  <title>Excel to PDF Converter Online Free - PDFMagic</title>
+  <meta name="description" content="Convert Excel spreadsheets to PDF documents. Free and secure." />
   <meta name="author" content="PDFMagic" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://wwwpdfmagic.live/excel-to-pdf" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
   <script src="pdf-processor.js"></script>
-  <style>
-    :root { --red: #e8273c; --bg: #f7f8fc; --white: #ffffff; --text: #1a1a2e; --text-muted: #6b7280; --border: #e5e7eb; }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
-    nav { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
-    .nav-content { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-    .logo { font-size: 1.5rem; font-weight: 800; color: var(--red); text-decoration: none; }
-    .hero { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; text-align: center; }
-    .hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; }
-    .tool-container { max-width: 800px; margin: 0 auto; background: var(--white); border-radius: 16px; padding: 3rem; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
-    .upload-area { border: 3px dashed var(--border); border-radius: 12px; padding: 4rem 2rem; text-align: center; cursor: pointer; }
-    .upload-area:hover { border-color: var(--red); background: rgba(232,39,60,0.05); }
-    .btn-primary { background: var(--red); color: var(--white); padding: 1rem 2rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; }
-    .seo-content { max-width: 800px; margin: 4rem auto; padding: 0 2rem; }
-    footer { background: var(--text); color: var(--white); padding: 3rem 2rem; text-align: center; }
-      .related-tools {
-      max-width: 1200px;
-      margin: 4rem auto;
-      padding: 0 2rem;
-    }
-    .related-tools h2 {
-      text-align: center;
-      color: var(--text);
-      margin-bottom: 2rem;
-    }
-    .related-tools-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-    }
-    .related-tool-card {
-      background: var(--white);
-      padding: 1.5rem;
-      border-radius: 12px;
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-      border: 1px solid var(--border);
-    }
-    .related-tool-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-    }
-    .related-tool-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-    .related-tool-card h3 {
-      color: var(--text);
-      margin-bottom: 0.5rem;
-      font-size: 1.1rem;
-    }
-    .related-tool-card p {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      margin: 0;
-    }
-      .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.8);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-    }
-    .modal-content {
-      background: var(--white);
-      padding: 3rem;
-      border-radius: 16px;
-      max-width: 600px;
-      width: 90%;
-    }
-    .progress-bar {
-      width: 100%;
-      height: 8px;
-      background: var(--border);
-      border-radius: 4px;
-      overflow: hidden;
-      margin: 2rem 0;
-    }
-    .progress-fill {
-      height: 100%;
-      background: var(--red);
-      width: 0%;
-      transition: width 0.3s ease;
-    }
-  </style>
 </head>
 <body>
-  <nav>
-    <div class="nav-content">
-      <a href="/" class="logo">PDFMagic</a>
-      <a href="/" style="color: var(--text); text-decoration: none;">All Tools</a>
-    </div>
-  </nav>
-  
-  <div class="breadcrumbs">
-    <a href="/">Home</a>
-    <span class="separator"></span>
-    <span class="current">Excel To Pdf</span>
-  </div>
-<div class="hero">
-    <h1>Excel to PDF Converter</h1>
-    <p>Transform Excel spreadsheets to PDF documents. Free and secure.</p>
-  </div>
-  <div class="tool-container">
-    <div class="upload-area" id="uploadArea">
-      <div style="font-size: 4rem; margin-bottom: 1rem;">📊</div>
-      <h3>Drop Excel file here</h3>
-      <p style="color: var(--text-muted); margin: 1rem 0;">XLS, XLSX supported</p>
-      <input type="file" id="fileInput" accept=".xls,.xlsx" style="display: none;">
-      <button class="btn-primary" onclick="document.getElementById('fileInput').click()">Select Excel File</button>
-    </div>
-  </div>
-  <div class="seo-content">
-    <h2>How to Convert Excel to PDF</h2>
-    <p>1. Upload your Excel file (XLS or XLSX).</p>
-    <p>2. Click convert to transform to PDF.</p>
-    <p>3. Wait for the conversion to complete.</p>
-    <p>4. Download your PDF document instantly.</p>
-  </div>
-    <div class="related-tools">
-    <h2>Related PDF Tools</h2>
-    <div class="related-tools-grid">
-      <a href="/merge-pdf" class="related-tool-card">        <div class="related-tool-icon"></div>
-        <h3>Merge PDF</h3>
-        <p>Combine multiple PDFs into one</p>
-      </a>
-      <a href="/split-pdf" class="related-tool-card">        <div class="related-tool-icon"></div>
-        <h3>Split PDF</h3>
-        <p>Separate PDF pages into files</p>
-      </a>
-      <a href="/compress-pdf" class="related-tool-card">        <div class="related-tool-icon"></div>
-        <h3>Compress PDF</h3>
-        <p>Reduce PDF file size</p>
-      </a>
-      <a href="/pdf-to-word" class="related-tool-card">        <div class="related-tool-icon"></div>
-        <h3>PDF to Word</h3>
-        <p>Convert PDF to Word document</p>
-      </a>
-      <a href="/pdf-to-jpg" class="related-tool-card">        <div class="related-tool-icon"></div>
-        <h3>PDF to JPG</h3>
-        <p>Convert PDF to images</p>
-      </a>
-      <a href="/jpg-to-pdf" class="related-tool-card">        <div class="related-tool-icon"></div>
-        <h3>JPG to PDF</h3>
-        <p>Convert images to PDF</p>
-      </a>
-    </div>
-  </div>
-<footer><p>© 2026 PDFMagic. All rights reserved.</p></footer>  `  <div class="modal" id="modal">
-    <div class="modal-content">
-      <h3 id="modalTitle">Processing...</h3>
-      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-      <p id="modalText">Please wait while we process your file.</p>
-    </div>
-  </div>
 
-  <script>
-    const uploadArea = document.getElementById('uploadArea');
-    const modal = document.getElementById('modal');
-    const progressFill = document.getElementById('progressFill');
-    const fileInput = document.getElementById('fileInput');
-    uploadArea.addEventListener('dragover', (e) => { e.preventDefault(); uploadArea.style.borderColor = 'var(--red)'; });
-    uploadArea.addEventListener('dragleave', () => uploadArea.style.borderColor = 'var(--border)');
-    uploadArea.addEventListener('drop', (e) => {
-      e.preventDefault();
-      uploadArea.style.borderColor = 'var(--border)';
-      handleFile(e.dataTransfer.files[0]);
-    });
-    fileInput.addEventListener('change', (e) => handleFile(e.target.files[0]));
-    async function handleFile(file) {
-      if (!file) return;
-      modal.style.display = 'flex';
-      const formData = new FormData();
-      formData.append('pdf', file);
-      try {
-        progressFill.style.width = '50%';
-        const response = await fetch('/excel-to-pdf', { method: 'POST', body: formData });
-        if (!response.ok) throw new Error('Conversion failed');
-        progressFill.style.width = '100%';
-        const blob = await response.blob();
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'excel-to-pdf.pdf';
-        a.click();
-        modal.style.display = 'none';
-      } catch (error) { alert('Error converting Excel to PDF. Please try again.');
-        modal.style.display = 'none'; }
+<!-- NAVBAR -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="/">
+      <div class="nav-brand-icon">📄</div>
+      PDF<span>Magic</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/">Home</a></li>
+      <li><a href="/#tools">All Tools</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="dark-toggle" id="darkToggle" title="Toggle Dark Mode" aria-label="Toggle Dark Mode">🌙</button>
+      <a href="/#tools" class="btn btn-sm">Login</a>
+      <a href="/#tools" class="btn btn-primary btn-sm">Sign Up Free</a>
+    </div>
+    <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('mobile-open')">☰</button>
+  </div>
+</nav>
+
+<!-- BREADCRUMBS -->
+<div class="breadcrumbs">
+  <a href="/">Home</a> <span class="sep">›</span> Excel to PDF
+</div>
+
+<!-- TOOL HERO -->
+<div class="tool-hero">
+  <h1>Excel to PDF Online</h1>
+  <p style="color:var(--text-muted);font-size:1.1rem;max-width:520px;margin:12px auto 0;">Convert Excel spreadsheets to PDF documents. Free and secure.</p>
+</div>
+
+<!-- MAIN TOOL -->
+<div class="section" style="padding-top:0;">
+  <div class="container" style="max-width:860px;">
+    <div class="tool-container">
+      <div class="upload-zone" id="uploadArea">
+        <div class="upload-icon-large">📊</div>
+        <h3 style="margin-bottom:8px;">Drop file here</h3>
+        <p style="color:var(--text-muted);margin-bottom:20px;">or click to browse your files</p>
+        <input type="file" id="fileInput" accept=".xls,.xlsx"  style="display: none;">
+        <button class="btn btn-primary btn-lg" onclick="document.getElementById('fileInput').click()">
+          📁 Select File
+        </button>
+      </div>
+
+      <!-- FILE PREVIEW PANEL -->
+      <div class="file-preview-panel" id="previewPanel" style="display:none;">
+        <div class="file-preview-header">
+          <h4>📋 Selected File</h4>
+          <button class="btn btn-sm" onclick="changeFile()" style="font-size:0.78rem;">↩ Change File</button>
+        </div>
+        <div class="file-preview-list" id="filePreviewList"></div>
+        <div class="file-preview-actions">
+          <span class="file-preview-total" id="totalSizeLabel"></span>
+          <div style="display:flex;gap:8px;align-items:center;">
+            
+            
+            <button class="btn btn-primary" id="actionBtn" onclick="startProcess()">
+              📊 Convert to PDF
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- CTA BANNER INLINE -->
+    <div style="margin-top:40px;text-align:center;padding:30px;background:#fff0f2;border-radius:var(--radius-lg);border:2px solid var(--border);">
+      <h3 style="margin-bottom:10px;">Need more tools?</h3>
+      <p style="color:var(--text-muted);margin-bottom:15px;">Check out our full suite of free PDF tools.</p>
+      <a href="/#tools" class="btn btn-primary">Browse All Tools</a>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal">
+  <div class="modal-box">
+    <h3 id="modalTitle" style="text-align:center;">Processing...</h3>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <p id="modalText" style="text-align:center;color:var(--text-muted);">Please wait while we process your file.</p>
+    <div id="resultArea" style="display:none;">
+      <div style="text-align:center;font-size:3rem;margin:16px 0;">✅</div>
+      <h3 style="text-align:center;margin-bottom:8px;">Success!</h3>
+      <p style="text-align:center;color:var(--text-muted);margin-bottom:20px;">Your file is ready.</p>
+      <button class="btn btn-primary btn-lg" id="downloadBtn" style="width:100%;margin-bottom:10px;">⬇️ Download File</button>
+      <button class="btn btn-white btn-lg" id="newFileBtn" style="width:100%;">🔄 Start Again</button>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>📄 PDF<span>Magic</span></h3>
+      <p>Your free online PDF tools platform. Made with ❤️ in India.</p>
+    </div>
+    <div class="footer-col">
+      <h4>PDF Tools</h4>
+      <ul>
+        <li><a href="/merge-pdf">Merge PDF</a></li>
+        <li><a href="/split-pdf">Split PDF</a></li>
+        <li><a href="/compress-pdf">Compress PDF</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 PDFMagic. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  const uploadArea = document.getElementById('uploadArea');
+  const fileInput = document.getElementById('fileInput');
+  const modal = document.getElementById('modal');
+  const progressFill = document.getElementById('progressFill');
+  const resultArea = document.getElementById('resultArea');
+  const downloadBtn = document.getElementById('downloadBtn');
+  const newFileBtn = document.getElementById('newFileBtn');
+  const previewPanel = document.getElementById('previewPanel');
+  const filePreviewList = document.getElementById('filePreviewList');
+  const totalSizeLabel = document.getElementById('totalSizeLabel');
+  
+
+  uploadArea.addEventListener('dragover', (e) => { e.preventDefault(); uploadArea.classList.add('dragover'); });
+  uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('dragover'));
+  uploadArea.addEventListener('drop', (e) => {
+    e.preventDefault();
+    uploadArea.classList.remove('dragover');
+    addFiles(e.dataTransfer.files);
+  });
+  fileInput.addEventListener('change', (e) => addFiles(e.target.files));
+
+  function formatSize(bytes) {
+    if (bytes < 1024) return bytes + ' B';
+    if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+    return (bytes / (1024 * 1024)).toFixed(2) + ' MB';
+  }
+
+  
+  let selectedFile = null;
+
+  function addFiles(newFiles) {
+    if (newFiles[0]) {
+      selectedFile = newFiles[0];
+      uploadArea.style.display = 'none';
+      previewPanel.style.display = 'block';
+      totalSizeLabel.textContent = formatSize(selectedFile.size);
+      filePreviewList.innerHTML = `
+        <div class="file-preview-item">
+          <div class="file-preview-icon">📊</div>
+          <div class="file-preview-info">
+            <div class="file-preview-name">${selectedFile.name}</div>
+            <div class="file-preview-meta">
+              <span class="file-preview-size">${formatSize(selectedFile.size)}</span>
+            </div>
+          </div>
+        </div>`;
     }
-  </script>
+  }
+
+  function changeFile() {
+    selectedFile = null;
+    fileInput.value = '';
+    previewPanel.style.display = 'none';
+    uploadArea.style.display = 'block';
+  }
+
+  async function startProcess() {
+    if (!selectedFile) return;
+    
+    modal.classList.add('active');
+    progressFill.style.width = '0%';
+    resultArea.style.display = 'none';
+    document.getElementById('modalText').style.display = 'block';
+    document.getElementById('modalTitle').textContent = 'Processing...';
+
+    const formData = new FormData();
+    formData.append('excel', selectedFile);
+    
+
+    try {
+      progressFill.style.width = '50%';
+      const response = await fetch('/excel-to-pdf', { method: 'POST', body: formData });
+      progressFill.style.width = '80%';
+      if (!response.ok) throw new Error('Process failed');
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+      progressFill.style.width = '100%';
+      setTimeout(() => {
+        document.getElementById('modalTitle').textContent = 'Complete! 🎉';
+        document.getElementById('modalText').style.display = 'none';
+        resultArea.style.display = 'block';
+        downloadBtn.onclick = () => {
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = 'result.pdf';
+          a.click();
+        };
+      }, 500);
+    } catch (error) {
+      alert('Error processing file. Please try again.');
+      modal.classList.remove('active');
+    }
+  }
+
+  newFileBtn.onclick = () => {
+    modal.classList.remove('active');
+    changeFile();
+  };
+
+  // Dark mode
+  const _html = document.documentElement;
+  const _dt = document.getElementById('darkToggle');
+  if (_dt) {
+    const _theme = localStorage.getItem('pdfmagic-theme') || 'light';
+    _html.setAttribute('data-theme', _theme);
+    _dt.textContent = _theme === 'dark' ? '☀️' : '🌙';
+    _dt.addEventListener('click', () => {
+      const next = _html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      _html.setAttribute('data-theme', next);
+      localStorage.setItem('pdfmagic-theme', next);
+      _dt.textContent = next === 'dark' ? '☀️' : '🌙';
+      _dt.style.transform = 'rotate(360deg)';
+      setTimeout(() => { _dt.style.transform = ''; }, 400);
+    });
+  }
+</script>
 </body>
 </html>

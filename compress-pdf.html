@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-in">
+<html lang="en-in" data-theme="light">
 <head>
   <meta charset="UTF-8" />  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,228 +26,283 @@
   }
   </script>
   
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
   <script src="pdf-processor.js"></script>
-  
-  <style>
-    :root { --red: #e8273c; --bg: #f7f8fc; --white: #ffffff; --text: #1a1a2e; --text-muted: #6b7280; --border: #e5e7eb; --card-shadow: 0 2px 12px rgba(0,0,0,0.08); }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
-    nav { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
-    .nav-content { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-    .logo { font-size: 1.5rem; font-weight: 800; color: var(--red); text-decoration: none; }
-    .hero { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; text-align: center; }
-    .hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; }
-    .tool-container { max-width: 800px; margin: 0 auto; background: var(--white); border-radius: 16px; padding: 3rem; box-shadow: var(--card-shadow); }
-    .upload-area { border: 3px dashed var(--border); border-radius: 12px; padding: 4rem 2rem; text-align: center; cursor: pointer; transition: all 0.3s ease; }
-    .upload-area:hover { border-color: var(--red); background: rgba(232,39,60,0.05); }
-    .btn-primary { background: var(--red); color: var(--white); padding: 1rem 2rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; }
-    .seo-content { max-width: 800px; margin: 4rem auto; padding: 0 2rem; }
-    .seo-content h2 { font-size: 2rem; margin-bottom: 1rem; }
-    footer { background: var(--text); color: var(--white); padding: 3rem 2rem; text-align: center; }
-      .related-tools {
-      max-width: 1200px;
-      margin: 4rem auto;
-      padding: 0 2rem;
-    }
-    .related-tools h2 {
-      text-align: center;
-      color: var(--text);
-      margin-bottom: 2rem;
-    }
-    .related-tools-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-    }
-    .related-tool-card {
-      background: var(--white);
-      padding: 1.5rem;
-      border-radius: 12px;
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-      border: 1px solid var(--border);
-    }
-    .related-tool-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-    }
-    .related-tool-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-    .related-tool-card h3 {
-      color: var(--text);
-      margin-bottom: 0.5rem;
-      font-size: 1.1rem;
-    }
-    .related-tool-card p {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      margin: 0;
-    }
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.8);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-    }
-    .modal-content {
-      background: var(--white);
-      padding: 3rem;
-      border-radius: 16px;
-      max-width: 600px;
-      width: 90%;
-    }
-    .progress-bar {
-      width: 100%;
-      height: 8px;
-      background: var(--border);
-      border-radius: 4px;
-      overflow: hidden;
-      margin: 2rem 0;
-    }
-    .progress-fill {
-      height: 100%;
-      background: var(--red);
-      width: 0%;
-      transition: width 0.3s ease;
-    }
-  </style>
 </head>
 <body>
-  <nav>
-    <div class="nav-content">
-      <a href="/" class="logo">PDFMagic</a>
-      <a href="/" style="color: var(--text); text-decoration: none;">All Tools</a>
+
+<!-- NAVBAR -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="/">
+      <div class="nav-brand-icon">📄</div>
+      PDF<span>Magic</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/">Home</a></li>
+      <li><a href="/#tools">All Tools</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+    <button class="dark-toggle" id="darkToggle" title="Toggle Dark Mode" aria-label="Toggle Dark Mode">🌙</button>
+    <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('mobile-open')">☰</button>
+  </div>
+</nav>
+
+<!-- BREADCRUMBS -->
+<div class="breadcrumbs">
+  <a href="/">Home</a> <span class="sep">›</span> Compress PDF
+</div>
+
+<!-- TOOL HERO -->
+<div class="tool-hero">
+  <h1>Compress PDF Online</h1>
+  <p style="color:var(--text-muted);font-size:1.1rem;max-width:520px;margin:12px auto 0;">Reduce PDF file size without losing quality. Free and secure.</p>
+</div>
+
+<!-- MAIN TOOL -->
+<div class="section" style="padding-top:0;">
+  <div class="container" style="max-width:860px;">
+    <div class="tool-container">
+      <div class="upload-zone" id="uploadArea">
+        <div class="upload-icon-large">📄</div>
+        <h3 style="margin-bottom:8px;">Drop PDF file here</h3>
+        <p style="color:var(--text-muted);margin-bottom:20px;">or click to browse your files</p>
+        <input type="file" id="fileInput" accept=".pdf" style="display: none;">
+        <button class="btn btn-primary btn-lg" onclick="document.getElementById('fileInput').click()">
+          📁 Select PDF File
+        </button>
+      </div>
+
+      <!-- FILE PREVIEW PANEL -->
+      <div class="file-preview-panel" id="previewPanel" style="display:none;">
+        <div class="file-preview-header">
+          <h4>📋 Selected File</h4>
+          <button class="btn btn-sm" onclick="changeFile()" style="font-size:0.78rem;">↩ Change File</button>
+        </div>
+        <div class="file-preview-list" id="filePreviewList"></div>
+        <div class="file-preview-actions">
+          <span class="file-preview-total" id="totalSizeLabel"></span>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <select id="qualitySelect" class="btn btn-sm" style="cursor:pointer;">
+              <option value="medium">Medium Quality</option>
+              <option value="high">High Quality</option>
+              <option value="low">Low Quality</option>
+            </select>
+            <button class="btn btn-primary" id="actionBtn" onclick="startProcess()">
+              🗜️ Compress PDF
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-  </nav>
 
-  
-  <div class="breadcrumbs">
-    <a href="/">Home</a>
-    <span class="separator"></span>
-    <span class="current">Compress Pdf</span>
-  </div>
-<div class="hero">
-    <h1>Compress PDF Online</h1>
-    <p>Reduce PDF file size without losing quality. Free and secure.</p>
-  </div>
+    <!-- HOW-TO -->
+    <div class="page-content" style="padding:48px 0;">
+      <h2>How to Compress PDF</h2>
+      <p>1. Upload your PDF file to the compressor.</p>
+      <p>2. Select compression quality (low, medium, high).</p>
+      <p>3. Click compress to reduce file size.</p>
+      <p>4. Download your compressed PDF instantly.</p>
 
-  <div class="tool-container">
-    <div class="upload-area" id="uploadArea">
-      <div style="font-size: 4rem; margin-bottom: 1rem;">📄</div>
-      <h3>Drop PDF file here</h3>
-      <p style="color: var(--text-muted); margin: 1rem 0;">or click to browse</p>
-      <input type="file" id="fileInput" accept=".pdf" style="display: none;">
-      <button class="btn-primary" onclick="document.getElementById('fileInput').click()">Select PDF File</button>
+      <h2>Why Compress PDF with PDFMagic?</h2>
+      <p>Our PDF compression tool reduces file size while maintaining quality. Perfect for emailing large PDFs, uploading to websites, or saving storage space. Works on all devices.</p>
+    </div>
+
+    <!-- RELATED TOOLS -->
+    <div style="margin-top:16px;">
+      <h2 style="text-align:center;margin-bottom:24px;">Related PDF Tools</h2>
+      <div class="related-tools-grid">
+        <a href="/merge-pdf" class="related-tool"><div class="related-tool-icon">➕</div><h3>Merge PDF</h3><p>Combine multiple PDFs into one</p></a>
+        <a href="/split-pdf" class="related-tool"><div class="related-tool-icon">✂️</div><h3>Split PDF</h3><p>Separate PDF pages into files</p></a>
+        <a href="/organize-pdf" class="related-tool"><div class="related-tool-icon">📋</div><h3>Organize PDF</h3><p>Rearrange PDF pages</p></a>
+        <a href="/pdf-to-word" class="related-tool"><div class="related-tool-icon">📝</div><h3>PDF to Word</h3><p>Convert PDF to Word</p></a>
+        <a href="/pdf-to-jpg" class="related-tool"><div class="related-tool-icon">🖼️</div><h3>PDF to JPG</h3><p>Convert PDF to images</p></a>
+        <a href="/rotate-pdf" class="related-tool"><div class="related-tool-icon">🔄</div><h3>Rotate PDF</h3><p>Rotate PDF pages</p></a>
+      </div>
     </div>
   </div>
+</div>
 
-  <div class="seo-content">
-    <h2>How to Compress PDF</h2>
-    <p>1. Upload your PDF file to the compressor.</p>
-    <p>2. Select compression quality (low, medium, high).</p>
-    <p>3. Click compress to reduce file size.</p>
-    <p>4. Download your compressed PDF instantly.</p>
-
-    <h2>Why Compress PDF with PDFMagic?</h2>
-    <p>Our PDF compression tool reduces file size while maintaining quality. Perfect for emailing large PDFs, uploading to websites, or saving storage space. Works on all devices.</p>
-  </div>
-
-    <div class="related-tools">
-    <h2>Related PDF Tools</h2>
-    <div class="related-tools-grid">
-      <a href="/merge-pdf" class="related-tool-card">
-        <div class="related-tool-icon">➕</div>
-        <h3>Merge PDF</h3>
-        <p>Combine multiple PDFs into one</p>
-      </a>
-      <a href="/split-pdf" class="related-tool-card">
-        <div class="related-tool-icon">✂️</div>
-        <h3>Split PDF</h3>
-        <p>Separate PDF pages into files</p>
-      </a>
-      <a href="/organize-pdf" class="related-tool-card">
-        <div class="related-tool-icon">📋</div>
-        <h3>Organize PDF</h3>
-        <p>Rearrange PDF pages</p>
-      </a>
-      <a href="/pdf-to-word" class="related-tool-card">
-        <div class="related-tool-icon">📝</div>
-        <h3>PDF to Word</h3>
-        <p>Convert PDF to Word</p>
-      </a>
-      <a href="/pdf-to-jpg" class="related-tool-card">
-        <div class="related-tool-icon">🖼️</div>
-        <h3>PDF to JPG</h3>
-        <p>Convert PDF to images</p>
-      </a>
-      <a href="/rotate-pdf" class="related-tool-card">
-        <div class="related-tool-icon">🔄</div>
-        <h3>Rotate PDF</h3>
-        <p>Rotate PDF pages</p>
-      </a>
+<!-- MODAL -->
+<div class="modal-overlay" id="modal">
+  <div class="modal-box">
+    <h3 id="modalTitle" style="text-align:center;">Processing...</h3>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <p id="modalText" style="text-align:center;color:var(--text-muted);">Please wait while we compress your PDF.</p>
+    <div id="resultArea" style="display:none;">
+      <div style="text-align:center;font-size:3rem;margin:16px 0;">✅</div>
+      <h3 style="text-align:center;margin-bottom:8px;">Success!</h3>
+      <p style="text-align:center;color:var(--text-muted);margin-bottom:20px;">Your PDF has been compressed successfully.</p>
+      <button class="btn btn-primary btn-lg" id="downloadBtn" style="width:100%;margin-bottom:10px;">⬇️ Download Compressed PDF</button>
+      <button class="btn btn-white btn-lg" id="newFileBtn" style="width:100%;">🔄 Compress Another PDF</button>
     </div>
   </div>
-<footer>
+</div>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <h2>Need More PDF Tools?</h2>
+  <p>Explore our complete suite of 20+ free PDF tools — all in one place!</p>
+  <a href="/" class="btn btn-lg">🔍 Browse All Tools →</a>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>📄 PDF<span>Magic</span></h3>
+      <p>Your free online PDF tools platform. Made with ❤️ in India.</p>
+    </div>
+    <div class="footer-col">
+      <h4>PDF Tools</h4>
+      <ul>
+        <li><a href="/merge-pdf">Merge PDF</a></li>
+        <li><a href="/split-pdf">Split PDF</a></li>
+        <li><a href="/compress-pdf">Compress PDF</a></li>
+        <li><a href="/pdf-to-word">PDF to Word</a></li>
+        <li><a href="/jpg-to-pdf">JPG to PDF</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="/contact">Help Center</a></li>
+        <li><a href="mailto:pdfmagicc@gmail.com">Email Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
     <p>© 2026 PDFMagic. All rights reserved.</p>
-  </footer>
-
-  <div class="modal" id="modal">
-    <div class="modal-content">
-      <h3 id="modalTitle">Processing...</h3>
-      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-      <p id="modalText">Please wait while we compress your PDF.</p>
+    <div class="footer-bottom-links">
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
     </div>
   </div>
+</footer>
 
-  <script>
-    const uploadArea = document.getElementById('uploadArea');
-    const fileInput = document.getElementById('fileInput');
-    const modal = document.getElementById('modal');
-    const progressFill = document.getElementById('progressFill');
-    
-    uploadArea.addEventListener('dragover', (e) => { e.preventDefault(); uploadArea.style.borderColor = 'var(--red)'; });
-    uploadArea.addEventListener('dragleave', () => uploadArea.style.borderColor = 'var(--border)');
-    uploadArea.addEventListener('drop', (e) => {
-      e.preventDefault();
-      uploadArea.style.borderColor = 'var(--border)';
-      handleFile(e.dataTransfer.files[0]);
-    });
-    fileInput.addEventListener('change', (e) => handleFile(e.target.files[0]));
+<script>
+  const uploadArea = document.getElementById('uploadArea');
+  const fileInput = document.getElementById('fileInput');
+  const modal = document.getElementById('modal');
+  const progressFill = document.getElementById('progressFill');
+  const resultArea = document.getElementById('resultArea');
+  const downloadBtn = document.getElementById('downloadBtn');
+  const newFileBtn = document.getElementById('newFileBtn');
+  const previewPanel = document.getElementById('previewPanel');
+  const filePreviewList = document.getElementById('filePreviewList');
+  const totalSizeLabel = document.getElementById('totalSizeLabel');
 
-    async function handleFile(file) {
-      if (!file) return;
-      modal.style.display = 'flex';
-      const formData = new FormData();
-      formData.append('pdf', file);
-      formData.append('quality', 'medium');
-      
-      try {
-        progressFill.style.width = '50%';
-        const response = await fetch('/compress-pdf', { method: 'POST', body: formData });
-        progressFill.style.width = '100%';
-        if (!response.ok) throw new Error('Compression failed');
-        const blob = await response.blob();
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'compressed.pdf';
-        a.click();
-        modal.style.display = 'none';
-      } catch (error) {
-        alert('Error compressing PDF. Please try again.');
-        modal.style.display = 'none';
-      }
+  let selectedFile = null;
+
+  uploadArea.addEventListener('dragover', (e) => { e.preventDefault(); uploadArea.classList.add('dragover'); });
+  uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('dragover'));
+  uploadArea.addEventListener('drop', (e) => {
+    e.preventDefault();
+    uploadArea.classList.remove('dragover');
+    if (e.dataTransfer.files[0]) showPreview(e.dataTransfer.files[0]);
+  });
+  fileInput.addEventListener('change', (e) => { if (e.target.files[0]) showPreview(e.target.files[0]); });
+
+  function formatSize(bytes) {
+    if (bytes < 1024) return bytes + ' B';
+    if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+    return (bytes / (1024 * 1024)).toFixed(2) + ' MB';
+  }
+
+  function showPreview(file) {
+    selectedFile = file;
+    uploadArea.style.display = 'none';
+    previewPanel.style.display = 'block';
+    totalSizeLabel.textContent = formatSize(file.size);
+    filePreviewList.innerHTML = `
+      <div class="file-preview-item">
+        <div class="file-preview-icon">📄</div>
+        <div class="file-preview-info">
+          <div class="file-preview-name">${file.name}</div>
+          <div class="file-preview-meta">
+            <span class="file-preview-size">${formatSize(file.size)}</span>
+            <span>PDF Document</span>
+          </div>
+        </div>
+      </div>`;
+  }
+
+  function changeFile() {
+    selectedFile = null;
+    fileInput.value = '';
+    previewPanel.style.display = 'none';
+    uploadArea.style.display = 'block';
+  }
+
+  async function startProcess() {
+    if (!selectedFile) return;
+    modal.classList.add('active');
+    progressFill.style.width = '0%';
+    resultArea.style.display = 'none';
+    document.getElementById('modalText').style.display = 'block';
+    document.getElementById('modalTitle').textContent = 'Compressing PDF...';
+
+    const quality = document.getElementById('qualitySelect').value;
+    const formData = new FormData();
+    formData.append('pdf', selectedFile);
+    formData.append('quality', quality);
+
+    try {
+      progressFill.style.width = '50%';
+      const response = await fetch('/compress-pdf', { method: 'POST', body: formData });
+      progressFill.style.width = '80%';
+      if (!response.ok) throw new Error('Compression failed');
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+      progressFill.style.width = '100%';
+      setTimeout(() => {
+        document.getElementById('modalTitle').textContent = 'Complete! 🎉';
+        document.getElementById('modalText').style.display = 'none';
+        resultArea.style.display = 'block';
+        downloadBtn.onclick = () => {
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = 'compressed.pdf';
+          a.click();
+        };
+      }, 500);
+    } catch (error) {
+      alert('Error compressing PDF. Please try again.');
+      modal.classList.remove('active');
     }
-  </script>
+  }
+
+  newFileBtn.onclick = () => {
+    modal.classList.remove('active');
+    changeFile();
+  };
+
+  // Dark mode
+  const _html = document.documentElement;
+  const _dt = document.getElementById('darkToggle');
+  if (_dt) {
+    const _theme = localStorage.getItem('pdfmagic-theme') || 'light';
+    _html.setAttribute('data-theme', _theme);
+    _dt.textContent = _theme === 'dark' ? '☀️' : '🌙';
+    _dt.addEventListener('click', () => {
+      const next = _html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      _html.setAttribute('data-theme', next);
+      localStorage.setItem('pdfmagic-theme', next);
+      _dt.textContent = next === 'dark' ? '☀️' : '🌙';
+    });
+  }
+</script>
+
 </body>
 </html>
