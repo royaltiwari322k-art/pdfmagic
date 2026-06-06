@@ -4,6 +4,26 @@
     {
       "src": "server.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": "styles.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "pdf-processor.js",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "favicon.svg",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "logo.svg",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "og-image.svg",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
