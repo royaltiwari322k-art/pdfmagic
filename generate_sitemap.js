@@ -31,6 +31,21 @@ for (const file of allFiles) {
   </url>`;
 }
 
+// Add Blog Files
+const blogDir = path.join(dir, 'views', 'blog');
+if (fs.existsSync(blogDir)) {
+  const blogFiles = fs.readdirSync(blogDir).filter(f => f.endsWith('.html'));
+  for (const file of blogFiles) {
+    const urlPath = 'blog/' + file.replace('.html', '');
+    sitemap += `
+  <url>
+    <loc>${domain}/${urlPath}</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>`;
+  }
+}
+
 sitemap += `\n</urlset>`;
 
 fs.writeFileSync(path.join(dir, 'sitemap.xml'), sitemap);

@@ -150,9 +150,9 @@ app.get('/compare-pdf', (req, res) => res.sendFile(path.join(__dirname, 'compare
 app.get('/redact-pdf', (req, res) => res.sendFile(path.join(__dirname, 'redact-pdf.html')));
 
 // Blog pages for SEO
-app.get('/blog/ilovepdf-alternative', (req, res) => res.sendFile(path.join(__dirname, 'blog/ilovepdf-alternative.html')));
-app.get('/blog/compress-pdf-guide', (req, res) => res.sendFile(path.join(__dirname, 'blog/compress-pdf-guide.html')));
-app.get('/blog/pdf-merge-hindi-guide', (req, res) => res.sendFile(path.join(__dirname, 'blog/pdf-merge-hindi-guide.html')));
+app.get('/blog/ilovepdf-alternative', (req, res) => res.sendFile(path.join(__dirname, 'views/blog/ilovepdf-alternative.html')));
+app.get('/blog/compress-pdf-guide', (req, res) => res.sendFile(path.join(__dirname, 'views/blog/compress-pdf-guide.html')));
+app.get('/blog/pdf-merge-hindi-guide', (req, res) => res.sendFile(path.join(__dirname, 'views/blog/pdf-merge-hindi-guide.html')));
 
 // Footer pages
 app.get('/about', (req, res) => res.sendFile(path.join(__dirname, 'about.html')));

@@ -49,6 +49,14 @@
   }
   </script>\n  <link rel="stylesheet" href="/styles.css">
   <script src="pdf-processor.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [{"@type":"Question","name":"How do I extract only one page from a PDF?","acceptedAnswer":{"@type":"Answer","text":"Simply upload your PDF, choose the 'Extract Pages' option, and select the specific page number you want to separate into a new document."}},{"@type":"Question","name":"Are my split PDF files kept private?","acceptedAnswer":{"@type":"Answer","text":"Yes, all processing is done securely. We do not store or analyze your documents. They are wiped from our servers immediately."}}]
+  }
+  </script>
 </head>
 <body>
 
@@ -151,6 +159,21 @@
       </ul>
     </div>
 
+    
+    <!-- FAQ SECTION -->
+    <div class="page-content" style="padding:48px 0; border-top:1px solid var(--border); margin-top:48px;">
+      <h2 style="text-align:center; margin-bottom:32px;">Frequently Asked Questions</h2>
+      <div class="faq-container" style="max-width:800px; margin:0 auto;">
+        <div style="margin-bottom:24px; background:#fff; padding:24px; border-radius:12px; border:1px solid var(--border); box-shadow:0 2px 8px rgba(0,0,0,0.02);">
+          <h3 style="font-size:1.2rem; margin-bottom:12px; color:var(--text-color);">🤔 How do I extract only one page from a PDF?</h3>
+          <p style="color:var(--text-muted); line-height:1.6;">Simply upload your PDF, choose the 'Extract Pages' option, and select the specific page number you want to separate into a new document.</p>
+        </div>
+        <div style="margin-bottom:24px; background:#fff; padding:24px; border-radius:12px; border:1px solid var(--border); box-shadow:0 2px 8px rgba(0,0,0,0.02);">
+          <h3 style="font-size:1.2rem; margin-bottom:12px; color:var(--text-color);">🤔 Are my split PDF files kept private?</h3>
+          <p style="color:var(--text-muted); line-height:1.6;">Yes, all processing is done securely. We do not store or analyze your documents. They are wiped from our servers immediately.</p>
+        </div>
+      </div>
+    </div>
     <!-- RELATED TOOLS -->
     <div style="margin-top:16px;">
       <h2 style="text-align:center;margin-bottom:24px;">Related PDF Tools</h2>
