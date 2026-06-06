@@ -1,4 +1,4 @@
-﻿const express = require('express');
+const express = require('express');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs-extra');
@@ -181,11 +181,13 @@ app.post('/merge-pdf', upload.array('pdfs', 20), async (req, res) => {
       await merger.add(file.path);
     }
 
-    const outputPath = `${UPLOAD_DIR}/merged-${Date.now()}.pdf`;
-    await merger.save(outputPath);
+    const pdfBuffer = await merger.saveAsBuffer();
     
     await cleanupFiles(req.files.map(f => f.path));
-    await createDownloadResponse(outputPath, res, 'merged.pdf');
+    
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader('Content-Disposition', 'attachment; filename="merged.pdf"');
+    res.send(pdfBuffer);
     
   } catch (error) {
     console.error('Merge PDF error:', error);
