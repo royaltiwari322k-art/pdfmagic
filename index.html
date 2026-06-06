@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-in">
+<html lang="en-in" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -76,6 +76,7 @@
       <li><a href="#pricing">Pricing</a></li>
     </ul>
     <div class="nav-actions">
+      <button class="dark-toggle" id="darkToggle" title="Toggle Dark Mode" aria-label="Toggle Dark Mode">🌙</button>
       <a href="#tools" class="btn btn-sm">Login</a>
       <a href="#tools" class="btn btn-primary btn-sm">Sign Up Free</a>
     </div>
@@ -86,11 +87,40 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-badge">✨ 100% Free — No Registration Required</div>
-  <h1 class="hero-title">Every <span class="gradient-text">PDF Tool</span> You Need — 100% Free & Online</h1>
+  <h1 class="hero-title">Every <span class="gradient-text">PDF Tool</span> You Need — 100% Free &amp; Online</h1>
   <p class="hero-subtitle">Merge, Split, Compress, Convert, Edit and Secure PDF files in seconds. No installation. No sign up required.</p>
   <a href="#tools" class="btn btn-primary btn-lg" style="margin-bottom:48px;animation:slideUpIn 0.6s ease 0.3s both;">
     🚀 Explore All Tools →
   </a>
+
+  <!-- Floating PDF Doc 1 -->
+  <div class="hero-float-doc hero-float-doc-1">
+    <div class="doc-icon">📄</div>
+    <div class="doc-line accent"></div>
+    <div class="doc-line"></div>
+    <div class="doc-line"></div>
+  </div>
+  <!-- Floating PDF Doc 2 -->
+  <div class="hero-float-doc hero-float-doc-2">
+    <div class="doc-icon">🔗</div>
+    <div class="doc-line accent2"></div>
+    <div class="doc-line"></div>
+    <div class="doc-line"></div>
+  </div>
+  <!-- Floating PDF Doc 3 -->
+  <div class="hero-float-doc hero-float-doc-3">
+    <div class="doc-icon">✂️</div>
+    <div class="doc-line accent3"></div>
+    <div class="doc-line"></div>
+    <div class="doc-line"></div>
+  </div>
+  <!-- Floating PDF Doc 4 -->
+  <div class="hero-float-doc hero-float-doc-4">
+    <div class="doc-icon">🗜️</div>
+    <div class="doc-line accent"></div>
+    <div class="doc-line"></div>
+    <div class="doc-line"></div>
+  </div>
 
   <div class="trust-bar">
     <div class="trust-item"><span class="trust-item-icon">🔒</span> SSL Secured</div>
@@ -556,7 +586,24 @@
 </footer>
 
 <script>
-  // Filter tools by category
+  // ─── DARK MODE ───
+  const html = document.documentElement;
+  const darkToggle = document.getElementById('darkToggle');
+  const savedTheme = localStorage.getItem('pdfmagic-theme') || 'light';
+  html.setAttribute('data-theme', savedTheme);
+  darkToggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+  darkToggle.addEventListener('click', () => {
+    const current = html.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('pdfmagic-theme', next);
+    darkToggle.textContent = next === 'dark' ? '☀️' : '🌙';
+    darkToggle.style.transform = 'rotate(360deg)';
+    setTimeout(() => { darkToggle.style.transform = ''; }, 400);
+  });
+
+  // ─── FILTER TOOLS ───
   function filterTools(cat, btn) {
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
@@ -570,7 +617,7 @@
     });
   }
 
-  // Search tools
+  // ─── SEARCH TOOLS ───
   document.getElementById('toolSearch').addEventListener('input', function(e) {
     const query = e.target.value.toLowerCase();
     document.querySelectorAll('#toolsGrid .tool-card').forEach(card => {
@@ -579,7 +626,7 @@
     });
   });
 
-  // Scroll fade-in animations
+  // ─── SCROLL FADE-IN ANIMATIONS ───
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
