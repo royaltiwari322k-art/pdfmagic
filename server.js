@@ -48,7 +48,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(express.static('.'));
+app.use(express.static(__dirname));
 
 // Ensure uploads directory exists
 const uploadsDir = process.env.VERCEL ? '/tmp/uploads' : path.join(__dirname, 'uploads');

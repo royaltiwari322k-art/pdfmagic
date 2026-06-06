@@ -8,6 +8,26 @@
   ],
   "routes": [
     {
+      "src": "/styles\\.css",
+      "dest": "/styles.css"
+    },
+    {
+      "src": "/pdf-processor\\.js",
+      "dest": "/pdf-processor.js"
+    },
+    {
+      "src": "/favicon\\.svg",
+      "dest": "/favicon.svg"
+    },
+    {
+      "src": "/logo\\.svg",
+      "dest": "/logo.svg"
+    },
+    {
+      "src": "/og-image\\.svg",
+      "dest": "/og-image.svg"
+    },
+    {
       "src": "/(.*)",
       "dest": "server.js"
     }
